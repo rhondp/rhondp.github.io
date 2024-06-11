@@ -1,3 +1,6 @@
+:root {
+  --main-color: #f5a841;
+}
 .navbar {
     background-color: #ffffff;
   }
@@ -61,7 +64,23 @@
   }
 
 
+ /* Section ART - Images */
+  .drawings {
+    background-color: rgb(190, 200, 255);
+  }
+  .imageart {
+    object-fit: cover;
+    width: 256px;
+    height: 256px;
+    transition: 0.3s;
+  }
+  .imageart:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+  }
+  
 
+ /* Section About */
   @media screen and (min-width: 1024px) {
     section.about .container {
       width: 75%;
@@ -86,12 +105,15 @@
     transition: all .3s;
   }
   a:not(.btn):hover {
-    color: #f5a841;
+    color: var(--main-color);
   }
 
   .navbar-nav .nav-link {
     transition: all 0.5s;
   }
   .navbar-nav .nav-link:hover {
-    color: #f5a841;
+    color: var(--main-color);
   }
+
+
+ 
