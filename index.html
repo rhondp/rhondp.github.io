@@ -5,7 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rhon's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg-primary: #0d0d0d;
+      --bg-secondary: #eeeeee;
+      --bg-tertiary: #2e2e2e;
+      --text-primary: #ffffff;
+      --text-secondary: #2e2e2e;
+      --accent: #ff0066; /* Hot pink/magenta - core accent like futuristic game sites */
+      --accent-hover: #d40055;
+      --card-bg: #2e2e2e; 
+      --glow: rgba(255, 0, 102, 0.4);
+    }
+    body {
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      /* font-weight: <weight>; */
+      font-style: normal;
+
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      scroll-behavior: smooth;
+      
+    }
+
+    /* Modern Fixed Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent);
+    }
+
+
+    /* Hamburger */
+    .hamburger span {
+      background: white;
+      display: block;
+      height: 3px;
+      width: 28px;
+      margin: 5px auto;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* Sections with alternating subtle darks */
+    section {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    #top { background: linear-gradient(to bottom right, #b9b9b9, #252525); min-height: 100vh; }
+    #games { background-color: var(--bg-secondary);}
+    #apps { background-color: var(--bg-tertiary); }
+    #corner-2d { background-color: var(--bg-secondary);  color: var(--text-secondary)}
+    #corner-3d { background-color: var(--bg-tertiary); }
+    #about { background-color: var(--bg-secondary);}
+    #contact { background-color: var(--bg-tertiary); }
+
+    h4 {
+       color: var(--bg-tertiary);
+    }
+
+    h2 {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+    
+
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Card enhancements */
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 2px solid #ffffff;
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0), 0 0 30px var(--glow);
+    }
+
+
+
     /* Slideshow */
     .slideshow {
       position: relative;
@@ -38,7 +155,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
+      background: #ff006681;
       color: white;
       border: none;
       padding: 8px 12px;
@@ -65,7 +182,7 @@
       transition: border 0.2s;
     }
     .slideshow-thumbnails .active-thumb {
-      border: 2px solid #FFD700;
+      border: 2px solid var(--accent-hover);
     }
 
     /* Modal (lightbox) */
@@ -88,25 +205,25 @@
       position: absolute;
       top: 20px; right: 30px;
       font-size: 30px;
-      color: white;
+      color: var(--accent);
       cursor: pointer;
     }
 
 
-    /* heaederrrrr */
+    /* heaederrrrr
     .header {
       position: sticky;
       top: 0;
-  padding: 2px 8px;
-  background: #555;
-  color: #f1f1f1;
-  z-index: 10;
+      padding: 2px 8px;
+      background: #555;
+      color: #f1f1f1;
+      z-index: 10;
     overflow: hidden;
     background-color: #f1f1f1;
 
-  }
+  } */
 
-/* Style the header links */
+/* Style the header links
 .header a {
   float: left;
   color: black;
@@ -116,33 +233,33 @@
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
-}
+} */
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
+/* .header a.logo {
   font-size: 25px;
   font-weight: bold;
-}
+} */
 
 /* Change the background color on mouse-over */
-.header a:hover {
+/* .header a:hover {
   background-color: #ddd;
   color: black;
-}
+} */
 
 /* Style the active/current link*/
-.header a.active {
+/* .header a.active {
   background-color: #FFD700;
   color: white;
-}
+} */
 
 /* Float the link section to the right */
-.header-right {
+/* .header-right {
   float: right;
-}
+} */
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-@media screen and (max-width: 500px) {
+/* @media screen and (max-width: 500px) {
   .header a {
     float: none;
     display: block;
@@ -151,11 +268,27 @@
   .header-right {
     float: none;
   }
-}
+} */
+ @media (max-width: 768px) {
+      .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.95);
+        flex-direction: column;
+        padding: 1.5rem;
+        display: none;
+      }
+
+      .nav-menu.active {
+        display: flex;
+      }
+    }
   </style>
 </head>
-<body class="bg-gray-900 text-white">
-<div class="header">
+<body>
+<!-- <div class="header">
   <a href="#default" class="logo">Rhon P</a>
   <div class="header-right">
     <a class="active" href="#top">Top</a>
@@ -166,21 +299,100 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
-</div>
+</div> -->
   <!-- Hero -->
-  <header id="top" class="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-purple-700 to-indigo-900 text-center">
-    <h1 class="text-6xl font-bold mb-4">Hi, I'm Rhon</h1>
-    <p class="text-lg">Godot • Unity • 2D & 3D Art • Programming</p>
-  </header>
+  <!-- <header class="py-4 px-6 md:px-12 flex justify-between items-center">
+    <a href="#top" class="text-3xl font-bold text-white">Rhon <span class="text-[var(--accent)]">P</span></a>
+    
+    <nav class="hidden md:flex space-x-8">
+      <a href="#top" class="nav-link">Top</a>
+      <a href="#games" class="nav-link">Games</a>
+      <a href="#apps" class="nav-link">Apps</a>
+      <a href="#corner-2d" class="nav-link">2D Art</a>
+      <a href="#corner-3d" class="nav-link">3D Art</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Hamburger for mobile -->
+    <!-- <div class="md:hidden hamburger cursor-pointer" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </header> -->
+
+<!-- Header -->
+<header class="py-5 px-6 md:px-12 flex justify-between items-center fixed w-full top-0 left-0 z-[1000] bg-black/90 backdrop-blur-md border-b border-gray-800">
+  <a href="#top" class="text-3xl font-extrabold">
+    Rhon <span class="text-[var(--accent)]">P</span>
+  </a>
+
+  <!-- Desktop Nav -->
+  <nav class="hidden md:flex space-x-10">
+    <a href="#top" class="nav-link">Top</a>
+    <a href="#games" class="nav-link">Games</a>
+    <a href="#apps" class="nav-link">Apps</a>
+    <a href="#corner-2d" class="nav-link">2D Art</a>
+    <a href="#corner-3d" class="nav-link">3D Art</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- Hamburger Button -->
+  <div class="md:hidden cursor-pointer hamburger flex flex-col justify-center items-center w-10 h-10" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<!-- Mobile Menu (now properly positioned) -->
+<div class="md:hidden fixed top-[72px] left-0 right-0 bg-black/95 backdrop-blur-md border-b border-gray-800 z-[999] transform transition-all duration-300 ease-in-out" 
+     id="mobileMenu"
+     style="transform: translateY(-100%); opacity: 0; visibility: hidden;">
+  <div class="flex flex-col space-y-6 py-8 px-6">
+    <a href="#top" class="nav-link text-center text-xl">Top</a>
+    <a href="#games" class="nav-link text-center text-xl">Games</a>
+    <a href="#apps" class="nav-link text-center text-xl">Apps</a>
+    <a href="#corner-2d" class="nav-link text-center text-xl">2D Art</a>
+    <a href="#corner-3d" class="nav-link text-center text-xl">3D Art</a>
+    <a href="#about" class="nav-link text-center text-xl">About</a>
+    <a href="#contact" class="nav-link text-center text-xl">Contact</a>
+  </div>
+</div>
+
+
+   <!-- Mobile Menu -->
+  <!-- <div class="nav-menu flex flex-col space-y-6 md:hidden" id="mobileMenu">
+    <a href="#top" class="nav-link text-center">Top</a>
+    <a href="#games" class="nav-link text-center">Games</a>
+    <a href="#apps" class="nav-link text-center">Apps</a>
+    <a href="#corner-2d" class="nav-link text-center">2D Art</a>
+    <a href="#corner-3d" class="nav-link text-center">3D Art</a>
+    <a href="#about" class="nav-link text-center">About</a>
+    <a href="#contact" class="nav-link text-center">Contact</a>
+  </div> -->
+
+  <!-- Hero -->
+  <section id="top" class="flex flex-col justify-center items-center text-center px-6">
+    <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="text-[var(--accent)]">Rhon</span></h1>
+    <p class="text-xl md:text-2xl opacity-90 mb-8">Godot • Unity • 2D & 3D Art • Programming</p>
+    <a href="#games" class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold py-4 px-10 rounded-full text-lg transition">Explore My Work</a>
+  </section> 
+
 
   <!-- Games Corner -->
+  
   <section id="games" class="py-16 bg-gray-800">
     <div class="container mx-auto px-6">
+      <br>
       <h2 class="text-4xl font-bold text-center mb-12">Games Corner</h2>
+       <p style="color:#0d0d0d">Here are some games I made for client, company and personal</p><br>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- LEGACY UI!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">LEGACY UI</h3>
 
           <!-- Slideshow -->
@@ -231,7 +443,7 @@
         </div>
 
         <!-- P.ASSAULT!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">P.Assault</h3>
 
           <!-- Slideshow -->
@@ -284,7 +496,7 @@
         </div>
 
         <!-- SNAKE AND LADDERS!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Snake and Ladders</h3>
 
           <!-- Slideshow -->
@@ -323,7 +535,7 @@
         </div>
         
          <!-- POP IT!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Pop-It! Monstars!</h3>
 
           <!-- Slideshow -->
@@ -359,7 +571,7 @@
         </div>
         
          <!-- WORD MASTERY!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Word Mastery</h3>
 
           <!-- Slideshow -->
@@ -403,7 +615,7 @@
         </div>
         
         <!-- FEVER WINGS!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Fever Wings: Peggy and friends!</h3>
 
           <!-- Slideshow -->
@@ -461,11 +673,13 @@
   <!-- App Corner -->
   <section id="apps" class="py-16 bg-gray-600">
     <div class="container mx-auto px-6">
+      <br>
       <h2 class="text-4xl font-bold text-center mb-12">App Corner</h2>
+      <p style="color:#ffffff">Here are some apps I made for a company and companies clients.</p><br>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- WAY FINDER!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Wayfinders</h3>
 
           <!-- Slideshow -->
@@ -521,7 +735,7 @@
         </div>
         
         <!-- DIGITAL PHOTOBOOTH -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">Digital Photobooth</h3>
 
           <!-- Slideshow -->
@@ -563,7 +777,7 @@
         </div>
 
         <!-- AR Box -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
           <h3 class="text-2xl font-semibold mb-2">AR Box</h3>
 
           <!-- AR BOX EFFECTS -->
@@ -614,12 +828,13 @@
   </section>
 
   <!-- Art Corner -->
-<section id="2d" class="py-16 bg-gray-900">
+<section id="corner-2d" class="py-16 bg-gray-900">
   <div class="container mx-auto px-6">
+    <br>
     <h2 class="text-4xl font-bold text-center mb-12">2D Corner</h2>
 
     <!-- Photo Gallery -->
-    <p>Some arts I made for clients</p>
+    <p>Some arts I made for clients</p><br>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
       <img src="img/space-svg.png" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
       <img src="img/artA1.gif" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
@@ -628,7 +843,7 @@
       <img src="img/game-asset-3.png" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
     </div>
     <br>
-    <p>Arts I made for personal game assets</p>
+    <p>Art assets I made for my personal game</p><br>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
       <img src="img/game-asset-1.png" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
       <img src="img/game-asset-2.png" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
@@ -637,7 +852,7 @@
     </div>
     <br>
     <!-- Photo Gallery -->
-     <p>Random Arts</p>
+     <p>Random arts I made</p><br>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
       <img src="img/art1.webp" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
       <img src="img/art2.jpg" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
@@ -652,10 +867,11 @@
 </section>
 
   <!-- 3D Corner -->
-  <section id="3d" class="py-16 bg-gray-800">
+  <section id="corner-3d" class="py-16 bg-gray-800">
     <div class="container mx-auto px-6">
+      <br>
       <h2 class="text-4xl font-bold text-center mb-12">3D Corner</h2>
-      
+      <p>Here are some few 3d models I made for a client and personnal use</p><br>
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
       <img src="img/oc-char.gif" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
       <img src="img/tank.gif" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
@@ -664,7 +880,8 @@
       <img src="img/turret.gif" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
     </div>
     
-    <p>Download 3d files here:</p>
+    <br>
+    <p>Download 3d files here: (.RAR files)</p>
     Tank - <a href="downloads/tank.rar" style="color: #ffef08;">Download</a><br>
     Chopper - <a href="downloads/chopper.rar" style="color: #ffef08;">Download</a><br>
     Turret - <a href="downloads/turret.rar" style="color: #ffef08;">Download</a><br>
@@ -672,39 +889,42 @@
   </section>
 
   <!-- SOCIALS -->
-  <section id="about" class="py-16 bg-gray-700">
+  <section id="about" class="py-16 bg-[var(--card-bg)]">
     <div class="container mx-auto px-6">
+      <br>
       <h2 class="text-4xl font-bold text-center mb-12">About</h2>
-      <h3 class="text-2xl font-bold text-center mb-8">Experiences</h3>
+      <h4 class="text-2xl font-bold text-center mb-8">Experiences</h4>
+   
       
-        <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-          <p style="font-size: 14px">
-<b>Freelance Game Developer</b><br>
+<div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">     
+<h3><b>Freelance Game Developer / 2D Artist</b><br></h3>
 Remote - Feb 2025 - Present<br><br>
-
-RTS Sci-Fi space game (Godot Engine)<br>
-- Developed a single-player real-time strategy game featuring AI-controlled ally and enemy units. Implemented pathfinding, resource logic, and dynamic combat behaviors using GDScript.
-<br><br>
-Multiplayer Sci-Fi Battle Arena (Godot Engine)<br>
-- Built a fast-paced multiplayer arena game with synchronized player movement, projectile physics, and lobby matchmaking. Focused on scalable architecture and responsive controls.
-<br><br>
-Web-Based MMORPG (Phaser + Phoenix LiveView)<br>
-- A browser-based MMO with real-time player interactions, chat, and persistent world state. Integrated Phoenix LiveView for seamless server-client sync and modular UI updates.
+<p style="font-family: Arial, sans-serif; font-size: 12px; ">
+Game Developer<br>
+- Developed an initial Tower Defense game build inspired by BloonsTD providing functional foundation for clients continued development (GDScript)<br>
+- Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+- Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+- Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring AI-controlled ally and enemy units using Godot Engine (GDScript)<br>
+- Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized player movement, projectile physics, and lobby matchmaking using Godot Engine (GDScript)<br>
+<br>
+2D Artist<br>
+- Draw textures for a video game map and UI sprites using  Clip Studio Paint, Photoshop and Affinity
 </p>
 </div>
 
 <br>
 
 <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-<p style="font-size: 14px">
-<b>IT / Programmer</b><br>
-Avolution Inc. - San Juan - Feb 2021 - Feb 2025<br><br>
 
-Game & Interactive Development<br>
+<h3><b>IT / Programmer</b></h3>
+Avolution Inc. - San Juan - Feb 2021 - Feb 2025<br><br>
+<p style="font-family: Arial, sans-serif; font-size: 12px; ">
+
+<b>Game & Interactive Development</b><br>
 - Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot Engine (GDScript) and Unity (C#). <br>
 - Interactive map directory for malls and wayfinding systems deployed across commercial spaces. <br>
 - Created AR camera apps with SnapAR filters and QR code integration for seamless photo transfer.<br><br>
-AI & Computer Vision<br>
+<AI & Computer Vision><br>
 - Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects, triggering targeted video ads on LED billboards.<br>
 - Designed real-time analytics tools for audience tracking and ad performance.<br><br>
 Web & Internal Tools<br>
@@ -723,9 +943,10 @@ IT Support & Deployment<br>
 <br>
 
 <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-<p style="font-size: 14px">
+
 <b>Service Engineer</b><br>
 SmartQ Systems Co. Inc. - Mandaluyong - Jun 2014 - Sept 2020<br><br>
+<p style="font-family: Arial, sans-serif; font-size: 12px; ">
 
 Client Deployment & Support <br>
 - Led nationwide installations of web-based queueing systems across Luzon, Visayas, and Mindanao.<br>
@@ -750,16 +971,22 @@ Internal IT Support<br>
   <!-- SOCIALS -->
   <section id="contact" class="py-16 bg-gray-900">
     <div class="container mx-auto px-6">
+      <br>
       <h2 class="text-4xl font-bold text-center mb-12">Contact</h2>
        <h3 class="text-2xl font-bold text-center mb-8">Socials</h3>
       
       <p>
-        E-mail: <a style="color: #ffef08;">rhnpclb22@gmail.com</a><br><br>
+        E-mail: <br>
+        <a style="color: var(--accent)">rhnpclb22@gmail.com</a><br><br>
         
-        Github: <a href="https://github.com/ugothmeex" style="color: #ffef08;">https://github.com/ugothmeex</a><br>
-        Github(this page): <a href="https://github.com/rhondp" style="color: #ffef08;">https://github.com/rhondp</a><br><br>
-        Facebook: <a href="https://www.facebook.com/rhondp" style="color: #ffef08;">fb.com/rhondp</a><br><br>
-        Instagram: <a href="https://www.instagram.com/ugothmeex/" style="color: #ffef08;">instagram.com/ugothmeex/</a><br>
+        Github: <br>
+        <a href="https://github.com/ugothmeex" style="color: var(--accent-hover)">https://github.com/ugothmeex</a><br>
+        
+        <a href="https://github.com/rhondp" style="color: var(--accent)">https://github.com/rhondp</a><br><br>
+        Facebook: <br>
+        <a href="https://www.facebook.com/rhondp" style="color: var(--accent)">fb.com/rhondp</a><br><br>
+        Instagram: <br>
+        <a href="https://www.instagram.com/ugothmeex/" style="color: var(--accent)">instagram.com/ugothmeex/</a><br>
 
        
       </p>
@@ -768,8 +995,62 @@ Internal IT Support<br>
 
   <!-- Footer -->
   <footer class="py-6 bg-gray-950 text-center text-gray-400">
-    © 2025 Rhon Portfolio. All rights reserved.
+    © Rhon Portfolio. All rights reserved.
   </footer>
+
+
+ <!-- BORGER -->
+<!-- <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+    });
+
+    // Optional: close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script> -->
+   
+<script>
+  // Hamburger menu toggle with smooth animation
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  
+  if (mobileMenu.style.transform.includes('translateY(-100%)')) {
+    mobileMenu.style.transform = 'translateY(0)';
+    mobileMenu.style.opacity = '1';
+    mobileMenu.style.visibility = 'visible';
+  } else {
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
+    setTimeout(() => {
+      mobileMenu.style.visibility = 'hidden';
+    }, 300); // match transition duration
+  }
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
+    setTimeout(() => {
+      mobileMenu.style.visibility = 'hidden';
+    }, 300);
+  });
+});
+</script>
 
   <!-- Modal -->
   <div id="lightbox" class="modal">
