@@ -6,6 +6,118 @@
   <title>Rhon's Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
+    :root {
+      --bg-primary: #2e2e2e;
+      --bg-secondary: #eeeeee;
+      --bg-tertiary: #2e2e2e;
+      --text-primary: #ffffff;
+      --text-secondary: #2e2e2e;
+      --accent: #ff0066; /* Hot pink/magenta - core accent like futuristic game sites */
+      --accent-hover: #d40055;
+      --card-bg: #2e2e2e; 
+      --glow: rgba(255, 0, 102, 0.4);
+    }
+    body {
+      font-family: "Oswald", sans-serif;
+      font-optical-sizing: auto;
+      /* font-weight: <weight>; */
+      font-style: normal;
+
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      scroll-behavior: smooth;
+      
+    }
+
+    /* Modern Fixed Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(71, 71, 71, 0.85);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent);
+    }
+
+
+    /* Hamburger */
+    .hamburger span {
+      background: white;
+      display: block;
+      height: 3px;
+      width: 28px;
+      margin: 5px auto;
+      transition: all 0.3s;
+    }
+
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* Sections with alternating subtle darks */
+    section {
+      padding-top: 8rem;
+      padding-bottom: 6rem;
+    }
+
+    #top { background: linear-gradient(to bottom right, #b9b9b9, #252525); min-height: 100vh; }
+    #games { background-color: var(--bg-secondary);}
+    #apps { background-color: var(--bg-tertiary); }
+    #corner-2d { background-color: var(--bg-secondary);  color: var(--text-secondary)}
+    #corner-3d { background-color: var(--bg-tertiary); }
+    #about { background-color: var(--bg-secondary);}
+    #contact { background-color: var(--bg-tertiary); }
+
+    h4 {
+       color: var(--bg-tertiary);
+    }
+
+    h2 {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+    
+
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* Card enhancements */
+    .portfolio-card {
+      background: var(--card-bg);
+      border: 2px solid #ffffff;
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0), 0 0 30px var(--glow);
+    }
+
+
+
     /* Slideshow */
     .slideshow {
       position: relative;
@@ -180,8 +292,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- LEGACY UI!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">LEGACY UI</h3>
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
+          <p class="text-2xl font-semibold mb-2">Legacy (UI)</p>
 
           <!-- Slideshow -->
           <div class="slideshow mb-2">
@@ -220,7 +332,7 @@
             <img src="img/pa-5.png"> -->
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made for client. <br>
             UI/UX Design.<br>
             For HTML5, PC.<br>
@@ -231,8 +343,8 @@
         </div>
 
         <!-- P.ASSAULT!!! -->
-        <div class="portfolio-card bg-gray-700 rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">P.Assault</h3>
+        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
+          <h3 class="text-2xl font-semibold mb-2">P. Assault</h3>
 
           <!-- Slideshow -->
           <div class="slideshow mb-2">
@@ -270,8 +382,7 @@
             <img src="img/pa-3.png">
             <img src="img/pa-5.png">
           </div>
-
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made for client. <br>
             A PVP online or local game on on sci-fi theme battlefield.
             Made with Godot. <br><br>
@@ -312,7 +423,7 @@
             
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made by me. (Most Art Assets, Gameplay, Sfx, UI) <br>
             A game based on Snake and ladders but with cards to use for power-ups. Created for interactive touchscreens for Windows.
             Made with Godot.
@@ -345,7 +456,7 @@
             </video>
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made by me. (Art Assets, Gameplay, Sfx, UI) <br>
             A game based on pop-it games for kids featuring different monsters to collect.
             Made with Godot. Available on Android as Beta<br><br>
@@ -389,7 +500,7 @@
             <img src="img/wmastery-4.webp">
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
              Made by me. (Art Assets, Gameplay, Sfx, UI) <br>
             A word game for that features 3 different game modes with endless level.
             Made with Godot. Available on Android.<br><br>
@@ -437,7 +548,7 @@
             <img src="img/fwings-5.webp">
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
              Made by me. (Art Assets, Gameplay, Sfx, UI) <br>
             A game that you must avoid incoming projectiles with a single tap with different characters and abilities.
             Made with Godot. Available on Android.<br><br>
@@ -510,7 +621,7 @@
             <img src="img/wayfinder-6.jpg">
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Showcasing some of the wayfinders I created for clients for a interactive touchscreen kiosks
             for schools, hospitals, landmarks, etc. The room names, logo and other texts are changeable within the app! Made with Godot for Windows and/or HTML.
           </p>
@@ -554,7 +665,7 @@
             <img src="img/foto-3.png">
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made for company events.
             A digital photobooth that lets you download your photo directly to your phone via QR featuring effects made thru Snap. Made with Unity for Windows Interactive Touchscreens. 
           </p>
@@ -600,7 +711,7 @@
             </video>
           </div>
 
-          <p class="mt-4 text-left">
+          <p class="mt-4 text-left text-sm font-[Inter]">
             Made for company events.
             An AR box that lets you change how the way you look with different Snap filter effects inside. Creates an illusion that you or a video are inside the box! Made with Snap AR via Vite and HTML.
           </p>
@@ -664,10 +775,11 @@
       <img src="img/turret.gif" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
     </div>
     
-    <p>Download 3d files here:</p>
-    Tank - <a href="downloads/tank.rar" style="color: #ffef08;">Download</a><br>
-    Chopper - <a href="downloads/chopper.rar" style="color: #ffef08;">Download</a><br>
-    Turret - <a href="downloads/turret.rar" style="color: #ffef08;">Download</a><br>
+    <br>
+    <p class="text-gray-400">Download 3d files here: (.RAR files)</p>
+    Tank - <a href="downloads/tank.rar" class="text-yellow-300">Download</a><br>
+    Chopper - <a href="downloads/chopper.rar" class="text-yellow-300">Download</a><br>
+    Turret - <a href="downloads/turret.rar" class="text-yellow-300">Download</a><br>
     </div>
   </section>
 
@@ -675,30 +787,34 @@
   <section id="about" class="py-16 bg-gray-700">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">About</h2>
-      <h3 class="text-2xl font-bold text-center mb-8">Experiences</h3>
+      <h4 class="text-3xl font-bold text-center mb-8">Experiences</h4>
+   
       
-        <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-          <p style="font-size: 14px">
-<b>Freelance Game Developer</b><br>
-Remote - Feb 2025 - Present<br><br>
-
-RTS Sci-Fi space game (Godot Engine)<br>
-- Developed a single-player real-time strategy game featuring AI-controlled ally and enemy units. Implemented pathfinding, resource logic, and dynamic combat behaviors using GDScript.
-<br><br>
-Multiplayer Sci-Fi Battle Arena (Godot Engine)<br>
-- Built a fast-paced multiplayer arena game with synchronized player movement, projectile physics, and lobby matchmaking. Focused on scalable architecture and responsive controls.
-<br><br>
-Web-Based MMORPG (Phaser + Phoenix LiveView)<br>
-- A browser-based MMO with real-time player interactions, chat, and persistent world state. Integrated Phoenix LiveView for seamless server-client sync and modular UI updates.
+<div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">     
+<p class="text-lg font-bold">Freelance Game Developer / 2D Artist</p>
+<p class="text-gray-300">Remote - Feb 2025 - Present</p>
+<br>
+<p class="text-xs font-[Inter]">
+Game Developer<br>
+- Developed an initial Tower Defense game build inspired by BloonsTD providing functional foundation for clients continued development (GDScript)<br>
+- Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+- Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+- Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring AI-controlled ally and enemy units using Godot Engine (GDScript)<br>
+- Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized player movement, projectile physics, and lobby matchmaking using Godot Engine (GDScript)<br>
+<br>
+2D Artist<br>
+- Draw textures for a video game map and UI sprites using  Clip Studio Paint, Photoshop and Affinity
 </p>
 </div>
 
 <br>
 
 <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-<p style="font-size: 14px">
-<b>IT / Programmer</b><br>
-Avolution Inc. - San Juan - Feb 2021 - Feb 2025<br><br>
+
+<p class="text-lg font-bold">IT / Programmer</p>
+<p class="text-gray-300">Avolution Inc. - San Juan - Feb 2021 - Feb 2025</p>
+<br>
+<p class="text-xs font-[Inter]">
 
 Game & Interactive Development<br>
 - Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot Engine (GDScript) and Unity (C#). <br>
@@ -723,9 +839,11 @@ IT Support & Deployment<br>
 <br>
 
 <div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-<p style="font-size: 14px">
-<b>Service Engineer</b><br>
-SmartQ Systems Co. Inc. - Mandaluyong - Jun 2014 - Sept 2020<br><br>
+
+<p class="text-lg font-bold">Service Engineer</p>
+<p class="text-gray-300">SmartQ Systems Co. Inc. - Mandaluyong - Jun 2014 - Sept 2020</p>
+<br>
+<p class="text-xs font-[Inter]">
 
 Client Deployment & Support <br>
 - Led nationwide installations of web-based queueing systems across Luzon, Visayas, and Mindanao.<br>
@@ -751,15 +869,32 @@ Internal IT Support<br>
   <section id="contact" class="py-16 bg-gray-900">
     <div class="container mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-12">Contact</h2>
-       <h3 class="text-2xl font-bold text-center mb-8">Socials</h3>
+       <h3 class="text-3xl font-bold text-center mb-8">Socials</h3>
       
       <p>
-        E-mail: <a style="color: #ffef08;">rhnpclb22@gmail.com</a><br><br>
+        <!-- E-mail: <br>
+        <a style="color: var(--accent)">rhnpclb22@gmail.com</a><br><br>
         
-        Github: <a href="https://github.com/ugothmeex" style="color: #ffef08;">https://github.com/ugothmeex</a><br>
-        Github(this page): <a href="https://github.com/rhondp" style="color: #ffef08;">https://github.com/rhondp</a><br><br>
-        Facebook: <a href="https://www.facebook.com/rhondp" style="color: #ffef08;">fb.com/rhondp</a><br><br>
-        Instagram: <a href="https://www.instagram.com/ugothmeex/" style="color: #ffef08;">instagram.com/ugothmeex/</a><br>
+        Github: <br>
+        <a href="https://github.com/ugothmeex" style="color: var(--accent-hover)">https://github.com/ugothmeex</a><br>
+        
+        <a href="https://github.com/rhondp" style="color: var(--accent)">https://github.com/rhondp</a><br><br>
+        Facebook: <br>
+        <a href="https://www.facebook.com/rhondp" style="color: var(--accent)">fb.com/rhondp</a><br><br>
+        Instagram: <br>
+        <a href="https://www.instagram.com/ugothmeex/" style="color: var(--accent)">instagram.com/ugothmeex/</a><br> -->
+
+        <a class="text-gray-400">E-mail: <br></a>
+        <a class="text-lg text-sky-400">rhnpclb22@gmail.com</a><br><br>
+        
+        <a class="text-gray-400"> Github:</a> <br>
+        <a href="https://github.com/ugothmeex" class="text-lg text-yellow-300">https://github.com/ugothmeex</a><br>
+        
+        <a href="https://github.com/rhondp" class="text-lg text-yellow-300">https://github.com/rhondp</a><br><br>
+         <a class="text-gray-400">Facebook:</a> <br>
+        <a href="https://www.facebook.com/rhondp" class="text-lg text-yellow-300">fb.com/rhondp</a><br><br>
+         <a class="text-gray-400">Instagram:</a> <br>
+        <a href="https://www.instagram.com/ugothmeex/" class="text-lg text-yellow-300">instagram.com/ugothmeex/</a><br>
 
        
       </p>
@@ -770,6 +905,42 @@ Internal IT Support<br>
   <footer class="py-6 bg-gray-950 text-center text-gray-400">
     © 2025 Rhon Portfolio. All rights reserved.
   </footer>
+
+
+<!-- BORGER -->
+<script>
+  // Hamburger menu toggle with smooth animation
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  
+  if (mobileMenu.style.transform.includes('translateY(-100%)')) {
+    mobileMenu.style.transform = 'translateY(0)';
+    mobileMenu.style.opacity = '1';
+    mobileMenu.style.visibility = 'visible';
+  } else {
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
+    setTimeout(() => {
+      mobileMenu.style.visibility = 'hidden';
+    }, 300); // match transition duration
+  }
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileMenu.style.transform = 'translateY(-100%)';
+    mobileMenu.style.opacity = '0';
+    setTimeout(() => {
+      mobileMenu.style.visibility = 'hidden';
+    }, 300);
+  });
+});
+</script>
 
   <!-- Modal -->
   <div id="lightbox" class="modal">
