@@ -1,1245 +1,442 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rhon's Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ugothmeex — 2D / 3D Artist, Multimedia Creative & Game Dev</title>
+  <meta name="description" content="Portfolio of ugothmeex — 2D illustration, 3D modeling, animation, concept art, multimedia experiments, and indie games made with Godot & Unity."/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0d0d0d;
-      --bg-secondary: #eeeeee;
-      --bg-tertiary: #2e2e2e;
-      --text-primary: #ffffff;
-      --text-secondary: #2e2e2e;
-      --accent: #ff0066; /* Hot pink/magenta - core accent like futuristic game sites */
-      --accent-hover: #d40055;
-      --card-bg: #2e2e2e; 
-      --glow: rgba(255, 0, 102, 0.4);
+      --bg: #0f0f0f;
+      --text: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --accent: #00d4ff;
+      --accent-dark: #0099bb;
+      --card: #1a1a1a;
+      --border: #333;
     }
+    [data-theme="light"] {
+      --bg: #f8f9fa;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --accent: #0077b6;
+      --accent-dark: #023e8a;
+      --card: #ffffff;
+      --border: #ddd;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: "Oswald", sans-serif;
-      font-optical-sizing: auto;
-      /* font-weight: <weight>; */
-      font-style: normal;
-
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      scroll-behavior: smooth;
-      
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
     }
-
-    /* Modern Fixed Header */
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 5vw; }
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
-      background: rgba(71, 71, 71, 0.85);
-      backdrop-filter: blur(10px);
+      padding: 1.5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(15,15,15,0.7);
+      border-bottom: 1px solid var(--border);
       transition: all 0.3s;
     }
-
-    .nav-link {
-      color: white;
-      font-weight: 600;
-      transition: color 0.3s;
+    [data-theme="light"] header { background: rgba(248,249,250,0.8); }
+    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
+    nav {
+      display: flex;
+      align-items: center;
     }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--accent);
+    nav a { margin-left: 2.2rem; font-weight: 500; }
+    .theme-toggle { background: none; border: none; color: var(--text); font-size: 1.3rem; cursor: pointer; margin-left: 1rem; }
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.8rem;
+      cursor: pointer;
     }
-
-
-    /* Hamburger */
-    .hamburger span {
-      background: white;
-      display: block;
-      height: 3px;
-      width: 28px;
-      margin: 5px auto;
-      transition: all 0.3s;
-    }
-
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
-
-    /* Sections with alternating subtle darks */
-    section {
-      padding-top: 8rem;
-      padding-bottom: 6rem;
-    }
-
-    #top { background: linear-gradient(to bottom right, #b9b9b9, #252525); min-height: 100vh; }
-    #games { background-color: var(--bg-secondary);}
-    #apps { background-color: var(--bg-tertiary); }
-    #corner-2d { background-color: var(--bg-secondary);  color: var(--text-secondary)}
-    #corner-3d { background-color: var(--bg-tertiary); }
-    #about { background-color: var(--bg-secondary);}
-    #contact { background-color: var(--bg-tertiary); }
-
-    h4 {
-       color: var(--bg-tertiary);
-    }
-
-    h2 {
-      color: var(--accent);
+    #hero {
+      height: 100vh;
+      min-height: 800px;
+      display: flex;
+      align-items: center;
       position: relative;
-      display: inline-block;
+      overflow: hidden;
     }
-    
-
-
-    h2::after {
-      content: '';
+    #hero video, #hero img {
       position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      filter: brightness(0.7) contrast(1.15);
     }
-
-    /* Card enhancements */
-    .portfolio-card {
-      background: var(--card-bg);
-      border: 2px solid #ffffff;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      /* max-width: 900px; */
+    }
+    .hero-content h1 {
+      font-size: clamp(4rem, 12vw, 6rem);
+      line-height: 0.92;
+      margin-bottom: 1.5rem;
+      letter-spacing: -4px;
+    }
+    .hero-content p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.2rem;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,212,255,0.3); }
+    section { padding: 12vh 0; }
+    h2 {
+      font-size: 4.5rem;
+      text-align: center;
+      margin-bottom: 6rem;
+      background: linear-gradient(90deg, var(--accent), #ff6bcb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2.5rem;
+      padding: 2rem 0;
+    }
+    .card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
       transition: all 0.4s ease;
     }
-
-    .portfolio-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0), 0 0 30px var(--glow);
+    .card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
     }
+    .card img, .card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .card:hover img, .card:hover video { transform: scale(1.08); }
+    .card .info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 1.8rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      transform: translateY(100%);
+      transition: transform 0.4s;
+    }
+    .card:hover .info { transform: translateY(0); }
 
-
-
-    /* Slideshow */
-    .slideshow {
+    /* Game-specific styles */
+    .game-card { aspect-ratio: auto; height: auto; min-height: 520px; border-radius: 20px; }
+    .game-preview {
       position: relative;
       width: 100%;
-      max-width: 500px;
-      height: 280px;
-      margin: auto;
-      background: black;
+      height: 320px; /* or 60% if you prefer percentage */
       overflow: hidden;
-      border-radius: 8px;
+      border-bottom: 1px solid var(--border);
     }
-    .slideshow-item {
-      position: absolute;
-      inset: 0;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      background: black;
-    }
-    .slideshow-item img,
-    .slideshow-item video {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      cursor: pointer;
-    }
-    .slideshow-item.active { display: flex; }
-
-    .slideshow-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #ff006681;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      font-size: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .slideshow-button.prev { left: 10px; }
-    .slideshow-button.next { right: 10px; }
-
-    .slideshow-thumbnails {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .slideshow-thumbnails img,
-    .slideshow-thumbnails video {
-      width: 60px; height: 40px;
+    .game-preview img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      cursor: pointer;
-      border: 2px solid transparent;
-      border-radius: 4px;
-      transition: border 0.2s;
+      object-position: center;
+      transition: opacity 0.4s ease;
+      opacity: 1;
     }
-    .slideshow-thumbnails .active-thumb {
-      border: 2px solid var(--accent-hover);
-    }
-
-    /* Modal (lightbox) */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.9);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content img,
-    .modal-content video {
-      max-width: 100vw;
-      max-height: 100vh;
-      object-fit: contain;
-    }
-    .modal-close {
+    .game-preview img.hidden {
+      opacity: 0;
       position: absolute;
-      top: 20px; right: 30px;
-      font-size: 30px;
-      color: var(--accent);
+      inset: 0;
+    }
+    .thumbnails {
+      display: flex;
+      gap: 0.8rem;
+      padding: 1.2rem 1rem;
+      justify-content: center;
+      background: var(--card);
+      flex-wrap: wrap;
+    }
+    .thumbnail {
+      width: 80px;
+      height: 45px;
+      border-radius: 8px;
+      overflow: hidden;
       cursor: pointer;
+      opacity: 0.65;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .thumbnail.active {
+      opacity: 1;
+      border-color: var(--accent);
+      transform: scale(1.08);
+    }
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-
-    /* heaederrrrr
-    .header {
-      position: sticky;
-      top: 0;
-      padding: 2px 8px;
-      background: #555;
-      color: #f1f1f1;
-      z-index: 10;
-    overflow: hidden;
-    background-color: #f1f1f1;
-
-  } */
-
-/* Style the header links
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-} */
-
-/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-/* .header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-} */
-
-/* Change the background color on mouse-over */
-/* .header a:hover {
-  background-color: #ddd;
-  color: black;
-} */
-
-/* Style the active/current link*/
-/* .header a.active {
-  background-color: #FFD700;
-  color: white;
-} */
-
-/* Float the link section to the right */
-/* .header-right {
-  float: right;
-} */
-
-/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
-/* @media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
-} */
- @media (max-width: 768px) {
-      .nav-menu {
+    .about {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+    }
+    footer {
+      text-align: center;
+      padding: 4rem 0 2rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+    .social a { margin: 0 1rem; font-size: 1.6rem; }
+    @media (max-width: 768px) {
+      .gallery { grid-template-columns: 1fr; }
+      h2 { font-size: 3rem; }
+      nav { 
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        background: rgba(0,0,0,0.95);
+        background: var(--bg);
         flex-direction: column;
-        padding: 1.5rem;
+        align-items: flex-start;
+        padding: 1rem 5vw;
+        border-bottom: 1px solid var(--border);
         display: none;
       }
-
-      .nav-menu.active {
-        display: flex;
+      nav.active { display: flex; }
+      nav a { 
+        margin: 1rem 0;
+        margin-left: 0;
+        font-size: 1.1rem;
       }
+      .hamburger { display: block; }
+      .theme-toggle { margin-left: auto; }
+      .game-preview { height: 220px; }
+      .thumbnail { width: 70px; height: 40px; }
     }
   </style>
 </head>
 <body>
-<!-- <div class="header">
-  <a href="#default" class="logo">Rhon P</a>
-  <div class="header-right">
-    <a class="active" href="#top">Top</a>
-    <a href="#games">Games</a>
-    <a href="#apps">Apps</a>
-    <a href="#2d">2D Art</a>
-    <a href="#3d">3D Art</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</div> -->
-  <!-- Hero -->
-  <!-- <header class="py-4 px-6 md:px-12 flex justify-between items-center">
-    <a href="#top" class="text-3xl font-bold text-white">Rhon <span class="text-[var(--accent)]">P</span></a>
-    
-    <nav class="hidden md:flex space-x-8">
-      <a href="#top" class="nav-link">Top</a>
-      <a href="#games" class="nav-link">Games</a>
-      <a href="#apps" class="nav-link">Apps</a>
-      <a href="#corner-2d" class="nav-link">2D Art</a>
-      <a href="#corner-3d" class="nav-link">3D Art</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#contact" class="nav-link">Contact</a>
+
+  <header>
+    <div class="logo">Rhon P</div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#games">Games</a>
+      <a href="#motion">Motion</a>
+      <a href="#art">Art</a>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <button class="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+  </header>
 
-    <!-- Hamburger for mobile -->
-    <!-- <div class="md:hidden hamburger cursor-pointer" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+  <section id="hero">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
+    </video>
+    <div class="container hero-content">
+      <h1>Hey, I create Games - 2D — 3D — Motion - Apps</h1>
+      <p> Godot • Unity • Illustration • Motion • 3D modeling & rendering • Animation • Concept art • </p>
+      <a href="#work" class="btn">See the work ↓</a>
     </div>
-  </header> -->
-
-<!-- Header -->
-<header class="py-5 px-6 md:px-12 flex justify-between items-center fixed w-full top-0 left-0 z-[1000] bg-black/90 backdrop-blur-md border-b border-gray-800">
-  <a href="#top" class="text-3xl font-extrabold">
-    Rhon <span class="text-[var(--accent)]">P</span>
-  </a>
-
-  <!-- Desktop Nav -->
-  <nav class="hidden md:flex space-x-10">
-    <a href="#top" class="nav-link">Top</a>
-    <a href="#games" class="nav-link">Games</a>
-    <a href="#apps" class="nav-link">Apps</a>
-    <a href="#corner-2d" class="nav-link">2D Art</a>
-    <a href="#corner-3d" class="nav-link">3D Art</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
-
-  <!-- Hamburger Button -->
-  <div class="md:hidden cursor-pointer hamburger flex flex-col justify-center items-center w-10 h-10" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
-
-<!-- Mobile Menu (now properly positioned) -->
-<div class="md:hidden fixed top-[72px] left-0 right-0 bg-black/95 backdrop-blur-md border-b border-gray-800 z-[999] transform transition-all duration-300 ease-in-out" 
-     id="mobileMenu"
-     style="transform: translateY(-100%); opacity: 0; visibility: hidden;">
-  <div class="flex flex-col space-y-6 py-8 px-6">
-    <a href="#top" class="nav-link text-center text-xl">Top</a>
-    <a href="#games" class="nav-link text-center text-xl">Games</a>
-    <a href="#apps" class="nav-link text-center text-xl">Apps</a>
-    <a href="#corner-2d" class="nav-link text-center text-xl">2D Art</a>
-    <a href="#corner-3d" class="nav-link text-center text-xl">3D Art</a>
-    <a href="#about" class="nav-link text-center text-xl">About</a>
-    <a href="#contact" class="nav-link text-center text-xl">Contact</a>
-  </div>
-</div>
-
-
-   <!-- Mobile Menu -->
-  <!-- <div class="nav-menu flex flex-col space-y-6 md:hidden" id="mobileMenu">
-    <a href="#top" class="nav-link text-center">Top</a>
-    <a href="#games" class="nav-link text-center">Games</a>
-    <a href="#apps" class="nav-link text-center">Apps</a>
-    <a href="#corner-2d" class="nav-link text-center">2D Art</a>
-    <a href="#corner-3d" class="nav-link text-center">3D Art</a>
-    <a href="#about" class="nav-link text-center">About</a>
-    <a href="#contact" class="nav-link text-center">Contact</a>
-  </div> -->
-
-  <!-- Hero -->
-  <section id="top" class="flex flex-col justify-center items-center text-center px-6">
-    <h1 class="text-5xl md:text-7xl font-extrabold mb-4">Hi, I'm <span class="text-[var(--accent)]">Rhon</span></h1>
-    <p class="text-xl md:text-2xl opacity-90 mb-8">Godot • Unity • 2D & 3D Art • Programming</p>
-    <a href="#games" class="bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-bold py-4 px-10 rounded-full text-lg transition">Explore My Work</a>
-  </section> 
-
-
-  <!-- Games Corner -->
+  </section>
   
-  <section id="games" class="py-16 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <br>
-      <h2 class="text-4xl font-bold text-center mb-12">Games Corner</h2>
-       <p style="color:#0d0d0d">Here are some games I made for client, company and personal</p><br>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
 
-         <!-- LEGACY GAMEPLAY!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <p class="text-2xl font-semibold mb-2">Legacy (Gameplay)</p>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-            <video controls muted>
-              <source src="img/legacy-gameplay.mp4" type="video/mp4">
-            </video>
-            </div>
-            <!-- <div class="slideshow-item">
-              <video controls muted>
-                <source src="img/legacy-gameplay-4.mov" type="video/mov">
-              </video>
-            </div> -->
-            <div class="slideshow-item">
-              <img src="img/legacy-gameplay1.png" alt="">
-            </div>
-            
-            <div class="slideshow-item ">
-              <img src="img/legacy-gameplay2.png" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/legacy-gameplay3.png" alt="">
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails">
-            <video muted  class="active-thumb" alt="thumb1">
-              <source src="img/legacy-gameplay.mp4" type="video/mp4">
-            </video>
-            <!-- <video muted>
-              <source src="img/legacy-gameplay-4.mov"  type="video/mov">>
-            </video> -->
-            <img src="img/legacy-gameplay1.png">
-            <img src="img/legacy-gameplay2.png">
-            <img src="img/legacy-gameplay3.png">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for client. <br>
-            Developed a 3v3v3 mecha arena where you bet for a team. The mechas are controlled by AI(LimboAI).
-            This is a prototype for testing the gameplay in Web.<br>
-            Made with Godot. <br><br>
-            <b>Solowork, Prototype, 3D, Web, Crypto</b>
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
+  <section id="games" class="container">
+    <br>
+  <br>
+  <br>
+    <h2>Games I've Built</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
+      Turning art into playable experiences with Godot & Unity.<br><br>
+      >> Here are some games I made for client, company and personal
+    </p>
+    <div class="gallery" style="grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); gap:3rem;">
+      
+      <!-- Game 1 -->
+      <div class="card game-card">
+        <div class="game-preview">
+          <img src="https://img.itch.zone/aW1hZ2UvODQ4MDE5LzQ3NTQzNTguanBn/original/sZkj07.jpg" alt="Main preview" class="main-preview">
+          <img src="https://i.ytimg.com/vi/rwAXeJ9kjZ0/sddefault.jpg" alt="Screenshot 2" class="main-preview hidden">
+          <img src="https://external-preview.redd.it/one-year-of-work-on-my-first-project-a-pixel-perfect-v0-dDhjM25tcGsxZG5kMWk4w5nzJG4eTNyTzOQcL3eQdnxbyf1Lfs8XMVypKPxT.png?format=pjpg&auto=webp&s=09ece4ebc2994dcb0537a27b149bfa41feafd142" alt="Screenshot 3" class="main-preview hidden">
+          <img src="https://preview.redd.it/ronnys-climb-a-furry-themed-pixel-art-platformer-v0-40h3tplk19fd1.png?width=1440&format=png&auto=webp&s=5e20a41a02efa35f79fac9bb5007ef690fd67a9f" alt="Screenshot 4" class="main-preview hidden">
         </div>
-
-
-
-        <!-- TOWER DEFENSE Bloons style!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <p class="text-2xl font-semibold mb-2">Tower Defense</p>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-            <video controls muted>
-              <source src="img/td-bloons.mp4" type="video/mp4">
-            </video>
-            </div>
-            <div class="slideshow-item">
-              <img src="img/td-bloons-1.png" alt="">
-            </div>
-            
-            <div class="slideshow-item ">
-              <img src="img/td-bloons-2.png" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/td-bloons-3.png" alt="">
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails">
-            <video muted  class="active-thumb" alt="thumb1">
-              <source src="img/td-bloons.mp4" type="video/mp4">
-            </video>
-            <img src="img/td-bloons-1.png">
-            <img src="img/td-bloons-2.png">
-            <img src="img/td-bloons-3.png">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for client. <br>
-            Developed a Tower Defense game based on BloonsTD. This prototype is set-up as a base so the client can continue working on it. For PC and Mobile. Made with Godot. <br><br>
-           <b>Solowork, Prototype, 3D</b>
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
+        <div class="thumbnails">
+          <div class="thumbnail active" data-index="0"><img src="https://img.itch.zone/aW1hZ2UvODQ4MDE5LzQ3NTQzNTguanBn/original/sZkj07.jpg" alt="Thumb 1"></div>
+          <div class="thumbnail" data-index="1"><img src="https://i.ytimg.com/vi/rwAXeJ9kjZ0/sddefault.jpg" alt="Thumb 2"></div>
+          <div class="thumbnail" data-index="2"><img src="https://external-preview.redd.it/one-year-of-work-on-my-first-project-a-pixel-perfect-v0-dDhjM25tcGsxZG5kMWk4w5nzJG4eTNyTzOQcL3eQdnxbyf1Lfs8XMVypKPxT.png?format=pjpg&auto=webp&s=09ece4ebc2994dcb0537a27b149bfa41feafd142" alt="Thumb 3"></div>
+          <div class="thumbnail" data-index="3"><img src="https://preview.redd.it/ronnys-climb-a-furry-themed-pixel-art-platformer-v0-40h3tplk19fd1.png?width=1440&format=png&auto=webp&s=5e20a41a02efa35f79fac9bb5007ef690fd67a9f" alt="Thumb 4"></div>
         </div>
-
-
-        <!-- LEGACY UI!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <p class="text-2xl font-semibold mb-2">Legacy (UI)</p>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-            <video controls muted>
-              <source src="img/legacy.mp4" type="video/mp4">
-            </video>
-            </div>
-            <!-- <div class="slideshow-item">
-              <img src="img/pa-1.png" alt="">
-            </div>
-            
-            <div class="slideshow-item ">
-              <img src="img/pa-2.png" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/pa-3.png" alt="">
-            </div>
-
-            <div class="slideshow-item ">
-              <img src="img/pa-5.png" alt="">
-            </div> -->
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails">
-            <video muted  class="active-thumb" alt="thumb1">
-              <source src="img/legacy.mp4" type="video/mp4">
-            </video>
-            <!-- <img src="img/pa-1.png">
-            <img src="img/pa-2.png">
-            <img src="img/pa-3.png">
-            <img src="img/pa-5.png"> -->
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for client. <br>
-            UI/UX Design for a game on Web(HTML5) and Mobile.<br>
-            Made with Godot. <br><br>
-            <b>Solowork, UI/UX, 2D</b>
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
+        <div class="info" style="position:relative; background:linear-gradient(to top, rgba(0,0,0,0.95), transparent 40%); padding-top:1rem;">
+          <h3>Project Echo (Godot)</h3>
+          <p>2D Metroidvania / Pixel Art Adventure • Godot 4 • Art, Design, Programming</p>
+          <p style="font-size:0.95rem; margin-top:0.8rem;">Exploration-focused platformer with hand-crafted pixel art environments.</p>
+          <a href="https://yourname.itch.io/project-echo" target="_blank" class="btn" style="margin-top:1rem; background:#478761; color:white;">Play Demo</a>
         </div>
-
-        <!-- P.ASSAULT!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">P. Assault</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-            <video controls muted>
-              <source src="img/pa.mp4" type="video/mp4">
-            </video>
-            </div>
-            <div class="slideshow-item">
-              <img src="img/pa-1.png" alt="">
-            </div>
-            
-            <div class="slideshow-item ">
-              <img src="img/pa-2.png" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/pa-3.png" alt="">
-            </div>
-
-            <div class="slideshow-item ">
-              <img src="img/pa-5.png" alt="">
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails">
-            <video muted  class="active-thumb" alt="thumb1">
-              <source src="img/pa.mp4" type="video/mp4">
-            </video>
-            <img src="img/pa-1.png">
-            <img src="img/pa-2.png">
-            <img src="img/pa-3.png">
-            <img src="img/pa-5.png">
-          </div>
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for client. <br>
-            A PVP online or local game on on sci-fi theme battlefield.
-            Made with Godot. <br><br>
-            <b>Team-lead(95% work), Multiplayer, 3D</b>
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
-        </div>
-
-        <!-- SNAKE AND LADDERS!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Snake and Ladders</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <video controls muted>
-                <source src="img/snakeandladder.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/snakeandladder.jpg" alt="">
-            </div>
-            
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails">
-            <video muted  class="active-thumb" alt="thumb1">
-              <source src="img/snakeandladder.mp4" type="video/mp4">
-            </video>
-            <img src="img/snakeandladder.jpg">
-            
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for company. <br>
-            A game based on Snake and ladders but with cards to use for power-ups. Created for interactive touchscreens for Windows.
-            Made with Godot.<br><br>
-
-            <b>Solowork, 2D</b>
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
-        </div>
-        
-         <!-- POP IT!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Pop-It! Monstars!</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <video controls muted>
-                <source src="img/popit.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <video muted>
-              <source src="img/popit.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Personal Project.<br>
-            A game based on pop-it games for kids featuring different monsters to collect.
-            Made with Godot. Available on Android as Beta<br><br>
-            <b>Solowork, 2D</b><br><br>
-            Playstore: <a  style="color: #FFD700" href="https://play.google.com/store/apps/details?id=com.umeex.popitmonstars">Link</a><br>
-            Apkpure: <a  style="color: #FFD700" href="https://apkpure.com/pop-it-monstars/com.umeex.popitmonstars">Link</a>
-
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
-        </div>
-        
-         <!-- WORD MASTERY!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Word Mastery</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <img src="img/wmastery-1.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wmastery-2.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wmastery-3.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wmastery-4.webp" alt="Snake and Ladder Image">
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <img src="img/wmastery-1.webp">
-            <img src="img/wmastery-2.webp">
-            <img src="img/wmastery-3.webp">
-            <img src="img/wmastery-4.webp">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Personal Project.<br>
-            A word game for that features 3 different game modes with endless level.
-            Made with Godot. Available on Android.<br><br>
-
-            <b>Solowork, 2D</b><br><br>
-
-            Apkpure: <a  style="color: #FFD700"href="https://apkpure.com/word-mastery-word-search-wo/org.umeex.wordmastery">Link</a>
-
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
-        </div>
-        
-        <!-- FEVER WINGS!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Fever Wings: Peggy and friends!</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <img src="img/fwings-1.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/fwings-2.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/fwings-3.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/fwings-4.webp" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/fwings-5.webp" alt="Snake and Ladder Image">
-            </div>
-
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <img src="img/fwings-1.webp">
-            <img src="img/fwings-2.webp">
-            <img src="img/fwings-3.webp">
-            <img src="img/fwings-4.webp">
-            <img src="img/fwings-5.webp">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-             Personal Project <br>
-            A game that you must avoid incoming projectiles with a single tap with different characters and abilities.
-            Made with Godot. Available on Android.<br><br>
-
-            <b>Solowork, 2D</b><br><br>
-            
-            Apkpure: <a  style="color: #FFD700" href="https://apkpure.com/fever-wings-peggy-and-friends/org.umeex.feverwings">Link</a>
-
-          </p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
-        </div>
-
-        
-
-        
       </div>
-    </div>
-  </section>
 
-
-  <!-- App Corner -->
-  <section id="apps" class="py-16 bg-gray-600">
-    <div class="container mx-auto px-6">
-      <br>
-      <h2 class="text-4xl font-bold text-center mb-12">App Corner</h2>
-      <p style="color:#ffffff">Here are some apps I made for a company and companies clients.</p><br>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-        <!-- WAY FINDER!!! -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Wayfinders</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <video controls muted>
-                <source src="img/wayfinder1.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item">
-              <video controls muted>
-                <source src="img/wayfinder2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wayfinder-3.jpg" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wayfinder-4.jpg" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wayfinder-5.jpg" alt="Snake and Ladder Image">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/wayfinder-6.jpg" alt="Snake and Ladder Image">
-            </div>
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <video muted>
-              <source src="img/wayfinder1.mp4" type="video/mp4">
-            </video>
-            <video muted>
-              <source src="img/wayfinder2.mp4" type="video/mp4">
-            </video>
-            <img src="img/wayfinder-3.jpg">
-            <img src="img/wayfinder-4.jpg">
-            <img src="img/wayfinder-5.jpg">
-            <img src="img/wayfinder-6.jpg">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for company. <br>
-            Showcasing some of the wayfinders I created for clients for a interactive touchscreen kiosks
-            for schools, hospitals, landmarks, etc. The room names, logo and other texts are changeable within the app! Made with Godot for Windows and/or HTML.
-            <br><br>
-            <b>Solowork, 2D/3D</b>
-          </p>
-          <br>
-          <p class="mt-2 text-left" style="color: #FFD700">Want me to create a wayfinder for your place? Message me!</p>
-          <br>
-          <img src="img/godot.png" width="32" height="32" alt="Godot logo">
+      <!-- Game 2 -->
+      <div class="card game-card">
+        <div class="game-preview">
+          <img src="https://i.redd.it/1dw2o7q7m0o61.png" alt="Main preview" class="main-preview">
+          <img src="https://europe1.discourse-cdn.com/unity/original/4X/9/2/a/92a77c187a790fd9443c60c7f506a0d0fedb487a.jpeg" alt="Screenshot 2" class="main-preview hidden">
+          <img src="https://i.redd.it/pgx762s0qq561.jpg" alt="Screenshot 3" class="main-preview hidden">
+          <img src="https://europe1.discourse-cdn.com/unity/original/4X/b/0/f/b0f8bb8f10dbb3f182e51ca2edd10cd094b12662.jpeg" alt="Screenshot 4" class="main-preview hidden">
         </div>
-        
-        <!-- DIGITAL PHOTOBOOTH -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">Digital Photobooth</h3>
-
-          <!-- Slideshow -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <video controls muted>
-                <source src="img/foto-1.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/foto-1.jpg" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/foto-2.jpg" alt="">
-            </div>
-            <div class="slideshow-item ">
-              <img src="img/foto-3.png" alt="">
-            </div>
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <video muted>
-              <source src="img/foto-1.mp4" type="video/mp4">
-            </video>
-            <img src="img/foto-1.jpg">
-            <img src="img/foto-2.jpg">
-            <img src="img/foto-3.png">
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for company.<br>
-            A digital photobooth that lets you download your photo directly to your phone via QR featuring effects made thru Snap for client events. Made with Unity for Windows Interactive Touchscreens. 
-            <br><br>
-            <b>Solowork, AR</b>
-          </p>
-          <br>
-          <img src="img/unity.png" width="32" height="32" alt="Godot logo">
+        <div class="thumbnails">
+          <div class="thumbnail active" data-index="0"><img src="https://i.redd.it/1dw2o7q7m0o61.png" alt="Thumb 1"></div>
+          <div class="thumbnail" data-index="1"><img src="https://europe1.discourse-cdn.com/unity/original/4X/9/2/a/92a77c187a790fd9443c60c7f506a0d0fedb487a.jpeg" alt="Thumb 2"></div>
+          <div class="thumbnail" data-index="2"><img src="https://i.redd.it/pgx762s0qq561.jpg" alt="Thumb 3"></div>
+          <div class="thumbnail" data-index="3"><img src="https://europe1.discourse-cdn.com/unity/original/4X/b/0/f/b0f8bb8f10dbb3f182e51ca2edd10cd094b12662.jpeg" alt="Thumb 4"></div>
         </div>
-
-        <!-- AR Box -->
-        <div class="portfolio-card bg-[var(--card-bg)] rounded-lg shadow-lg p-6 text-center">
-          <h3 class="text-2xl font-semibold mb-2">AR Box</h3>
-
-          <!-- AR BOX EFFECTS -->
-          <div class="slideshow mb-2">
-            <div class="slideshow-item active">
-              <video controls muted>
-                <source src="img/ar-1.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item">
-              <video controls muted>
-                <source src="img/ar-2.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="slideshow-item">
-              <video controls muted>
-                <source src="img/ar-3.mp4" type="video/mp4">
-              </video>
-            </div>
-            <button class="slideshow-button prev">&larr;</button>
-            <button class="slideshow-button next">&rarr;</button>
-          </div>
-
-          <!-- Thumbnails -->
-          <div class="slideshow-thumbnails" class="active-thumb" alt="thumb1">
-            <video muted>
-              <source src="img/ar-1.mp4" type="video/mp4">
-            </video>
-            <video muted>
-              <source src="img/ar-2.mp4" type="video/mp4">
-            </video>
-            <video muted>
-              <source src="img/ar-3.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <p class="mt-4 text-left text-sm font-[Inter]">
-            Made for company.
-            An AR box that lets you change how the way you look with different Snap filter effects inside. Creates an illusion that you or a video are inside the box! Made with Snap AR via Vite and HTML for client events.
-            <br><br>
-            <b>Solowork, AR</b>
-          </p>
-          <br>
-          <img src="img/snap.png" width="32" height="32" alt="Godot logo">
+        <div class="info" style="position:relative; background:linear-gradient(to top, rgba(0,0,0,0.95), transparent 40%); padding-top:1rem;">
+          <h3>Neon Shadows (Unity)</h3>
+          <p>3D Action-Adventure / Stylized • Unity • Modeling, Shaders, Gameplay</p>
+          <p style="font-size:0.95rem; margin-top:0.8rem;">Atmospheric third-person experience with dynamic lighting.</p>
+          <a href="https://yourname.itch.io/neon-shadows" target="_blank" class="btn" style="margin-top:1rem; background:#007acc; color:white;">View on itch.io</a>
         </div>
-
-
       </div>
-    </div>
-  </section>
 
-  <!-- Art Corner -->
-<section id="corner-2d" class="py-16 bg-gray-900">
-  <div class="container mx-auto px-6">
-    <br>
-    <h2 class="text-4xl font-bold text-center mb-12">2D Corner</h2>
-
-    <!-- Photo Gallery -->
-    <p>Some arts I made for clients</p><br>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-      <img src="img/space-svg.png" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
-      <img src="img/artA1.gif" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
-      <img src="img/artA2.png" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/artA3.jpg" alt="Art 3" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/game-asset-3.png" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-    </div>
-    <br>
-    <p>Art assets I made for my personal game</p><br>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-      <img src="img/game-asset-1.png" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
-      <img src="img/game-asset-2.png" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/game-asset-4.png" alt="Art 3" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/game-assset-5.png" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-    </div>
-    <br>
-    <!-- Photo Gallery -->
-     <p>Random arts I made</p><br>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-      <img src="img/art1.webp" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art2.jpg" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art3.jpg" alt="Art 3" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art4.jpeg" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art5.png" alt="Art 5" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art6.jpg" alt="Art 6" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art7.jpg" alt="Art 5" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/art8.png" alt="Art 6" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-    </div>
-  </div>
-</section>
-
-  <!-- 3D Corner -->
-  <section id="corner-3d" class="py-16 bg-gray-800">
-    <div class="container mx-auto px-6">
-      <br>
-      <h2 class="text-4xl font-bold text-center mb-12">3D Corner</h2>
-      <p>Here are some few 3d models I made for a client and personnal use</p><br>
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
-      <img src="img/oc-char.gif" alt="Art 1" class="w-full h-80 object-cover rounded-lg shadow-lg cursor-pointer">
-      <img src="img/tank.gif" alt="Art 2" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      
-      <img src="img/chopper.gif" alt="Art 3" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-      <img src="img/turret.gif" alt="Art 4" class="w-full h-80 object-cover  rounded-lg shadow-lg cursor-pointer">
-    </div>
-    
-    <br>
-    <p class="text-gray-400">Download 3d files here: (.RAR files)</p>
-    Tank - <a href="downloads/tank.rar" class="text-yellow-300">Download</a><br>
-    Chopper - <a href="downloads/chopper.rar" class="text-yellow-300">Download</a><br>
-    Turret - <a href="downloads/turret.rar" class="text-yellow-300">Download</a><br>
-    </div>
-  </section>
-
-  <!-- SOCIALS -->
-  <section id="about" class="py-16 bg-[var(--card-bg)]">
-    <div class="container mx-auto px-6">
-      <br>
-      <h2 class="text-4xl font-bold text-center mb-12">About</h2>
-      <h4 class="text-3xl font-bold text-center mb-8">Experiences</h4>
-   
-      
-<div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">     
-<p class="text-lg font-bold">Freelance Game Developer / 2D Artist</p>
-<p class="text-gray-300">Remote - Feb 2025 - Present</p>
-<br>
-<p class="text-xs font-[Inter]">
-Game Developer<br>
-- Developed an initial Tower Defense game build inspired by BloonsTD providing functional foundation for clients continued development (GDScript)<br>
-- Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
-- Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
-- Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring AI-controlled ally and enemy units using Godot Engine (GDScript)<br>
-- Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized player movement, projectile physics, and lobby matchmaking using Godot Engine (GDScript)<br>
-<br>
-2D Artist<br>
-- Draw textures for a video game map and UI sprites using  Clip Studio Paint, Photoshop and Affinity
-</p>
-</div>
-
-<br>
-
-<div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-
-<p class="text-lg font-bold">IT / Programmer</p>
-<p class="text-gray-300">Avolution Inc. - San Juan - Feb 2021 - Feb 2025</p>
-<br>
-<p class="text-xs font-[Inter]">
-Game & Interactive Development<br>
-- Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot Engine (GDScript) and Unity (C#). <br>
-- Interactive map directory for malls and wayfinding systems deployed across commercial spaces. <br>
-- Created AR camera apps with SnapAR filters and QR code integration for seamless photo transfer.<br>
-<AI & Computer Vision><br>
-- Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects, triggering targeted video ads on LED billboards.<br>
-- Designed real-time analytics tools for audience tracking and ad performance.<br><br>
-Web & Internal Tools<br>
-- Developed internal web applications including company websites, e-forms, and admin dashboards using Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.
-<br>
-- Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both on-site and remotely.<br><br>
-3D Content & Visual Design<br>
-- Assisted in creating 3D ad content for LED billboards using Blender, applying advanced perspective techniques for large-scale visuals.<br><br>
-IT Support & Deployment<br>
-- Provided nationwide client support for digital signage systems, including installation, testing, and troubleshooting.<br>
-- Delivered remote and on-site helpdesk support for software and hardware issues across the Philippines.<br>
-- Configured firewalls and ensured secure HTTPS protocols for internal systems.<br><br>
-</p>
-</div>
-
-<br>
-
-<div class="portfolio-card bg-gray-500 rounded-lg shadow-lg p-6">
-
-<p class="text-lg font-bold">Service Engineer</p>
-<p class="text-gray-300">SmartQ Systems Co. Inc. - Mandaluyong - Jun 2014 - Sept 2020</p>
-<br>
-<p class="text-xs font-[Inter]">
-
-Client Deployment & Support <br>
-- Led nationwide installations of web-based queueing systems across Luzon, Visayas, and Mindanao.<br>
-- Conducted classroom-style training for managers and staff, improving system adoption and reducing support requests.<br>
-- Managed client meetings and unsupervised projects, ensuring timely delivery and system reliability.<br>
-- Provided technical support via phone, email, and on-site visits for troubleshooting and maintenance.<br><br>
-System Testing & Debugging<br>
-- Tested queue system program flows to meet client-specific requirements and UX expectations.<br>
-- Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry Pi).<br>
-- Collaborated with developers to resolve deployment issues and improve system stability.<br><br>
-Internal IT Support<br>
-- Delivered office helpdesk support for hardware/software issues.<br>
-- Assisted in maintaining internal systems and ensuring smooth operations across departments.<br>
-</p>
-</div>
-
-
+      <!-- Add more game cards here following the same pattern -->
 
     </div>
   </section>
 
-  <!-- SOCIALS -->
-  <section id="contact" class="py-16 bg-gray-900">
-    <div class="container mx-auto px-6">
-      <br>
-      <h2 class="text-4xl font-bold text-center mb-12">Contact</h2>
-       <h3 class="text-3xl font-bold text-center mb-8">Socials</h3>
-      
-      <p>
-        <!-- E-mail: <br>
-        <a style="color: var(--accent)">rhnpclb22@gmail.com</a><br><br>
-        
-        Github: <br>
-        <a href="https://github.com/ugothmeex" style="color: var(--accent-hover)">https://github.com/ugothmeex</a><br>
-        
-        <a href="https://github.com/rhondp" style="color: var(--accent)">https://github.com/rhondp</a><br><br>
-        Facebook: <br>
-        <a href="https://www.facebook.com/rhondp" style="color: var(--accent)">fb.com/rhondp</a><br><br>
-        Instagram: <br>
-        <a href="https://www.instagram.com/ugothmeex/" style="color: var(--accent)">instagram.com/ugothmeex/</a><br> -->
+  <section id="work" class="container">
+    <h2>Selected Art & 3D Work</h2>
+    <div class="gallery">
+      <!-- Replace with your real artwork -->
+      <div class="card" style="aspect-ratio: 4/5;">
+        <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=800&q=85" alt="3D character">
+        <div class="info"><h3>Cyber Ronin</h3><p>3D character • ZBrush + Blender + Substance</p></div>
+      </div>
+      <div class="card" style="aspect-ratio: 4/5;">
+        <img src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=800&q=85" alt="Surreal 2D">
+        <div class="info"><h3>Neon Dreams</h3><p>2D illustration • Procreate + Photoshop</p></div>
+      </div>
+      <!-- Add more art cards here -->
+    </div>
+  </section>
 
-        <a class="text-gray-400">E-mail: <br></a>
-        <a class="text-lg text-sky-400">rhnpclb22@gmail.com</a><br><br>
-        
-        <a class="text-gray-400"> Github:</a> <br>
-        <a href="https://github.com/ugothmeex" class="text-lg text-yellow-300">https://github.com/ugothmeex</a><br>
-        
-        <a href="https://github.com/rhondp" class="text-lg text-yellow-300">https://github.com/rhondp</a><br><br>
-         <a class="text-gray-400">Facebook:</a> <br>
-        <a href="https://www.facebook.com/rhondp" class="text-lg text-yellow-300">fb.com/rhondp</a><br><br>
-         <a class="text-gray-400">Instagram:</a> <br>
-        <a href="https://www.instagram.com/ugothmeex/" class="text-lg text-yellow-300">instagram.com/ugothmeex/</a><br>
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <div class="about">
+      <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design, experimental visuals, and indie game development.</p>
+      <p>I love blending styles — clean vector + gritty photogrammetry, dreamy 2D + hard-surface 3D, narrative stills + interactive gameplay.</p>
+      <p>Tools: Blender, ZBrush, Substance, Houdini, After Effects, Procreate, Unreal/Unity, Godot, Adobe suite.</p>
+      <p>Currently open for freelance, collabs, or game dev opportunities — let's talk!</p>
+    </div>
+  </section>
 
-       
+  <footer id="contact">
+    <div class="container">
+      <h2>Say Hello</h2>
+      <p style="margin:2rem 0; font-size:1.3rem;">
+        <a href="mailto:hello@ugothmeex.com">hello@ugothmeex.com</a>
       </p>
+      <div class="social">
+        <a href="https://x.com/ugothmeex" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/ugothmeex/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.artstation.com/ugothmeex" target="_blank"><i class="fab fa-artstation"></i></a>
+        <a href="https://www.behance.net/ugothmeex" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+      <p style="margin-top:3rem;">© 2026 ugothmeex — Made in Mandaluyong City</p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-6 bg-gray-950 text-center text-gray-400">
-    © Rhon Portfolio. All rights reserved.
   </footer>
 
-
-<!-- BORGER -->
-<script>
-  // Hamburger menu toggle with smooth animation
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('active');
-  
-  if (mobileMenu.style.transform.includes('translateY(-100%)')) {
-    mobileMenu.style.transform = 'translateY(0)';
-    mobileMenu.style.opacity = '1';
-    mobileMenu.style.visibility = 'visible';
-  } else {
-    mobileMenu.style.transform = 'translateY(-100%)';
-    mobileMenu.style.opacity = '0';
-    setTimeout(() => {
-      mobileMenu.style.visibility = 'hidden';
-    }, 300); // match transition duration
-  }
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('#mobileMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    mobileMenu.style.transform = 'translateY(-100%)';
-    mobileMenu.style.opacity = '0';
-    setTimeout(() => {
-      mobileMenu.style.visibility = 'hidden';
-    }, 300);
-  });
-});
-</script>
-
-  <!-- Modal -->
-  <div id="lightbox" class="modal">
-    <span class="modal-close">&times;</span>
-    <div class="modal-content"></div>
-  </div>
-
-  <!-- Script -->
   <script>
-    document.querySelectorAll('.slideshow').forEach(slideshow => {
-      const items = slideshow.querySelectorAll('.slideshow-item');
-      const prevBtn = slideshow.querySelector('.prev');
-      const nextBtn = slideshow.querySelector('.next');
-      const thumbs = slideshow.parentElement.querySelectorAll('.slideshow-thumbnails > *');
-      let currentIndex = 0;
+    // Theme toggle
+    const toggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    const icon = toggle.querySelector('i');
 
-      function showSlide(index) {
-        items.forEach((item, i) => {
-          item.classList.toggle('active', i === index);
-          const video = item.querySelector('video');
-          if (video) {
-            if (i === index) {
-              video.play();
-            } else {
-              video.pause();
-              video.currentTime = 0;
-            }
-          }
-        });
-        thumbs.forEach((thumb, i) => {
-          thumb.classList.toggle('active-thumb', i === index);
-        });
-        currentIndex = index;
+    toggle.addEventListener('click', () => {
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.setAttribute('data-theme', 'light');
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        icon.classList.replace('fa-sun', 'fa-moon');
       }
+    });
 
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        showSlide(currentIndex);
-      });
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        showSlide(currentIndex);
-      });
-
-      thumbs.forEach((thumb, i) => {
-        thumb.addEventListener('click', () => {
-          showSlide(i);
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
       });
+    });
 
-      // Modal / Lightbox
-      const modal = document.getElementById('lightbox');
-      const modalContent = modal.querySelector('.modal-content');
-      const modalClose = modal.querySelector('.modal-close');
+    // Game screenshot selector
+    document.querySelectorAll('.game-preview').forEach(preview => {
+      const mainImages = preview.querySelectorAll('.main-preview');
+      const thumbnails = preview.parentElement.querySelectorAll('.thumbnail');
 
-      items.forEach(item => {
-        const media = item.querySelector('img, video');
-        if (media) {
-          media.addEventListener('click', () => {
-            modal.style.display = 'flex';
-            modalContent.innerHTML = '';
-            const clone = media.cloneNode(true);
-            if (clone.tagName === 'VIDEO') {
-              clone.controls = true;
-              clone.autoplay = true;
-              clone.muted = false;
+      thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          const index = parseInt(thumb.dataset.index);
+
+          thumbnails.forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+
+          mainImages.forEach((img, i) => {
+            if (i === index) {
+              img.classList.remove('hidden');
+              setTimeout(() => { img.style.opacity = '1'; }, 10);
+            } else {
+              img.style.opacity = '0';
+              setTimeout(() => { img.classList.add('hidden'); }, 400);
             }
-            modalContent.appendChild(clone);
           });
-        }
+        });
       });
+    });
 
-      modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
-        modalContent.innerHTML = '';
-      });
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.style.display = 'none';
-          modalContent.innerHTML = '';
-        }
-      });
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
     });
   </script>
 </body>
