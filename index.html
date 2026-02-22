@@ -298,11 +298,13 @@
       left: 0;
       right: 0;
       padding: 2rem 1.8rem;
-      background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(0, 212, 255, 0.3) 60%, transparent 100%);
+      /* background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(0, 212, 255, 0.3) 60%, transparent 100%); */
+      /* background-color: rgba(15, 15, 15, 0.3); */
+      background: linear-gradient(to top, rgba(0, 68, 255, 0.5) 0%, rgba(183, 0, 255, 0.3) 60%, transparent 100%);
       backdrop-filter: blur(8px);
       transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
       z-index: 11;
     }
 
@@ -318,6 +320,14 @@
       padding: 1.2rem 1rem;
       border-top: none;
       backdrop-filter: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .game-card .info img[alt*="Godot"],
+    .game-card .info img[alt*="Unity"],
+    .game-card .info img[alt*="Snap"] {
+      margin-top: auto;
     }
 
     .game-card:hover .info {
@@ -484,6 +494,7 @@
       justify-content: center;
       background: var(--card);
       flex-wrap: wrap;
+      height: 7rem;
     }
 
     .thumbnail {
@@ -539,7 +550,7 @@
 
     .social a {
       margin: 0 1rem;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
 
     @media (max-width: 768px) {
@@ -703,29 +714,28 @@
       <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
     </video>
     <div class="container hero-content reveal">
-      <h1>Hey, I create Games - 2D — 3D — Motion - Apps</h1>
+      <h1>Hey, I create Games - 2D — 3D — Motion - Apps - Websites</h1>
       <div class="skills-pills">
         <span class="pill">Godot</span>
         <span class="pill">Unity</span>
         <span class="pill">Illustration</span>
         <span class="pill">Motion</span>
-        <span class="pill">3D modeling & rendering</span>
+        <span class="pill">3D modeling</span>
         <span class="pill">Animation</span>
         <span class="pill">Concept art</span>
       </div>
-      <a href="#work" class="btn glow-btn">See the work ↓</a>
+      <a href="#games" class="btn glow-btn">See the work ↓</a>
     </div>
   </section>
 
-
+  <!-- GAMES!! SECTION -->
   <section id="games" class="container reveal" data-theme-bg="bg-2">
     <br>
     <br>
     <br>
-    <h2>Games I've Built</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
-      Turning art into playable experiences with Godot & Unity.<br><br>
-      >> Here are some games I made for client, company and personal
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Games I've Built</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+      >> Some games I made for client, company and personal project
     </p>
     <div class="gallery">
 
@@ -752,38 +762,11 @@
         </div>
         <div class="info">
           <h3>Legacy (Gameplay)</h3>
-          <p style="color:var(--text-muted);">Solowork(GDScript, 3D Models Animation) • 3D • Prototype • Web • Crypto
-          </p>
-          <p style="font-size:0.75rem; margin-top:0.8rem;">Developed 3v3v3 mecha arena where you bet for a team. The
-            mechas are controlled by AI(LimboAI).
-            This is a prototype gameplay for testing in the Web.</p>
-          <br>
-          <img src="img/godot.png" style="width:32px; height:32px;" alt="Godot logo">
-          <!-- <a href="https://yourname.itch.io/project-echo" target="_blank" class="btn" style="margin-top:1rem; background:#478761; color:white;">Play Demo</a> -->
+          <p style="color:var(--text-muted);">Solowork(Godot-side) • 3D • Prototype • Web • Crypto</p>
+          <p>Developed 3v3v3 mecha arena where you bet for a team. The mechas are controlled by AI(LimboAI). This is a
+            prototype gameplay for testing in the Web.</p>
         </div>
       </div>
-
-      <!-- Game 2 -->
-      <!-- <div class="card game-card">
-        <div class="game-preview">
-          <img src="https://i.redd.it/1dw2o7q7m0o61.png" alt="Main preview" class="main-preview">
-          <img src="https://europe1.discourse-cdn.com/unity/original/4X/9/2/a/92a77c187a790fd9443c60c7f506a0d0fedb487a.jpeg" alt="Screenshot 2" class="main-preview hidden">
-          <img src="https://i.redd.it/pgx762s0qq561.jpg" alt="Screenshot 3" class="main-preview hidden">
-          <img src="https://europe1.discourse-cdn.com/unity/original/4X/b/0/f/b0f8bb8f10dbb3f182e51ca2edd10cd094b12662.jpeg" alt="Screenshot 4" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0"><img src="https://i.redd.it/1dw2o7q7m0o61.png" alt="Thumb 1"></div>
-          <div class="thumbnail" data-index="1"><img src="https://europe1.discourse-cdn.com/unity/original/4X/9/2/a/92a77c187a790fd9443c60c7f506a0d0fedb487a.jpeg" alt="Thumb 2"></div>
-          <div class="thumbnail" data-index="2"><img src="https://i.redd.it/pgx762s0qq561.jpg" alt="Thumb 3"></div>
-          <div class="thumbnail" data-index="3"><img src="https://europe1.discourse-cdn.com/unity/original/4X/b/0/f/b0f8bb8f10dbb3f182e51ca2edd10cd094b12662.jpeg" alt="Thumb 4"></div>
-        </div>
-        <div class="info" style="position:relative; background:linear-gradient(to top, rgba(0,0,0,0.95), transparent 40%); padding-top:1rem;">
-          <h3>Neon Shadows (Unity)</h3>
-          <p>3D Action-Adventure / Stylized • Unity • Modeling, Shaders, Gameplay</p>
-          <p style="font-size:0.95rem; margin-top:0.8rem;">Atmospheric third-person experience with dynamic lighting.</p>
-          <a href="https://yourname.itch.io/neon-shadows" target="_blank" class="btn" style="margin-top:1rem; background:#007acc; color:white;">View on itch.io</a>
-        </div>
-      </div> -->
 
 
       <!-- TOWER DEFENSE Bloons style!!! -->
@@ -808,15 +791,9 @@
         </div>
         <div class="info">
           <h3>Tower Defense</h3>
-          <p style="color:var(--text-muted);">Solowork(GDScript, 3D Models Animation) • 3D • Prototype • Web • Crypto
-          </p>
-          <p style="font-size:0.75rem; margin-top:0.8rem;">Developed a Tower Defense game based on BloonsTD. This
-            prototype is set-up as a base so the client can continue working on it. For PC and Mobile. Made with Godot.
-            <br><br>
-          </p>
-          <br>
-          <img src="img/godot.png" style="width:32px; height:32px;" alt="Godot logo">
-          <!-- <a href="https://yourname.itch.io/project-echo" target="_blank" class="btn" style="margin-top:1rem; background:#478761; color:white;">Play Demo</a> -->
+          <p style="color:var(--text-muted);">Solowork • 3D • Prototype</p>
+          <p>Developed a Tower Defense game based on BloonsTD. This prototype is set-up as a base so the client can
+            continue working on it. For PC and Mobile. Made with Godot.</p>
         </div>
       </div>
 
@@ -838,9 +815,8 @@
         </div>
         <div class="info">
           <h3>Legacy (UI)</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Solowork • UI/UX • 2D</p>
+          <p style="color:var(--text-muted);">Solowork • UI/UX • 2D</p>
           <p>UI/UX Design for a game on Web(HTML5) and Mobile. Made for client.</p>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot logo">
         </div>
       </div>
 
@@ -871,7 +847,6 @@
           <h3>P. Assault</h3>
           <p style="color:var(--text-muted); font-size: 0.75rem;">Team-lead (95%) • Multiplayer • 3D</p>
           <p>A PVP online or local game on a sci-fi theme battlefield.</p>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -895,9 +870,9 @@
         <div class="info">
           <h3>Snake and Ladders</h3>
           <p style="color:var(--text-muted); font-size: 0.75rem;">Solowork • 2D • Touchscreen</p>
-          <p>A game based on Snake and ladders but with cards to use for power-ups. Created for interactive touchscreens
+          <p>A game based on Snake and ladders but with cards to use for power-ups. Created for
+            interactive touchscreens
             for Windows.</p>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -927,7 +902,6 @@
             <a href="https://apkpure.com/pop-it-monstars/com.umeex.popitmonstars" target="_blank"
               style="text-decoration:underline;">Apkpure</a>
           </div>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -953,7 +927,6 @@
             <a href="https://apkpure.com/word-mastery-word-search-wo/org.umeex.wordmastery" target="_blank"
               style="text-decoration:underline;">Apkpure</a>
           </div>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -981,7 +954,6 @@
             <a href="https://apkpure.com/fever-wings-peggy-and-friends/org.umeex.feverwings" target="_blank"
               style="text-decoration:underline;">Apkpure</a>
           </div>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -989,10 +961,136 @@
     </div>
   </section>
 
+  <!-- 2D ART SECTION -->
+  <section id="art" class="container reveal" data-theme-bg="bg-4">
+    <br><br><br>
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">2D Arts</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+      Some arts I made for clients, personal games, and random sketches.
+    </p>
+
+    Client Art
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art">
+        <div class="info">
+          <h3>Space Vectors</h3>
+          <p>Affinity Designer, Vector Art</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art">
+        <div class="info">
+          <h3>Tuklas Ibon</h3>
+          <p>Clip Studio Paint, Animation in Godot</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art">
+        <div class="info">
+          <h3>Space Game Tilemap</h3>
+          <p>Clip Studio Paint, Game Tilemaps</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art">
+        <div class="info">
+          <h3>Peso Ballin Summer</h3>
+          <p>Clip Studio Paint, Shirt Design</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art">
+        <div class="info">
+          <h3>Space Game Tilemap 2</h3>
+          <p>Clip Studio Paint, Tilemap Normal, AO, etc..</p>
+        </div>
+      </div>
+    </div>
+
+    Game Assets
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art">
+        <div class="info">
+          <h3>Monstars</h3>
+          <p>Clip Studio Paint, Pop-it! Monstars!</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art">
+        <div class="info">
+          <h3>Isometric Floors</h3>
+          <p>Clip Studio Paint, Snake and Ladders</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art">
+        <div class="info">
+          <h3>Run Peggy!</h3>
+          <p>Clip Studio Paint, Fever Wings</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art">
+        <div class="info">
+          <h3>Pixel Swordsman Girl</h3>
+          <p>Clip Studio Paint, OC</p>
+        </div>
+      </div>
+    </div>
+
+    Random Drawings I Made
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art">
+        <div class="info">
+          <h3>Summer Axie</h3>
+          <p>Clip Studio Paint, Axie</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art">
+        <div class="info">
+          <h3>Tsuyu </h3>
+          <p>Clip Studio Paint, MHA</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art">
+        <div class="info">
+          <h3>Goth Girl</h3>
+          <p>Clip Studio Paint, OC</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art">
+        <div class="info">
+          <h3>Kagura Kimono</h3>
+          <p>Clip Studio Paint, ML</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art">
+        <div class="info">
+          <h3>Shizuku Sketch</h3>
+          <p>Clip Studio Paint, HXH</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art">
+        <div class="info">
+          <h3>Cozy Rin</h3>
+          <p>Clip Studio Paint, Yuru Camp</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art">
+        <div class="info">
+          <h3>Runnn~</h3>
+          <p>Clip Studio Paint, Wild Forest</p>
+        </div>
+      </div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art">
+        <div class="info">
+          <h3>Nana and Chang'e Summer</h3>
+          <p>Clip Studio Paint, ML</p>
+        </div>
+      </div>
+
+
+
+
+  </section>
+
   <!-- APPS SECTION -->
   <section id="apps" class="container reveal section-gradient-alt" data-theme-bg="bg-3">
     <br><br><br>
-    <h2>Apps I've Built</h2>
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Apps I've Built</h2>
     <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
       Here are some apps I made for a company and companies clients.
     </p>
@@ -1032,12 +1130,13 @@
         </div>
         <div class="info">
           <h3>Wayfinders</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • 2D/3D</p>
+          <p style="color:var(--text-muted); font-size: 0.8rem;">Godot<br>Company Work • Solowork • 2D/3D •
+            Windows/Web
+          </p>
           <p>Interactive touchscreen kiosks for schools, hospitals, landmarks. Room names, logos and texts are
             changeable on the app. Windows/HTML.</p>
-          <p style="color:#dca816; font-size:0.8rem; margin-top:0.4rem;">Want me to create a wayfinder for your place?
+          <p style="color:var(--accent);margin-top:1rem;">Want me to create a wayfinder for your place?
             Message me!</p>
-          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
 
@@ -1064,10 +1163,9 @@
         </div>
         <div class="info">
           <h3>Digital Photobooth</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • AR</p>
+          <p style="color:var(--text-muted); font-size: 0.8rem;">Unity<br>Company Work • Solowork</p>
           <p>A digital photobooth that lets you download your photo directly to your phone via QR featuring effects made
             thru Snap. For Windows Touchscreens.</p>
-          <img src="img/unity.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Unity">
         </div>
       </div>
 
@@ -1106,66 +1204,20 @@
         </div>
         <div class="info">
           <h3>AR Box</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • AR</p>
+          <p style="color:var(--text-muted); font-size: 0.8rem;">Snap AR + Vite<br>Company Work • Solowork • Windows/Web
+          </p>
           <p>AR box that changes how you look with different Snap filter effects inside. Creates an illusion you're in
-            the box! Snap AR + Vite/HTML.</p>
-          <img src="img/snap.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Snap">
+            the box!</p>
         </div>
       </div>
 
-    </div>
-  </section>
-  <!-- (Deleted old about section leftovers) -->
-
-
-  <!-- 2D ART SECTION -->
-  <section id="art" class="container reveal" data-theme-bg="bg-4">
-    <br><br><br>
-    <h2>2D Corner</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
-      Some arts I made for clients, personal games, and random sketches.
-    </p>
-
-    <h3
-      style="margin-top:2rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
-      Client Art</h3>
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art"></div>
-    </div>
-
-    <h3
-      style="margin-top:3rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
-      Game Assets</h3>
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art"></div>
-    </div>
-
-    <h3
-      style="margin-top:3rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
-      Random Arts</h3>
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art"></div>
     </div>
   </section>
 
   <!-- 3D ART SECTION -->
   <section id="corner-3d" class="container reveal" data-theme-bg="bg-1">
     <br><br><br>
-    <h2>3D Corner</h2>
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">3-Dimensionals</h2>
     <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
       Here are some few 3D models I made for a client and personal use.
     </p>
@@ -1189,7 +1241,7 @@
   <!-- ABOUT & EXPERIENCES SECTION -->
   <section id="about" class="container reveal" data-theme-bg="bg-2">
     <br><br><br>
-    <h2>About & Experience</h2>
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Tools & Exp</h2>
 
     <div class="about" style="font-size: 0.8rem;">
       <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
@@ -1218,18 +1270,23 @@
         <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D Artist
         </h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
-        <p style="font-size: 0.95rem; line-height: 1.6;">
+        <p style="font-size: 0.85rem; line-height: 1.6;">
           <strong>Game Developer</strong><br>
-          • Developed an initial Tower Defense game build inspired by BloonsTD providing functional foundation for
+          &nbsp; &nbsp; • Developed an initial Tower Defense game build inspired by BloonsTD providing functional
+          foundation
+          for
           clients continued development (GDScript)<br>
-          • Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
-          • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
-          • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring AI-controlled ally and
+          &nbsp; &nbsp; • Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+          &nbsp; &nbsp; • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+          &nbsp; &nbsp; • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring
+          AI-controlled ally and
           enemy units (GDScript)<br>
-          • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized player
+          &nbsp; &nbsp; • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized
+          player
           movement, projectile physics, and matchmaking (GDScript)<br><br>
           <strong>2D Artist</strong><br>
-          • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and Affinity
+          &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
+          Affinity
         </p>
       </div>
 
@@ -1238,29 +1295,38 @@
         <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
           2021 - Feb 2025</p>
-        <p style="font-size: 0.8rem; line-height: 1.6;">
+        <p style="font-size: 0.85rem; line-height: 1.6;">
           <strong>Game & Interactive Development</strong><br>
-          • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot Engine (GDScript)
+          &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
+          Engine (GDScript)
           and Unity (C#).<br>
-          • Interactive map directory for malls and wayfinding systems deployed across commercial spaces.<br>
-          • Created AR camera apps with SnapAR filters and QR code integration for seamless photo transfer.<br><br>
+          &nbsp; &nbsp; • Interactive map directory for malls and wayfinding systems deployed across commercial
+          spaces.<br>
+          &nbsp; &nbsp; • Created AR camera apps with SnapAR filters and QR code integration for seamless photo
+          transfer.<br><br>
           <strong>AI & Computer Vision</strong><br>
-          • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects, triggering targeted
+          &nbsp; &nbsp; • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects,
+          triggering targeted
           video ads on LED billboards.<br>
-          • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
+          &nbsp; &nbsp; • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
           <strong>Web & Internal Tools</strong><br>
-          • Developed internal web applications including company websites, e-forms, and admin dashboards using
+          &nbsp; &nbsp; • Developed internal web applications including company websites, e-forms, and admin dashboards
+          using
           Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
-          • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both on-site and
+          &nbsp; &nbsp; • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both
+          on-site and
           remotely.<br><br>
           <strong>3D Content & Visual Design</strong><br>
-          • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced perspective
+          &nbsp; &nbsp; • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced
+          perspective
           techniques for large-scale visuals.<br><br>
           <strong>IT Support & Deployment</strong><br>
-          • Provided nationwide client support for digital signage systems, including installation, testing, and
+          &nbsp; &nbsp; • Provided nationwide client support for digital signage systems, including installation,
+          testing, and
           troubleshooting.<br>
-          • Delivered remote and on-site helpdesk support for software and hardware issues across the Philippines.<br>
-          • Configured firewalls and ensured secure HTTPS protocols for internal systems.
+          &nbsp; &nbsp; • Delivered remote and on-site helpdesk support for software and hardware issues across the
+          Philippines.<br>
+          &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
         </p>
       </div>
 
@@ -1269,20 +1335,27 @@
         <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
           Mandaluyong - Jun 2014 - Sept 2020</p>
-        <p style="font-size: 0.95rem; line-height: 1.6;">
+        <p style="font-size: 0.85rem; line-height: 1.6;">
           <strong>Client Deployment & Support</strong><br>
-          • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and Mindanao.<br>
-          • Conducted classroom-style training for managers and staff, improving system adoption and reducing support
+          &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
+          Mindanao.<br>
+          &nbsp; &nbsp; • Conducted classroom-style training for managers and staff, improving system adoption and
+          reducing support
           requests.<br>
-          • Managed client meetings and unsupervised projects, ensuring timely delivery and system reliability.<br>
-          • Provided technical support via phone, email, and on-site visits for troubleshooting and maintenance.<br><br>
+          &nbsp; &nbsp; • Managed client meetings and unsupervised projects, ensuring timely delivery and system
+          reliability.<br>
+          &nbsp; &nbsp; • Provided technical support via phone, email, and on-site visits for troubleshooting and
+          maintenance.<br><br>
           <strong>System Testing & Debugging</strong><br>
-          • Tested queue system program flows to meet client-specific requirements and UX expectations.<br>
-          • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry Pi).<br>
-          • Collaborated with developers to resolve deployment issues and improve system stability.<br><br>
+          &nbsp; &nbsp; • Tested queue system program flows to meet client-specific requirements and UX
+          expectations.<br>
+          &nbsp; &nbsp; • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry
+          Pi).<br>
+          &nbsp; &nbsp; • Collaborated with developers to resolve deployment issues and improve system
+          stability.<br><br>
           <strong>Internal IT Support</strong><br>
-          • Delivered office helpdesk support for hardware/software issues.<br>
-          • Assisted in maintaining internal systems and ensuring smooth operations across departments.
+          &nbsp; &nbsp; • Delivered office helpdesk support for hardware/software issues.<br>
+          &nbsp; &nbsp; • Assisted in maintaining internal systems and ensuring smooth operations across departments.
         </p>
       </div>
 
@@ -1290,21 +1363,48 @@
   </section>
 
 
+  <br>
+  <br>
+  <br>
 
   <footer id="contact" data-theme-bg="bg-3">
     <div class="container">
       <h2>Say Hello</h2>
-      <p style="margin:2rem 0; font-size:1.3rem;">
-        <a href="mailto:hello@ugothmeex.com">hello@ugothmeex.com</a>
+      <i class="fab fa-moon"> </i><i class="fab fa-moon"> </i><i class="fab fa-moon"></i>
+      <br>
+
+      <br>
+      Don't forget to e-mail me here
+      <p style="margin:2rem 0; font-size:1.6rem;">
+        <a href="mailto:rhnpclb22@gmail.com">rhnpclb22@gmail.com</a>
       </p>
+      <br>
+      Socials!
+      <br>
+      <br>
       <div class="social">
-        <a href="https://x.com/ugothmeex" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.instagram.com/ugothmeex/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.artstation.com/ugothmeex" target="_blank"><i class="fab fa-artstation"></i></a>
-        <a href="https://www.behance.net/ugothmeex" target="_blank"><i class="fab fa-behance"></i></a>
+        <a href="https://github.com/ugothmeex" target="_blank"><i class="fab fa-github"></i>
+          github.com/ugothmeex</a><br>
+        <a href="https://github.com/rhondp" target="_blank"><i class="fab fa-github"></i>
+          github.com/rhondp
+        </a><br>
+        <a href="https://www.facebook.com/rhondp" target="_blank"><i class="fab fa-facebook"></i>
+          fb.com/rhondp
+        </a><br>
+        <a href="https://www.instagram.com/ugothmeex/" target="_blank"><i class="fab fa-instagram"></i>
+          instagram.com/ugothmeex
+        </a><br>
+        <a href="https://x.com/ugothmeex" target="_blank"><i class="fab fa-x-twitter"></i>
+          x.com/ugothmeex
+        </a>
       </div>
-      <p style="margin-top:3rem;">© 2026 ugothmeex — Made in Mandaluyong City</p>
+      <br>
+      <br>
+      <br>
+      <p style="margin-top:3rem;">© 2026 ugothmeex — :D</p>
+
     </div>
+
   </footer>
 
   <!-- Media Modal Lightbox -->
