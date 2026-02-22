@@ -24,22 +24,28 @@
       --border: #333;
 
       /* Dynamic Gradient Colors */
-      --grad-1: rgba(0, 212, 255, 0.05);
-      --grad-2: rgba(255, 107, 203, 0.05);
+      --grad-1: rgba(0, 212, 255, 0.1);
+      --grad-2: rgba(255, 107, 203, 0.1);
 
-      --bg-hero-1: rgba(0, 212, 255, 0.05);
-      --bg-hero-2: rgba(255, 107, 203, 0.05);
-      --bg-games-1: rgba(255, 60, 60, 0.05);
+      /* Alternating Background Variables */
+      --bg-1-1: rgba(0, 212, 255, 0.1);
+      /* Cyan */
+      --bg-1-2: rgba(255, 107, 203, 0.1);
+      /* Pink */
+
+      --bg-2-1: rgba(255, 60, 60, 0.1);
       /* Red */
-      --bg-games-2: rgba(60, 60, 255, 0.05);
+      --bg-2-2: rgba(60, 60, 255, 0.1);
       /* Blue */
-      --bg-art-1: rgba(255, 200, 0, 0.05);
+
+      --bg-3-1: rgba(255, 200, 0, 0.1);
       /* Yellow */
-      --bg-art-2: rgba(200, 0, 255, 0.05);
+      --bg-3-2: rgba(200, 0, 255, 0.1);
       /* Purple */
-      --bg-about-1: rgba(0, 255, 100, 0.05);
+
+      --bg-4-1: rgba(0, 255, 100, 0.1);
       /* Green */
-      --bg-about-2: rgba(255, 100, 0, 0.05);
+      --bg-4-2: rgba(255, 100, 0, 0.1);
       /* Orange */
     }
 
@@ -52,14 +58,25 @@
       --card: #ffffff;
       --border: #ddd;
 
-      --bg-hero-1: rgba(0, 212, 255, 0.08);
-      --bg-hero-2: rgba(255, 107, 203, 0.08);
-      --bg-games-1: rgba(255, 60, 60, 0.08);
-      --bg-games-2: rgba(60, 60, 255, 0.08);
-      --bg-art-1: rgba(255, 200, 0, 0.08);
-      --bg-art-2: rgba(200, 0, 255, 0.08);
-      --bg-about-1: rgba(0, 255, 100, 0.08);
-      --bg-about-2: rgba(255, 100, 0, 0.08);
+      --bg-1-1: rgba(0, 212, 255, 0.08);
+      /* Cyan */
+      --bg-1-2: rgba(255, 107, 203, 0.08);
+      /* Pink */
+
+      --bg-2-1: rgba(255, 60, 60, 0.08);
+      /* Red */
+      --bg-2-2: rgba(60, 60, 255, 0.08);
+      /* Blue */
+
+      --bg-3-1: rgba(255, 200, 0, 0.08);
+      /* Yellow */
+      --bg-3-2: rgba(200, 0, 255, 0.08);
+      /* Purple */
+
+      --bg-4-1: rgba(0, 255, 100, 0.08);
+      /* Green */
+      --bg-4-2: rgba(255, 100, 0, 0.08);
+      /* Orange */
     }
 
     * {
@@ -242,8 +259,24 @@
 
     .card:hover {
       transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2), 0 30px 60px rgba(255, 107, 203, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.6), rgba(255, 107, 203, 0.6));
+      opacity: 0;
+      z-index: 10;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      mix-blend-mode: overlay;
+    }
+
+    .card:hover::before {
+      opacity: 0.8;
     }
 
     .card img,
@@ -265,11 +298,12 @@
       left: 0;
       right: 0;
       padding: 2rem 1.8rem;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2) 80%, transparent);
+      background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(0, 212, 255, 0.3) 60%, transparent 100%);
       backdrop-filter: blur(8px);
       transform: translateY(100%);
       transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       border-top: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 11;
     }
 
     .card:hover .info {
@@ -664,7 +698,7 @@
     <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
   </header>
 
-  <section id="hero" data-theme-bg="bg-hero">
+  <section id="hero" data-theme-bg="bg-1">
     <video autoplay muted loop playsinline>
       <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
     </video>
@@ -684,7 +718,7 @@
   </section>
 
 
-  <section id="games" class="container reveal" data-theme-bg="bg-games">
+  <section id="games" class="container reveal" data-theme-bg="bg-2">
     <br>
     <br>
     <br>
@@ -720,7 +754,7 @@
           <h3>Legacy (Gameplay)</h3>
           <p style="color:var(--text-muted);">Solowork(GDScript, 3D Models Animation) • 3D • Prototype • Web • Crypto
           </p>
-          <p style="font-size:0.95rem; margin-top:0.8rem;">Developed 3v3v3 mecha arena where you bet for a team. The
+          <p style="font-size:0.75rem; margin-top:0.8rem;">Developed 3v3v3 mecha arena where you bet for a team. The
             mechas are controlled by AI(LimboAI).
             This is a prototype gameplay for testing in the Web.</p>
           <br>
@@ -773,12 +807,13 @@
           <div class="thumbnail" data-index="3"><img src="img/td-bloons-3.png" alt="Thumb 4"></div>
         </div>
         <div class="info">
-          <h3>Legacy (Gameplay)</h3>
+          <h3>Tower Defense</h3>
           <p style="color:var(--text-muted);">Solowork(GDScript, 3D Models Animation) • 3D • Prototype • Web • Crypto
           </p>
-          <p style="font-size:0.95rem; margin-top:0.8rem;">Developed 3v3v3 mecha arena where you bet for a team. The
-            mechas are controlled by AI(LimboAI).
-            This is a prototype gameplay for testing in the Web.</p>
+          <p style="font-size:0.75rem; margin-top:0.8rem;">Developed a Tower Defense game based on BloonsTD. This
+            prototype is set-up as a base so the client can continue working on it. For PC and Mobile. Made with Godot.
+            <br><br>
+          </p>
           <br>
           <img src="img/godot.png" style="width:32px; height:32px;" alt="Godot logo">
           <!-- <a href="https://yourname.itch.io/project-echo" target="_blank" class="btn" style="margin-top:1rem; background:#478761; color:white;">Play Demo</a> -->
@@ -954,65 +989,309 @@
     </div>
   </section>
 
-  <section id="work" class="container reveal" data-theme-bg="bg-art">
-    <h2>Selected Art & 3D Work</h2>
+  <!-- APPS SECTION -->
+  <section id="apps" class="container reveal section-gradient-alt" data-theme-bg="bg-3">
+    <br><br><br>
+    <h2>Apps I've Built</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
+      Here are some apps I made for a company and companies clients.
+    </p>
     <div class="gallery">
-      <!-- Replace with your real artwork -->
-      <div class="card" style="aspect-ratio: 4/5;">
-        <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=800&q=85" alt="3D character">
+
+      <!-- Wayfinders -->
+      <div class="card game-card">
+        <div class="game-preview">
+          <video class="main-preview" controls muted playsinline preload="metadata">
+            <source src="img/wayfinder1.mp4" type="video/mp4">
+          </video>
+          <video class="main-preview hidden" controls muted playsinline preload="metadata">
+            <source src="img/wayfinder2.mp4" type="video/mp4">
+          </video>
+          <img src="img/wayfinder-3.jpg" alt="Screenshot" class="main-preview hidden">
+          <img src="img/wayfinder-4.jpg" alt="Screenshot" class="main-preview hidden">
+          <img src="img/wayfinder-5.jpg" alt="Screenshot" class="main-preview hidden">
+          <img src="img/wayfinder-6.jpg" alt="Screenshot" class="main-preview hidden">
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail active" data-index="0" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/wayfinder1.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnail" data-index="1" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/wayfinder2.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnail" data-index="2"><img src="img/wayfinder-3.jpg" alt="Thumb"></div>
+          <div class="thumbnail" data-index="3"><img src="img/wayfinder-4.jpg" alt="Thumb"></div>
+          <div class="thumbnail" data-index="4"><img src="img/wayfinder-5.jpg" alt="Thumb"></div>
+          <div class="thumbnail" data-index="5"><img src="img/wayfinder-6.jpg" alt="Thumb"></div>
+        </div>
         <div class="info">
-          <h3>Cyber Ronin</h3>
-          <p>3D character • ZBrush + Blender + Substance</p>
+          <h3>Wayfinders</h3>
+          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • 2D/3D</p>
+          <p>Interactive touchscreen kiosks for schools, hospitals, landmarks. Room names, logos and texts are
+            changeable on the app. Windows/HTML.</p>
+          <p style="color:#dca816; font-size:0.8rem; margin-top:0.4rem;">Want me to create a wayfinder for your place?
+            Message me!</p>
+          <img src="img/godot.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Godot">
         </div>
       </div>
-      <div class="card" style="aspect-ratio: 4/5;">
-        <img src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=800&q=85" alt="Surreal 2D">
+
+      <!-- Digital Photobooth -->
+      <div class="card game-card">
+        <div class="game-preview">
+          <video class="main-preview" controls muted playsinline preload="metadata">
+            <source src="img/foto-1.mp4" type="video/mp4">
+          </video>
+          <img src="img/foto-1.jpg" alt="Screenshot" class="main-preview hidden">
+          <img src="img/foto-2.jpg" alt="Screenshot" class="main-preview hidden">
+          <img src="img/foto-3.png" alt="Screenshot" class="main-preview hidden">
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail active" data-index="0" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/foto-1.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnail" data-index="1"><img src="img/foto-1.jpg" alt="Thumb"></div>
+          <div class="thumbnail" data-index="2"><img src="img/foto-2.jpg" alt="Thumb"></div>
+          <div class="thumbnail" data-index="3"><img src="img/foto-3.png" alt="Thumb"></div>
+        </div>
         <div class="info">
-          <h3>Neon Dreams</h3>
-          <p>2D illustration • Procreate + Photoshop</p>
+          <h3>Digital Photobooth</h3>
+          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • AR</p>
+          <p>A digital photobooth that lets you download your photo directly to your phone via QR featuring effects made
+            thru Snap. For Windows Touchscreens.</p>
+          <img src="img/unity.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Unity">
         </div>
       </div>
-      <div class="card" style="aspect-ratio: 4/5;">
-        <img src="https://images.unsplash.com/photo-1617791160505-6f00504e3519?w=800&q=85" alt="3D character">
+
+      <!-- AR Box -->
+      <div class="card game-card">
+        <div class="game-preview">
+          <video class="main-preview" controls muted playsinline preload="metadata">
+            <source src="img/ar-1.mp4" type="video/mp4">
+          </video>
+          <video class="main-preview hidden" controls muted playsinline preload="metadata">
+            <source src="img/ar-2.mp4" type="video/mp4">
+          </video>
+          <video class="main-preview hidden" controls muted playsinline preload="metadata">
+            <source src="img/ar-3.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail active" data-index="0" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/ar-1.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnail" data-index="1" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/ar-2.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnail" data-index="2" data-type="video">
+            <video muted loop playsinline>
+              <source src="img/ar-3.mp4" type="video/mp4">
+            </video>
+            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+        </div>
         <div class="info">
-          <h3>Cyber Ronin</h3>
-          <p>3D character • ZBrush + Blender + Substance</p>
+          <h3>AR Box</h3>
+          <p style="color:var(--text-muted); font-size: 0.75rem;">Company Work • Solowork • AR</p>
+          <p>AR box that changes how you look with different Snap filter effects inside. Creates an illusion you're in
+            the box! Snap AR + Vite/HTML.</p>
+          <img src="img/snap.png" style="width:24px; height:24px; margin-top:0.5rem;" alt="Snap">
         </div>
       </div>
-      <div class="card" style="aspect-ratio: 4/5;">
-        <img src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?w=800&q=85" alt="Surreal 2D">
-        <div class="info">
-          <h3>Neon Dreams</h3>
-          <p>2D illustration • Procreate + Photoshop</p>
-        </div>
-      </div>
-      <!-- Add more art cards here -->
+
+    </div>
+  </section>
+  <!-- (Deleted old about section leftovers) -->
+
+
+  <!-- 2D ART SECTION -->
+  <section id="art" class="container reveal" data-theme-bg="bg-4">
+    <br><br><br>
+    <h2>2D Corner</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+      Some arts I made for clients, personal games, and random sketches.
+    </p>
+
+    <h3
+      style="margin-top:2rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
+      Client Art</h3>
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art"></div>
+    </div>
+
+    <h3
+      style="margin-top:3rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
+      Game Assets</h3>
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art"></div>
+    </div>
+
+    <h3
+      style="margin-top:3rem; margin-bottom:1rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.5rem;">
+      Random Arts</h3>
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art"></div>
     </div>
   </section>
 
-  <section id="about" class="container reveal" data-theme-bg="bg-about">
-    <h2>About Me</h2>
-    <div class="about">
-      <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
+  <!-- 3D ART SECTION -->
+  <section id="corner-3d" class="container reveal" data-theme-bg="bg-1">
+    <br><br><br>
+    <h2>3D Corner</h2>
+    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+      Here are some few 3D models I made for a client and personal use.
+    </p>
+    <div class="gallery" style="gap: 1.5rem;">
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art"></div>
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <p style="color:var(--text-muted);">Download 3D files here (.RAR files)</p>
+      <a href="downloads/tank.rar"
+        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Tank</a>
+      <a href="downloads/chopper.rar"
+        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Chopper</a>
+      <a href="downloads/turret.rar"
+        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Turret</a>
+    </div>
+  </section>
+
+  <!-- ABOUT & EXPERIENCES SECTION -->
+  <section id="about" class="container reveal" data-theme-bg="bg-2">
+    <br><br><br>
+    <h2>About & Experience</h2>
+
+    <div class="about" style="font-size: 0.8rem;">
+      <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
         experimental visuals, and indie game development.</p>
       <p>I love blending styles — clean vector + gritty photogrammetry, dreamy 2D + hard-surface 3D, narrative stills +
-        interactive gameplay.</p>
+        interactive gameplay.</p> -->
 
       <div class="tools-grid">
         <div class="tool-item"><img src="img/godot.png" style="width:40px; filter: brightness(0) invert(1);"
             alt="Godot"><br>Godot</div>
-        <div class="tool-item"><i class="fa-brands fa-unity"></i><br>Unity</div>
-        <div class="tool-item"><i class="fa-solid fa-cube"></i><br>Blender</div>
-        <div class="tool-item"><i class="fa-solid fa-layer-group"></i><br>ZBrush / Sub</div>
-        <div class="tool-item"><i class="fa-solid fa-pen-nib"></i><br>Procreate</div>
-        <div class="tool-item"><i class="fa-solid fa-video"></i><br>After Effects</div>
+        <div class="tool-item"><i class="fa-brands fa-unity" style="font-size: 2.0rem;"></i><br>Unity</div>
+        <div class="tool-item"><i class="fa-solid fa-blender" style="font-size: 2.0rem;"></i><br>Blender</div>
+        <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Procreate</div>
+        <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Clip Studio Paint</div>
+        <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Affinity</div>
+        <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Photoshop</div>
+        <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>After Effects</div>
+        <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>Premiere Pro</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
+
+      <!-- Experience 1 -->
+      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D Artist
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
+        <p style="font-size: 0.95rem; line-height: 1.6;">
+          <strong>Game Developer</strong><br>
+          • Developed an initial Tower Defense game build inspired by BloonsTD providing functional foundation for
+          clients continued development (GDScript)<br>
+          • Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+          • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+          • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring AI-controlled ally and
+          enemy units (GDScript)<br>
+          • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized player
+          movement, projectile physics, and matchmaking (GDScript)<br><br>
+          <strong>2D Artist</strong><br>
+          • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and Affinity
+        </p>
       </div>
 
-      <p>Currently open for freelance, collabs, or game dev opportunities — let's talk!</p>
+      <!-- Experience 2 -->
+      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
+          2021 - Feb 2025</p>
+        <p style="font-size: 0.8rem; line-height: 1.6;">
+          <strong>Game & Interactive Development</strong><br>
+          • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot Engine (GDScript)
+          and Unity (C#).<br>
+          • Interactive map directory for malls and wayfinding systems deployed across commercial spaces.<br>
+          • Created AR camera apps with SnapAR filters and QR code integration for seamless photo transfer.<br><br>
+          <strong>AI & Computer Vision</strong><br>
+          • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects, triggering targeted
+          video ads on LED billboards.<br>
+          • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
+          <strong>Web & Internal Tools</strong><br>
+          • Developed internal web applications including company websites, e-forms, and admin dashboards using
+          Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
+          • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both on-site and
+          remotely.<br><br>
+          <strong>3D Content & Visual Design</strong><br>
+          • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced perspective
+          techniques for large-scale visuals.<br><br>
+          <strong>IT Support & Deployment</strong><br>
+          • Provided nationwide client support for digital signage systems, including installation, testing, and
+          troubleshooting.<br>
+          • Delivered remote and on-site helpdesk support for software and hardware issues across the Philippines.<br>
+          • Configured firewalls and ensured secure HTTPS protocols for internal systems.
+        </p>
+      </div>
+
+      <!-- Experience 3 -->
+      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
+          Mandaluyong - Jun 2014 - Sept 2020</p>
+        <p style="font-size: 0.95rem; line-height: 1.6;">
+          <strong>Client Deployment & Support</strong><br>
+          • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and Mindanao.<br>
+          • Conducted classroom-style training for managers and staff, improving system adoption and reducing support
+          requests.<br>
+          • Managed client meetings and unsupervised projects, ensuring timely delivery and system reliability.<br>
+          • Provided technical support via phone, email, and on-site visits for troubleshooting and maintenance.<br><br>
+          <strong>System Testing & Debugging</strong><br>
+          • Tested queue system program flows to meet client-specific requirements and UX expectations.<br>
+          • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry Pi).<br>
+          • Collaborated with developers to resolve deployment issues and improve system stability.<br><br>
+          <strong>Internal IT Support</strong><br>
+          • Delivered office helpdesk support for hardware/software issues.<br>
+          • Assisted in maintaining internal systems and ensuring smooth operations across departments.
+        </p>
+      </div>
+
     </div>
   </section>
 
-  <footer id="contact">
+
+
+  <footer id="contact" data-theme-bg="bg-3">
     <div class="container">
       <h2>Say Hello</h2>
       <p style="margin:2rem 0; font-size:1.3rem;">
