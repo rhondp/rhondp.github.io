@@ -24,33 +24,33 @@
       --border: #333;
 
       /* Dynamic Gradient Colors */
-      --grad-1: rgba(0, 212, 255, 0.1);
-      --grad-2: rgba(255, 107, 203, 0.1);
+      --grad-1: rgba(0, 212, 255, 0.15);
+      --grad-2: rgba(255, 107, 203, 0.15);
 
       /* Alternating Background Variables */
-      --bg-1-1: rgba(0, 212, 255, 0.1);
+      --bg-1-1: rgba(0, 212, 255, 0.15);
       /* Cyan */
-      --bg-1-2: rgba(255, 107, 203, 0.1);
+      --bg-1-2: rgba(255, 107, 203, 0.15);
       /* Pink */
 
-      --bg-2-1: rgba(255, 60, 60, 0.1);
+      --bg-2-1: rgba(255, 60, 60, 0.15);
       /* Red */
-      --bg-2-2: rgba(60, 60, 255, 0.1);
+      --bg-2-2: rgba(60, 60, 255, 0.15);
       /* Blue */
 
-      --bg-3-1: rgba(255, 200, 0, 0.1);
+      --bg-3-1: rgba(255, 200, 0, 0.15);
       /* Yellow */
-      --bg-3-2: rgba(200, 0, 255, 0.1);
+      --bg-3-2: rgba(200, 0, 255, 0.15);
       /* Purple */
 
-      --bg-4-1: rgba(0, 255, 100, 0.1);
+      --bg-4-1: rgba(0, 255, 100, 0.15);
       /* Green */
-      --bg-4-2: rgba(255, 100, 0, 0.1);
+      --bg-4-2: rgba(255, 100, 0, 0.15);
       /* Orange */
     }
 
     [data-theme="light"] {
-      --bg: #f8f9fa;
+      --bg: #ffffff;
       --text: #1a1a1a;
       --text-muted: #555;
       --accent: #0077b6;
@@ -58,24 +58,27 @@
       --card: #ffffff;
       --border: #ddd;
 
-      --bg-1-1: rgba(0, 212, 255, 0.08);
+      --grad-1: rgba(0, 212, 255, 0.2);
+      --grad-2: rgba(255, 107, 203, 0.2);
+
+      --bg-1-1: rgba(0, 212, 255, 0.2);
       /* Cyan */
-      --bg-1-2: rgba(255, 107, 203, 0.08);
+      --bg-1-2: rgba(255, 107, 203, 0.2);
       /* Pink */
 
-      --bg-2-1: rgba(255, 60, 60, 0.08);
+      --bg-2-1: rgba(255, 60, 60, 0.2);
       /* Red */
-      --bg-2-2: rgba(60, 60, 255, 0.08);
+      --bg-2-2: rgba(60, 60, 255, 0.2);
       /* Blue */
 
-      --bg-3-1: rgba(255, 200, 0, 0.08);
+      --bg-3-1: rgba(255, 200, 0, 0.2);
       /* Yellow */
-      --bg-3-2: rgba(200, 0, 255, 0.08);
+      --bg-3-2: rgba(200, 0, 255, 0.2);
       /* Purple */
 
-      --bg-4-1: rgba(0, 255, 100, 0.08);
+      --bg-4-1: rgba(0, 255, 100, 0.2);
       /* Green */
-      --bg-4-2: rgba(255, 100, 0, 0.08);
+      --bg-4-2: rgba(255, 100, 0, 0.2);
       /* Orange */
     }
 
@@ -94,6 +97,20 @@
       color: var(--text);
       line-height: 1.6;
       transition: background-color 0.8s ease, color 0.4s;
+    }
+
+    /* Fixed Noise Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.04;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
     h1,
@@ -970,118 +987,33 @@
     </p>
 
     Client Art
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art">
-        <div class="info">
-          <h3>Space Vectors</h3>
-          <p>Affinity Designer, Vector Art</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art">
-        <div class="info">
-          <h3>Tuklas Ibon</h3>
-          <p>Clip Studio Paint, Animation in Godot</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art">
-        <div class="info">
-          <h3>Space Game Tilemap</h3>
-          <p>Clip Studio Paint, Game Tilemaps</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art">
-        <div class="info">
-          <h3>Peso Ballin Summer</h3>
-          <p>Clip Studio Paint, Shirt Design</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art">
-        <div class="info">
-          <h3>Space Game Tilemap 2</h3>
-          <p>Clip Studio Paint, Tilemap Normal, AO, etc..</p>
-        </div>
-      </div>
+    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art"></div>
     </div>
 
     Game Assets
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art">
-        <div class="info">
-          <h3>Monstars</h3>
-          <p>Clip Studio Paint, Pop-it! Monstars!</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art">
-        <div class="info">
-          <h3>Isometric Floors</h3>
-          <p>Clip Studio Paint, Snake and Ladders</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art">
-        <div class="info">
-          <h3>Run Peggy!</h3>
-          <p>Clip Studio Paint, Fever Wings</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art">
-        <div class="info">
-          <h3>Pixel Swordsman Girl</h3>
-          <p>Clip Studio Paint, OC</p>
-        </div>
-      </div>
+    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art"></div>
     </div>
 
     Random Drawings I Made
-    <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art">
-        <div class="info">
-          <h3>Summer Axie</h3>
-          <p>Clip Studio Paint, Axie</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art">
-        <div class="info">
-          <h3>Tsuyu </h3>
-          <p>Clip Studio Paint, MHA</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art">
-        <div class="info">
-          <h3>Goth Girl</h3>
-          <p>Clip Studio Paint, OC</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art">
-        <div class="info">
-          <h3>Kagura Kimono</h3>
-          <p>Clip Studio Paint, ML</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art">
-        <div class="info">
-          <h3>Shizuku Sketch</h3>
-          <p>Clip Studio Paint, HXH</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art">
-        <div class="info">
-          <h3>Cozy Rin</h3>
-          <p>Clip Studio Paint, Yuru Camp</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art">
-        <div class="info">
-          <h3>Runnn~</h3>
-          <p>Clip Studio Paint, Wild Forest</p>
-        </div>
-      </div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art">
-        <div class="info">
-          <h3>Nana and Chang'e Summer</h3>
-          <p>Clip Studio Paint, ML</p>
-        </div>
-      </div>
-
+    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art"></div>
+    </div>
 
 
 
@@ -1241,7 +1173,7 @@
   <!-- ABOUT & EXPERIENCES SECTION -->
   <section id="about" class="container reveal" data-theme-bg="bg-2">
     <br><br><br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Tools & Exp</h2>
+    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Exp & Tools!</h2>
 
     <div class="about" style="font-size: 0.8rem;">
       <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
@@ -1249,114 +1181,120 @@
       <p>I love blending styles — clean vector + gritty photogrammetry, dreamy 2D + hard-surface 3D, narrative stills +
         interactive gameplay.</p> -->
 
-      <div class="tools-grid">
-        <div class="tool-item"><img src="img/godot.png" style="width:40px; filter: brightness(0) invert(1);"
-            alt="Godot"><br>Godot</div>
-        <div class="tool-item"><i class="fa-brands fa-unity" style="font-size: 2.0rem;"></i><br>Unity</div>
-        <div class="tool-item"><i class="fa-solid fa-blender" style="font-size: 2.0rem;"></i><br>Blender</div>
-        <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Procreate</div>
-        <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Clip Studio Paint</div>
-        <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Affinity</div>
-        <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Photoshop</div>
-        <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>After Effects</div>
-        <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>Premiere Pro</div>
-      </div>
-    </div>
 
-    <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
 
-      <!-- Experience 1 -->
-      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D Artist
-        </h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
-        <p style="font-size: 0.85rem; line-height: 1.6;">
-          <strong>Game Developer</strong><br>
-          &nbsp; &nbsp; • Developed an initial Tower Defense game build inspired by BloonsTD providing functional
-          foundation
-          for
-          clients continued development (GDScript)<br>
-          &nbsp; &nbsp; • Prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
-          &nbsp; &nbsp; • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
-          &nbsp; &nbsp; • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring
-          AI-controlled ally and
-          enemy units (GDScript)<br>
-          &nbsp; &nbsp; • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with synchronized
-          player
-          movement, projectile physics, and matchmaking (GDScript)<br><br>
-          <strong>2D Artist</strong><br>
-          &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
-          Affinity
-        </p>
-      </div>
+      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
 
-      <!-- Experience 2 -->
-      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
-          2021 - Feb 2025</p>
-        <p style="font-size: 0.85rem; line-height: 1.6;">
-          <strong>Game & Interactive Development</strong><br>
-          &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
-          Engine (GDScript)
-          and Unity (C#).<br>
-          &nbsp; &nbsp; • Interactive map directory for malls and wayfinding systems deployed across commercial
-          spaces.<br>
-          &nbsp; &nbsp; • Created AR camera apps with SnapAR filters and QR code integration for seamless photo
-          transfer.<br><br>
-          <strong>AI & Computer Vision</strong><br>
-          &nbsp; &nbsp; • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects,
-          triggering targeted
-          video ads on LED billboards.<br>
-          &nbsp; &nbsp; • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
-          <strong>Web & Internal Tools</strong><br>
-          &nbsp; &nbsp; • Developed internal web applications including company websites, e-forms, and admin dashboards
-          using
-          Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
-          &nbsp; &nbsp; • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both
-          on-site and
-          remotely.<br><br>
-          <strong>3D Content & Visual Design</strong><br>
-          &nbsp; &nbsp; • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced
-          perspective
-          techniques for large-scale visuals.<br><br>
-          <strong>IT Support & Deployment</strong><br>
-          &nbsp; &nbsp; • Provided nationwide client support for digital signage systems, including installation,
-          testing, and
-          troubleshooting.<br>
-          &nbsp; &nbsp; • Delivered remote and on-site helpdesk support for software and hardware issues across the
-          Philippines.<br>
-          &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
-        </p>
-      </div>
+        <!-- Experience 1 -->
+        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D & 3D
+            Artist
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
+          <p style="font-size: 0.8rem; line-height: 1.6;">
+            <strong>Game Developer</strong><br>
+            &nbsp; &nbsp; • Provide a functional Tower Defense game
+            foundation for client continued development inspired by BloonsTD
+            (GDScript)<br>
+            &nbsp; &nbsp; • Helped prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+            &nbsp; &nbsp; • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+            &nbsp; &nbsp; • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring
+            AI-controlled ally and
+            enemy units (GDScript)<br>
+            &nbsp; &nbsp; • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with
+            synchronized
+            player
+            movement, projectile physics, and matchmaking (GDScript)<br><br>
+            <strong>2D & 3D Artist</strong><br>
+            &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
+            Affinity<br>
+            &nbsp; &nbsp; • Help client on fixing their 3D models and adding dynamic animations using Blender
+        </div>
 
-      <!-- Experience 3 -->
-      <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-        <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
-          Mandaluyong - Jun 2014 - Sept 2020</p>
-        <p style="font-size: 0.85rem; line-height: 1.6;">
-          <strong>Client Deployment & Support</strong><br>
-          &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
-          Mindanao.<br>
-          &nbsp; &nbsp; • Conducted classroom-style training for managers and staff, improving system adoption and
-          reducing support
-          requests.<br>
-          &nbsp; &nbsp; • Managed client meetings and unsupervised projects, ensuring timely delivery and system
-          reliability.<br>
-          &nbsp; &nbsp; • Provided technical support via phone, email, and on-site visits for troubleshooting and
-          maintenance.<br><br>
-          <strong>System Testing & Debugging</strong><br>
-          &nbsp; &nbsp; • Tested queue system program flows to meet client-specific requirements and UX
-          expectations.<br>
-          &nbsp; &nbsp; • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry
-          Pi).<br>
-          &nbsp; &nbsp; • Collaborated with developers to resolve deployment issues and improve system
-          stability.<br><br>
-          <strong>Internal IT Support</strong><br>
-          &nbsp; &nbsp; • Delivered office helpdesk support for hardware/software issues.<br>
-          &nbsp; &nbsp; • Assisted in maintaining internal systems and ensuring smooth operations across departments.
-        </p>
+        <!-- Experience 2 -->
+        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
+            2021 - Feb 2025</p>
+          <p style="font-size: 0.8rem; line-height: 1.6;">
+            <strong>Game & Interactive Development</strong><br>
+            &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
+            Engine (GDScript)
+            and Unity (C#).<br>
+            &nbsp; &nbsp; • Interactive map directory for malls and wayfinding systems deployed across commercial
+            spaces.<br>
+            &nbsp; &nbsp; • Created AR camera apps with SnapAR filters and QR code integration for seamless photo
+            transfer.<br><br>
+            <strong>AI & Computer Vision</strong><br>
+            &nbsp; &nbsp; • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects,
+            triggering targeted
+            video ads on LED billboards.<br>
+            &nbsp; &nbsp; • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
+            <strong>Web & Internal Tools</strong><br>
+            &nbsp; &nbsp; • Developed internal web applications including company websites, e-forms, and admin
+            dashboards
+            using
+            Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
+            &nbsp; &nbsp; • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both
+            on-site and
+            remotely.<br><br>
+            <strong>3D Content & Visual Design</strong><br>
+            &nbsp; &nbsp; • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced
+            perspective
+            techniques for large-scale visuals.<br><br>
+            <strong>IT Support & Deployment</strong><br>
+            &nbsp; &nbsp; • Provided nationwide client support for digital signage systems, including installation,
+            testing, and
+            troubleshooting.<br>
+            &nbsp; &nbsp; • Delivered remote and on-site helpdesk support for software and hardware issues across the
+            Philippines.<br>
+            &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
+          </p>
+        </div>
+
+        <!-- Experience 3 -->
+        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
+            Mandaluyong - Jun 2014 - Sept 2020</p>
+          <p style="font-size: 0.8rem; line-height: 1.6;">
+            <strong>Client Deployment & Support</strong><br>
+            &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
+            Mindanao.<br>
+            &nbsp; &nbsp; • Conducted classroom-style training for managers and staff, improving system adoption and
+            reducing support
+            requests.<br>
+            &nbsp; &nbsp; • Managed client meetings and unsupervised projects, ensuring timely delivery and system
+            reliability.<br>
+            &nbsp; &nbsp; • Provided technical support via phone, email, and on-site visits for troubleshooting and
+            maintenance.<br><br>
+            <strong>System Testing & Debugging</strong><br>
+            &nbsp; &nbsp; • Tested queue system program flows to meet client-specific requirements and UX
+            expectations.<br>
+            &nbsp; &nbsp; • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry
+            Pi).<br>
+            &nbsp; &nbsp; • Collaborated with developers to resolve deployment issues and improve system
+            stability.<br><br>
+            <strong>Internal IT Support</strong><br>
+            &nbsp; &nbsp; • Delivered office helpdesk support for hardware/software issues.<br>
+            &nbsp; &nbsp; • Assisted in maintaining internal systems and ensuring smooth operations across departments.
+          </p>
+        </div>
+
+
+        <div class="tools-grid">
+          <div class="tool-item"><img src="img/godot.png" style="width:40px; filter: brightness(0) invert(1);"
+              alt="Godot"><br>Godot</div>
+          <div class="tool-item"><i class="fa-brands fa-unity" style="font-size: 2.0rem;"></i><br>Unity</div>
+          <div class="tool-item"><i class="fa-solid fa-blender" style="font-size: 2.0rem;"></i><br>Blender</div>
+          <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Procreate</div>
+          <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Clip Studio Paint
+          </div>
+          <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Affinity</div>
+          <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Photoshop</div>
+          <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>After Effects</div>
+          <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>Premiere Pro</div>
+        </div>
       </div>
 
     </div>
@@ -1370,17 +1308,10 @@
   <footer id="contact" data-theme-bg="bg-3">
     <div class="container">
       <h2>Say Hello</h2>
-      <i class="fab fa-moon"> </i><i class="fab fa-moon"> </i><i class="fab fa-moon"></i>
-      <br>
-
-      <br>
-      Don't forget to e-mail me here
-      <p style="margin:2rem 0; font-size:1.6rem;">
+      <p style="margin:1rem 0; font-size:1.6rem;">
         <a href="mailto:rhnpclb22@gmail.com">rhnpclb22@gmail.com</a>
       </p>
-      <br>
-      Socials!
-      <br>
+
       <br>
       <div class="social">
         <a href="https://github.com/ugothmeex" target="_blank"><i class="fab fa-github"></i>
@@ -1398,8 +1329,6 @@
           x.com/ugothmeex
         </a>
       </div>
-      <br>
-      <br>
       <br>
       <p style="margin-top:3rem;">© 2026 ugothmeex — :D</p>
 
