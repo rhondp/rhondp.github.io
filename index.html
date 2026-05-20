@@ -14,6 +14,18 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
   <style>
+    @property --grad-1 {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: rgba(0, 212, 255, 0.15);
+    }
+
+    @property --grad-2 {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: rgba(255, 107, 203, 0.15);
+    }
+
     :root {
       --bg: #0f0f0f;
       --text: #e0e0e0;
@@ -96,7 +108,7 @@
       background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
-      transition: background-color 0.8s ease, color 0.4s;
+      transition: background-color 0.8s ease, color 0.4s, --grad-1 0.8s ease, --grad-2 0.8s ease;
     }
 
     /* Fixed Noise Overlay */
@@ -706,6 +718,18 @@
     .close-modal:hover {
       color: var(--accent);
     }
+
+    .gallery-subtitle {
+      font-size: 1.5rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      border-left: 4px solid var(--accent);
+      padding-left: 0.8rem;
+      text-align: left;
+    }
   </style>
 </head>
 
@@ -726,7 +750,8 @@
     <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
   </header>
 
-  <section id="hero" data-theme-bg="bg-1">
+  <main>
+    <section id="hero" data-theme-bg="bg-1">
     <video autoplay muted loop playsinline>
       <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
     </video>
@@ -986,36 +1011,36 @@
       Some arts I made for clients, personal games, and random sketches.
     </p>
 
-    Client Art
+    <h3 class="gallery-subtitle">Client Art</h3>
     <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup2.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup3.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup2.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup3.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art" loading="lazy"></div>
     </div>
 
-    Game Assets
+    <h3 class="gallery-subtitle">Game Assets</h3>
     <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art" loading="lazy"></div>
     </div>
 
-    Random Drawings I Made
+    <h3 class="gallery-subtitle">Random Drawings I Made</h3>
     <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art" loading="lazy"></div>
     </div>
 
 
@@ -1159,10 +1184,10 @@
       Here are some few 3D models I made for a client and personal use.
     </p>
     <div class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art" loading="lazy"></div>
+      <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art" loading="lazy"></div>
     </div>
     <div style="text-align:center; margin-top:2rem;">
       <p style="color:var(--text-muted);">Download 3D files here (.RAR files)</p>
@@ -1306,9 +1331,7 @@
   </section>
 
 
-  <br>
-  <br>
-  <br>
+  </main>
 
   <footer id="contact" data-theme-bg="bg-3">
     <div class="container">
@@ -1418,6 +1441,13 @@
       nav.classList.toggle('active');
     });
 
+    // Close mobile menu when a nav link is clicked
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('active');
+      });
+    });
+
     // Dynamic Background Color on Scroll
     const sections = document.querySelectorAll('section[data-theme-bg]');
     const root = document.documentElement;
@@ -1469,32 +1499,34 @@
 
       if (!modal || !modalImg || !modalVideo || !closeBtn) return;
 
-      const mediaItems = document.querySelectorAll('.game-preview img, .game-preview video, #work .card img');
+      // Event delegation: listen for clicks on document and match target
+      document.addEventListener('click', function (e) {
+        // Find if the clicked element (or any of its parents) matches our media selector
+        const media = e.target.closest('.game-preview img, .game-preview video, .gallery .card img');
+        if (!media) return;
 
-      mediaItems.forEach(media => {
-        media.addEventListener('click', function (e) {
-          e.stopPropagation();
-          e.preventDefault();
+        // Skip if this is a hidden preview element or a thumbnail
+        if (media.classList.contains('hidden') || media.closest('.thumbnails')) return;
 
-          if (media.classList.contains('hidden')) return;
+        e.preventDefault();
+        e.stopPropagation();
 
-          modalImg.style.display = 'none';
-          modalVideo.style.display = 'none';
+        modalImg.style.display = 'none';
+        modalVideo.style.display = 'none';
 
-          if (media.tagName === 'VIDEO') {
-            const source = media.querySelector('source');
-            if (source && source.src) {
-              modalVideo.src = source.src;
-              modalVideo.style.display = 'block';
-              modalVideo.play().catch(err => console.log(err));
-            }
-          } else if (media.tagName === 'IMG') {
-            modalImg.src = media.src;
-            modalImg.style.display = 'block';
+        if (media.tagName === 'VIDEO') {
+          const source = media.querySelector('source');
+          if (source && source.src) {
+            modalVideo.src = source.src;
+            modalVideo.style.display = 'block';
+            modalVideo.play().catch(err => console.log(err));
           }
+        } else if (media.tagName === 'IMG') {
+          modalImg.src = media.src;
+          modalImg.style.display = 'block';
+        }
 
-          modal.classList.add('active');
-        });
+        modal.classList.add('active');
       });
 
       function closeModal() {
@@ -1519,7 +1551,6 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initMediaModal();
-      setTimeout(initMediaModal, 1000); // retry
     });
   </script>
 
