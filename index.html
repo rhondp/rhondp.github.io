@@ -13,6 +13,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <style>
     @property --grad-1 {
       syntax: '<color>';
@@ -59,6 +60,7 @@
       /* Green */
       --bg-4-2: rgba(255, 100, 0, 0.15);
       /* Orange */
+      --btn-text: #000000;
     }
 
     [data-theme="light"] {
@@ -92,6 +94,7 @@
       /* Green */
       --bg-4-2: rgba(255, 100, 0, 0.2);
       /* Orange */
+      --btn-text: #ffffff;
     }
 
     * {
@@ -245,7 +248,7 @@
       display: inline-block;
       padding: 1rem 2.2rem;
       background: var(--accent);
-      color: #000;
+      color: var(--btn-text);
       font-weight: 600;
       border-radius: 50px;
       transition: all 0.3s;
@@ -730,6 +733,155 @@
       padding-left: 0.8rem;
       text-align: left;
     }
+
+    .accent-text {
+      background: linear-gradient(90deg, var(--accent), #ff6bcb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    /* Masonry Gallery Layout */
+    .masonry-gallery {
+      column-count: 4;
+      column-gap: 1.5rem;
+      padding: 2rem 0;
+    }
+    .masonry-gallery .card {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+      aspect-ratio: auto !important;
+    }
+    .masonry-gallery .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 1024px) {
+      .masonry-gallery {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 768px) {
+      .masonry-gallery {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 480px) {
+      .masonry-gallery {
+        column-count: 1;
+      }
+    }
+
+    /* Download Pills */
+    .download-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      color: var(--text) !important;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+    }
+    .download-pill:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: var(--accent);
+      color: var(--accent) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+    [data-theme="light"] .download-pill {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: var(--text) !important;
+    }
+    [data-theme="light"] .download-pill:hover {
+      background: rgba(0, 119, 182, 0.1);
+      border-color: var(--accent);
+      color: var(--accent) !important;
+    }
+
+    /* Toggle Buttons */
+    .toggle-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 30px;
+    }
+    .toggle-btn.active {
+      background: var(--accent);
+      color: #000000;
+      border-color: var(--accent);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+    .toggle-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .toggle-btn.active:hover {
+      color: #000000;
+    }
+    [data-theme="light"] .toggle-btn {
+      background: rgba(0, 0, 0, 0.05);
+      color: var(--text);
+    }
+    [data-theme="light"] .toggle-btn.active {
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(0, 119, 182, 0.3);
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      background-color: var(--card);
+      --poster-color: transparent;
+      outline: none;
+      display: block;
+    }
+
+    .model-viewer-placeholder {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(3px);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      z-index: 10;
+      pointer-events: none;
+      text-align: center;
+      padding: 1rem;
+    }
+    .model-viewer-placeholder span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Hide fullscreen controls on videos */
+    video::-webkit-media-controls-fullscreen-button {
+      display: none !important;
+    }
   </style>
 </head>
 
@@ -756,7 +908,7 @@
       <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
     </video>
     <div class="container hero-content reveal">
-      <h1>Hey, I create Games - 2D — 3D — Motion - Apps - Websites</h1>
+      <h1>Hey, I'm <span class="accent-text">Rhon P</span> — Game Developer & Technical Artist</h1>
       <div class="skills-pills">
         <span class="pill">Godot</span>
         <span class="pill">Unity</span>
@@ -1012,35 +1164,35 @@
     </p>
 
     <h3 class="gallery-subtitle">Client Art</h3>
-    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup2.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art-gocup3.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/space-svg.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA1.gif" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA2.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/artA3.jpg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-3.png" alt="Art" loading="lazy"></div>
+    <div class="masonry-gallery">
+      <div class="card"><img src="img/art-gocup.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art-gocup2.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art-gocup3.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/space-svg.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/artA1.gif" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/artA2.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/artA3.jpg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/game-asset-3.png" alt="Art" loading="lazy"></div>
     </div>
 
     <h3 class="gallery-subtitle">Game Assets</h3>
-    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-1.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-2.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-asset-4.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/game-assset-5.png" alt="Art" loading="lazy"></div>
+    <div class="masonry-gallery">
+      <div class="card"><img src="img/game-asset-1.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/game-asset-2.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/game-asset-4.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/game-assset-5.png" alt="Art" loading="lazy"></div>
     </div>
 
     <h3 class="gallery-subtitle">Random Drawings I Made</h3>
-    <div class="gallery" style="gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));">
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art1.webp" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art2.jpg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art3.jpg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art4.jpeg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art5.png" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art6.jpg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art7.jpg" alt="Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 1/1;"><img src="img/art8.png" alt="Art" loading="lazy"></div>
+    <div class="masonry-gallery">
+      <div class="card"><img src="img/art1.webp" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art2.jpg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art3.jpg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art4.jpeg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art5.png" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art6.jpg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art7.jpg" alt="Art" loading="lazy"></div>
+      <div class="card"><img src="img/art8.png" alt="Art" loading="lazy"></div>
     </div>
 
 
@@ -1183,20 +1335,65 @@
     <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
       Here are some few 3D models I made for a client and personal use.
     </p>
-    <div class="gallery" style="gap: 1.5rem;">
+    <!-- Toggle Controls -->
+    <div class="toggle-container">
+      <button class="toggle-btn active" id="btn-turntables">Turntable Renders</button>
+      <button class="toggle-btn" id="btn-realtime">Interactive 3D Viewers</button>
+    </div>
+
+    <!-- Turntable Grid (Active by default) -->
+    <div id="grid-turntables" class="gallery" style="gap: 1.5rem;">
       <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art" loading="lazy"></div>
       <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art" loading="lazy"></div>
       <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art" loading="lazy"></div>
       <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art" loading="lazy"></div>
     </div>
+
+    <!-- Interactive WebGL 3D Grid (Hidden by default) -->
+    <div id="grid-realtime" class="gallery" style="gap: 1.5rem; display: none;">
+      <div class="card" style="aspect-ratio: 4/3;">
+        <model-viewer src="downloads/oc-char.glb" poster="img/oc-char.gif" alt="OC Character Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+          <div class="model-viewer-placeholder" slot="poster">
+            Click to Activate 3D View
+            <span>(requires downloads/oc-char.glb)</span>
+          </div>
+        </model-viewer>
+      </div>
+      <div class="card" style="aspect-ratio: 4/3;">
+        <model-viewer src="downloads/tank.glb" poster="img/tank.gif" alt="Tank Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+          <div class="model-viewer-placeholder" slot="poster">
+            Click to Activate 3D View
+            <span>(requires downloads/tank.glb)</span>
+          </div>
+        </model-viewer>
+      </div>
+      <div class="card" style="aspect-ratio: 4/3;">
+        <model-viewer src="downloads/chopper.glb" poster="img/chopper.gif" alt="Chopper Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+          <div class="model-viewer-placeholder" slot="poster">
+            Click to Activate 3D View
+            <span>(requires downloads/chopper.glb)</span>
+          </div>
+        </model-viewer>
+      </div>
+      <div class="card" style="aspect-ratio: 4/3;">
+        <model-viewer src="downloads/turret.glb" poster="img/turret.gif" alt="Turret Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+          <div class="model-viewer-placeholder" slot="poster">
+            Click to Activate 3D View
+            <span>(requires downloads/turret.glb)</span>
+          </div>
+        </model-viewer>
+      </div>
+    </div>
+
+    <p id="realtime-instructions" style="text-align:center; color:var(--accent); margin-top:1.5rem; font-size:0.9rem; display:none; opacity:0.8;">
+      <i class="fas fa-arrows-alt"></i> Left-click + drag to rotate. Scroll to zoom.
+    </p>
+
     <div style="text-align:center; margin-top:2rem;">
-      <p style="color:var(--text-muted);">Download 3D files here (.RAR files)</p>
-      <a href="downloads/tank.rar"
-        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Tank</a>
-      <a href="downloads/chopper.rar"
-        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Chopper</a>
-      <a href="downloads/turret.rar"
-        style="color:var(--accent); text-decoration:underline; display:inline-block; margin:0.5rem;">Turret</a>
+      <p style="color:var(--text-muted); margin-bottom: 1rem;">Download 3D files (.RAR)</p>
+      <a href="downloads/tank.rar" class="download-pill"><i class="fas fa-download"></i> Tank</a>
+      <a href="downloads/chopper.rar" class="download-pill"><i class="fas fa-download"></i> Chopper</a>
+      <a href="downloads/turret.rar" class="download-pill"><i class="fas fa-download"></i> Turret</a>
     </div>
   </section>
 
@@ -1205,23 +1402,23 @@
     <br><br><br>
     <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Exp & Tools!</h2>
 
-    <div class="about" style="font-size: 0.8rem;">
+    <div class="about" style="font-size: 0.95rem;">
       <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
         experimental visuals, and indie game development.</p>
       <p>I love blending styles — clean vector + gritty photogrammetry, dreamy 2D + hard-surface 3D, narrative stills +
         interactive gameplay.</p> -->
-
-
-
+ 
+ 
+ 
       <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
-
+ 
         <!-- Experience 1 -->
         <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
           <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D & 3D
             Artist
           </h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
-          <p style="font-size: 0.8rem; line-height: 1.6;">
+          <p style="font-size: 0.9rem; line-height: 1.7;">
             <strong>Game Developer</strong><br>
             &nbsp; &nbsp; • Provide a functional Tower Defense game
             foundation for client continued development inspired by BloonsTD
@@ -1239,14 +1436,15 @@
             &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
             Affinity<br>
             &nbsp; &nbsp; • Help client on fixing their 3D models and adding dynamic animations using Blender
+          </p>
         </div>
-
+ 
         <!-- Experience 2 -->
         <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
           <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
             2021 - Feb 2025</p>
-          <p style="font-size: 0.8rem; line-height: 1.6;">
+          <p style="font-size: 0.9rem; line-height: 1.7;">
             <strong>Game & Interactive Development</strong><br>
             &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
             Engine (GDScript)
@@ -1281,13 +1479,13 @@
             &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
           </p>
         </div>
-
+ 
         <!-- Experience 3 -->
         <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
           <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
           <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
             Mandaluyong - Jun 2014 - Sept 2020</p>
-          <p style="font-size: 0.8rem; line-height: 1.6;">
+          <p style="font-size: 0.9rem; line-height: 1.7;">
             <strong>Client Deployment & Support</strong><br>
             &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
             Mindanao.<br>
@@ -1551,6 +1749,36 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       initMediaModal();
+
+      // Hide fullscreen button on all videos
+      document.querySelectorAll('video').forEach(video => {
+        video.setAttribute('controlsList', 'nofullscreen');
+      });
+
+      // 3D Grid Toggle
+      const btnTurntables = document.getElementById('btn-turntables');
+      const btnRealtime = document.getElementById('btn-realtime');
+      const gridTurntables = document.getElementById('grid-turntables');
+      const gridRealtime = document.getElementById('grid-realtime');
+      const realtimeInstructions = document.getElementById('realtime-instructions');
+
+      if (btnTurntables && btnRealtime && gridTurntables && gridRealtime) {
+        btnTurntables.addEventListener('click', () => {
+          btnTurntables.classList.add('active');
+          btnRealtime.classList.remove('active');
+          gridTurntables.style.display = 'grid';
+          gridRealtime.style.display = 'none';
+          if (realtimeInstructions) realtimeInstructions.style.display = 'none';
+        });
+
+        btnRealtime.addEventListener('click', () => {
+          btnRealtime.classList.add('active');
+          btnTurntables.classList.remove('active');
+          gridTurntables.style.display = 'none';
+          gridRealtime.style.display = 'grid';
+          if (realtimeInstructions) realtimeInstructions.style.display = 'block';
+        });
+      }
     });
   </script>
 
