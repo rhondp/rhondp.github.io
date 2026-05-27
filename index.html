@@ -747,26 +747,31 @@
       column-gap: 1.5rem;
       padding: 2rem 0;
     }
+
     .masonry-gallery .card {
       break-inside: avoid;
       margin-bottom: 1.5rem;
       aspect-ratio: auto !important;
     }
+
     .masonry-gallery .card img {
       width: 100%;
       height: auto;
       display: block;
     }
+
     @media (max-width: 1024px) {
       .masonry-gallery {
         column-count: 3;
       }
     }
+
     @media (max-width: 768px) {
       .masonry-gallery {
         column-count: 2;
       }
     }
+
     @media (max-width: 480px) {
       .masonry-gallery {
         column-count: 1;
@@ -788,6 +793,7 @@
       transition: all 0.3s ease;
       margin: 0.5rem;
     }
+
     .download-pill:hover {
       background: rgba(0, 212, 255, 0.1);
       border-color: var(--accent);
@@ -795,11 +801,13 @@
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
     }
+
     [data-theme="light"] .download-pill {
       background: rgba(0, 0, 0, 0.05);
       border-color: rgba(0, 0, 0, 0.1);
       color: var(--text) !important;
     }
+
     [data-theme="light"] .download-pill:hover {
       background: rgba(0, 119, 182, 0.1);
       border-color: var(--accent);
@@ -813,6 +821,7 @@
       gap: 1rem;
       margin-bottom: 2.5rem;
     }
+
     .toggle-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
@@ -824,23 +833,28 @@
       transition: all 0.3s ease;
       border-radius: 30px;
     }
+
     .toggle-btn.active {
       background: var(--accent);
       color: #000000;
       border-color: var(--accent);
       box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
     }
+
     .toggle-btn:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
+
     .toggle-btn.active:hover {
       color: #000000;
     }
+
     [data-theme="light"] .toggle-btn {
       background: rgba(0, 0, 0, 0.05);
       color: var(--text);
     }
+
     [data-theme="light"] .toggle-btn.active {
       color: #ffffff;
       box-shadow: 0 0 15px rgba(0, 119, 182, 0.3);
@@ -872,6 +886,7 @@
       text-align: center;
       padding: 1rem;
     }
+
     .model-viewer-placeholder span {
       font-size: 0.75rem;
       color: var(--text-muted);
@@ -904,629 +919,645 @@
 
   <main>
     <section id="hero" data-theme-bg="bg-1">
-    <video autoplay muted loop playsinline>
-      <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
-    </video>
-    <div class="container hero-content reveal">
-      <h1>Hey, I'm <span class="accent-text">Rhon P</span> — Game Developer & Technical Artist</h1>
-      <div class="skills-pills">
-        <span class="pill">Godot</span>
-        <span class="pill">Unity</span>
-        <span class="pill">Illustration</span>
-        <span class="pill">Motion</span>
-        <span class="pill">3D modeling</span>
-        <span class="pill">Animation</span>
-        <span class="pill">Concept art</span>
-      </div>
-      <a href="#games" class="btn glow-btn">See the work ↓</a>
-    </div>
-  </section>
-
-  <!-- GAMES!! SECTION -->
-  <section id="games" class="container reveal" data-theme-bg="bg-2">
-    <br>
-    <br>
-    <br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Games I've Built</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
-      >> Some games I made for client, company and personal project
-    </p>
-    <div class="gallery">
-
-      <!-- LEGACY GAMEPLAY -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/legacy-gameplay.mp4" type="video/mp4">
-          </video>
-          <img src="img/legacy-gameplay1.png" alt="Screenshot 2" class="main-preview hidden">
-          <img src="img/legacy-gameplay2.png" alt="Screenshot 3" class="main-preview hidden">
-          <img src="img/legacy-gameplay3.png" alt="Screenshot 4" class="main-preview hidden">
+      <video autoplay muted loop playsinline>
+        <source src="https://assets.codepen.io/605876/abstract-3d-loop-low.mp4" type="video/mp4">
+      </video>
+      <div class="container hero-content reveal">
+        <h1>Hey, I'm <span class="accent-text">Rhon P</span> — Game Developer & Technical Artist</h1>
+        <div class="skills-pills">
+          <span class="pill">Godot</span>
+          <span class="pill">Unity</span>
+          <span class="pill">Illustration</span>
+          <span class="pill">Motion</span>
+          <span class="pill">3D modeling</span>
+          <span class="pill">Animation</span>
+          <span class="pill">Concept art</span>
         </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline poster="fallback-thumb-for-video3.jpg">
+        <a href="#games" class="btn glow-btn">See the work ↓</a>
+      </div>
+    </section>
+
+    <!-- GAMES!! SECTION -->
+    <section id="games" class="container reveal" data-theme-bg="bg-2">
+      <br>
+      <br>
+      <br>
+      <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Games I've Built</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+        >> Some games I made for client, company and personal project
+      </p>
+      <div class="gallery">
+
+        <!-- LEGACY GAMEPLAY -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/legacy-gameplay.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+            <img src="img/legacy-gameplay1.png" alt="Screenshot 2" class="main-preview hidden">
+            <img src="img/legacy-gameplay2.png" alt="Screenshot 3" class="main-preview hidden">
+            <img src="img/legacy-gameplay3.png" alt="Screenshot 4" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="1"><img src="img/legacy-gameplay1.png" alt="Thumb 2"></div>
-          <div class="thumbnail" data-index="2"><img src="img/legacy-gameplay2.png" alt="Thumb 3"></div>
-          <div class="thumbnail" data-index="3"><img src="img/legacy-gameplay3.png" alt="Thumb 4"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline poster="fallback-thumb-for-video3.jpg">
+                <source src="img/legacy-gameplay.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1"><img src="img/legacy-gameplay1.png" alt="Thumb 2"></div>
+            <div class="thumbnail" data-index="2"><img src="img/legacy-gameplay2.png" alt="Thumb 3"></div>
+            <div class="thumbnail" data-index="3"><img src="img/legacy-gameplay3.png" alt="Thumb 4"></div>
+          </div>
+          <div class="info">
+            <h3>Legacy (Gameplay)</h3>
+            <p style="color:var(--text-muted);">Solowork(Godot-side) • 3D • Prototype • Web • Crypto</p>
+            <p>Developed 3v3v3 mecha arena where you bet for a team. The mechas are controlled by AI(LimboAI). This is a
+              prototype gameplay for testing in the Web.</p>
+          </div>
         </div>
-        <div class="info">
-          <h3>Legacy (Gameplay)</h3>
-          <p style="color:var(--text-muted);">Solowork(Godot-side) • 3D • Prototype • Web • Crypto</p>
-          <p>Developed 3v3v3 mecha arena where you bet for a team. The mechas are controlled by AI(LimboAI). This is a
-            prototype gameplay for testing in the Web.</p>
-        </div>
-      </div>
 
 
-      <!-- TOWER DEFENSE Bloons style!!! -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/td-bloons.mp4" type="video/mp4">
-          </video>
-          <img src="img/td-bloons-1.png" alt="Screenshot 2" class="main-preview hidden">
-          <img src="img/td-bloons-2.png" alt="Screenshot 3" class="main-preview hidden">
-          <img src="img/td-bloons-3.png" alt="Screenshot 4" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline poster="fallback-thumb-for-video3.jpg">
+        <!-- TOWER DEFENSE Bloons style!!! -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/td-bloons.mp4" type="video/mp4">
             </video>
+            <img src="img/td-bloons-1.png" alt="Screenshot 2" class="main-preview hidden">
+            <img src="img/td-bloons-2.png" alt="Screenshot 3" class="main-preview hidden">
+            <img src="img/td-bloons-3.png" alt="Screenshot 4" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="1"><img src="img/td-bloons-1.png" alt="Thumb 2"></div>
-          <div class="thumbnail" data-index="2"><img src="img/td-bloons-2.png" alt="Thumb 3"></div>
-          <div class="thumbnail" data-index="3"><img src="img/td-bloons-3.png" alt="Thumb 4"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline poster="fallback-thumb-for-video3.jpg">
+                <source src="img/td-bloons.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="thumbnail" data-index="1"><img src="img/td-bloons-1.png" alt="Thumb 2"></div>
+            <div class="thumbnail" data-index="2"><img src="img/td-bloons-2.png" alt="Thumb 3"></div>
+            <div class="thumbnail" data-index="3"><img src="img/td-bloons-3.png" alt="Thumb 4"></div>
+          </div>
+          <div class="info">
+            <h3>Tower Defense</h3>
+            <p style="color:var(--text-muted);">Solowork • 3D • Prototype</p>
+            <p>Developed a Tower Defense game based on BloonsTD. This prototype is set-up as a base so the client can
+              continue working on it. For PC and Mobile. Made with Godot.</p>
+          </div>
         </div>
-        <div class="info">
-          <h3>Tower Defense</h3>
-          <p style="color:var(--text-muted);">Solowork • 3D • Prototype</p>
-          <p>Developed a Tower Defense game based on BloonsTD. This prototype is set-up as a base so the client can
-            continue working on it. For PC and Mobile. Made with Godot.</p>
-        </div>
-      </div>
 
 
-      <!-- LEGACY UI -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/legacy.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- LEGACY UI -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/legacy.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/legacy.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+          </div>
+          <div class="info">
+            <h3>Legacy (UI)</h3>
+            <p style="color:var(--text-muted);">Solowork • UI/UX • 2D</p>
+            <p>UI/UX Design for a game on Web(HTML5) and Mobile. Made for client.</p>
           </div>
         </div>
-        <div class="info">
-          <h3>Legacy (UI)</h3>
-          <p style="color:var(--text-muted);">Solowork • UI/UX • 2D</p>
-          <p>UI/UX Design for a game on Web(HTML5) and Mobile. Made for client.</p>
-        </div>
-      </div>
 
-      <!-- P.ASSAULT -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/pa.mp4" type="video/mp4">
-          </video>
-          <img src="img/pa-1.png" alt="Screenshot" class="main-preview hidden">
-          <img src="img/pa-2.png" alt="Screenshot" class="main-preview hidden">
-          <img src="img/pa-3.png" alt="Screenshot" class="main-preview hidden">
-          <img src="img/pa-5.png" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- P.ASSAULT -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/pa.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+            <img src="img/pa-1.png" alt="Screenshot" class="main-preview hidden">
+            <img src="img/pa-2.png" alt="Screenshot" class="main-preview hidden">
+            <img src="img/pa-3.png" alt="Screenshot" class="main-preview hidden">
+            <img src="img/pa-5.png" alt="Screenshot" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="1"><img src="img/pa-1.png" alt="Thumb"></div>
-          <div class="thumbnail" data-index="2"><img src="img/pa-2.png" alt="Thumb"></div>
-          <div class="thumbnail" data-index="3"><img src="img/pa-3.png" alt="Thumb"></div>
-          <div class="thumbnail" data-index="4"><img src="img/pa-5.png" alt="Thumb"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/pa.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1"><img src="img/pa-1.png" alt="Thumb"></div>
+            <div class="thumbnail" data-index="2"><img src="img/pa-2.png" alt="Thumb"></div>
+            <div class="thumbnail" data-index="3"><img src="img/pa-3.png" alt="Thumb"></div>
+            <div class="thumbnail" data-index="4"><img src="img/pa-5.png" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>P. Assault</h3>
+            <p style="color:var(--text-muted); font-size: 0.75rem;">Team-lead (95%) • Multiplayer • 3D</p>
+            <p>A PVP online or local game on a sci-fi theme battlefield.</p>
+          </div>
         </div>
-        <div class="info">
-          <h3>P. Assault</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Team-lead (95%) • Multiplayer • 3D</p>
-          <p>A PVP online or local game on a sci-fi theme battlefield.</p>
-        </div>
-      </div>
 
-      <!-- Snake & Ladders -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/snakeandladder.mp4" type="video/mp4">
-          </video>
-          <img src="img/snakeandladder.jpg" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- Snake & Ladders -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/snakeandladder.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+            <img src="img/snakeandladder.jpg" alt="Screenshot" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="1"><img src="img/snakeandladder.jpg" alt="Thumb"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/snakeandladder.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1"><img src="img/snakeandladder.jpg" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>Snake and Ladders</h3>
+            <p style="color:var(--text-muted); font-size: 0.75rem;">Solowork • 2D • Touchscreen</p>
+            <p>A game based on Snake and ladders but with cards to use for power-ups. Created for
+              interactive touchscreens
+              for Windows.</p>
+          </div>
         </div>
-        <div class="info">
-          <h3>Snake and Ladders</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Solowork • 2D • Touchscreen</p>
-          <p>A game based on Snake and ladders but with cards to use for power-ups. Created for
-            interactive touchscreens
-            for Windows.</p>
-        </div>
-      </div>
 
-      <!-- Pop IT -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/popit.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- Pop IT -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/popit.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/popit.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+          </div>
+          <div class="info">
+            <h3>Pop-It! Monstars!</h3>
+            <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
+            <p>A game based on pop-it games for kids featuring different monsters to collect. Available on Android as
+              Beta.</p>
+            <div style="margin-top:0.4rem; display:flex; gap:0.5em; font-size:0.8rem;">
+              <a href="https://play.google.com/store/apps/details?id=com.umeex.popitmonstars" target="_blank"
+                style="text-decoration:underline;">Playstore</a> |
+              <a href="https://apkpure.com/pop-it-monstars/com.umeex.popitmonstars" target="_blank"
+                style="text-decoration:underline;">Apkpure</a>
+            </div>
           </div>
         </div>
-        <div class="info">
-          <h3>Pop-It! Monstars!</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
-          <p>A game based on pop-it games for kids featuring different monsters to collect. Available on Android as
-            Beta.</p>
-          <div style="margin-top:0.4rem; display:flex; gap:0.5em; font-size:0.8rem;">
-            <a href="https://play.google.com/store/apps/details?id=com.umeex.popitmonstars" target="_blank"
-              style="text-decoration:underline;">Playstore</a> |
-            <a href="https://apkpure.com/pop-it-monstars/com.umeex.popitmonstars" target="_blank"
-              style="text-decoration:underline;">Apkpure</a>
+
+        <!-- Word Mastery -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <img src="img/wmastery-1.webp" alt="Screenshot" class="main-preview">
+            <img src="img/wmastery-2.webp" alt="Screenshot" class="main-preview hidden">
+            <img src="img/wmastery-3.webp" alt="Screenshot" class="main-preview hidden">
+            <img src="img/wmastery-4.webp" alt="Screenshot" class="main-preview hidden">
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0"><img src="img/wmastery-1.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="1"><img src="img/wmastery-2.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="2"><img src="img/wmastery-3.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="3"><img src="img/wmastery-4.webp" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>Word Mastery</h3>
+            <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
+            <p>A word game that features 3 different game modes with endless levels. Available on Android.</p>
+            <div style="margin-top:0.4rem; font-size:0.8rem;">
+              <a href="https://apkpure.com/word-mastery-word-search-wo/org.umeex.wordmastery" target="_blank"
+                style="text-decoration:underline;">Apkpure</a>
+            </div>
           </div>
         </div>
+
+        <!-- Fever Wings -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <img src="img/fwings-1.webp" alt="Screenshot" class="main-preview">
+            <img src="img/fwings-2.webp" alt="Screenshot" class="main-preview hidden">
+            <img src="img/fwings-3.webp" alt="Screenshot" class="main-preview hidden">
+            <img src="img/fwings-4.webp" alt="Screenshot" class="main-preview hidden">
+            <img src="img/fwings-5.webp" alt="Screenshot" class="main-preview hidden">
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0"><img src="img/fwings-1.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="1"><img src="img/fwings-2.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="2"><img src="img/fwings-3.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="3"><img src="img/fwings-4.webp" alt="Thumb"></div>
+            <div class="thumbnail" data-index="4"><img src="img/fwings-5.webp" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>Fever Wings: Peggy & friends</h3>
+            <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
+            <p>A game that you must avoid incoming projectiles with a single tap. Different characters and abilities.
+            </p>
+            <div style="margin-top:0.4rem; font-size:0.8rem;">
+              <a href="https://apkpure.com/fever-wings-peggy-and-friends/org.umeex.feverwings" target="_blank"
+                style="text-decoration:underline;">Apkpure</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- 2D ART SECTION -->
+    <section id="art" class="container reveal" data-theme-bg="bg-4">
+      <br><br><br>
+      <h2 style="border-top:1px solid rgba(255,255,255,0.1);">2D Arts</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+        Some arts I made for clients, personal games, and random sketches.
+      </p>
+
+      <h3 class="gallery-subtitle">Client Art</h3>
+      <div class="masonry-gallery">
+        <div class="card"><img src="img/art-gocup.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art-gocup2.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art-gocup3.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/space-svg.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/artA1.gif" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/artA2.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/artA3.jpg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/game-asset-3.png" alt="Art" loading="lazy"></div>
       </div>
 
-      <!-- Word Mastery -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <img src="img/wmastery-1.webp" alt="Screenshot" class="main-preview">
-          <img src="img/wmastery-2.webp" alt="Screenshot" class="main-preview hidden">
-          <img src="img/wmastery-3.webp" alt="Screenshot" class="main-preview hidden">
-          <img src="img/wmastery-4.webp" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0"><img src="img/wmastery-1.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="1"><img src="img/wmastery-2.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="2"><img src="img/wmastery-3.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="3"><img src="img/wmastery-4.webp" alt="Thumb"></div>
-        </div>
-        <div class="info">
-          <h3>Word Mastery</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
-          <p>A word game that features 3 different game modes with endless levels. Available on Android.</p>
-          <div style="margin-top:0.4rem; font-size:0.8rem;">
-            <a href="https://apkpure.com/word-mastery-word-search-wo/org.umeex.wordmastery" target="_blank"
-              style="text-decoration:underline;">Apkpure</a>
-          </div>
-        </div>
+      <h3 class="gallery-subtitle">Game Assets</h3>
+      <div class="masonry-gallery">
+        <div class="card"><img src="img/game-asset-1.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/game-asset-2.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/game-asset-4.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/game-assset-5.png" alt="Art" loading="lazy"></div>
       </div>
 
-      <!-- Fever Wings -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <img src="img/fwings-1.webp" alt="Screenshot" class="main-preview">
-          <img src="img/fwings-2.webp" alt="Screenshot" class="main-preview hidden">
-          <img src="img/fwings-3.webp" alt="Screenshot" class="main-preview hidden">
-          <img src="img/fwings-4.webp" alt="Screenshot" class="main-preview hidden">
-          <img src="img/fwings-5.webp" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0"><img src="img/fwings-1.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="1"><img src="img/fwings-2.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="2"><img src="img/fwings-3.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="3"><img src="img/fwings-4.webp" alt="Thumb"></div>
-          <div class="thumbnail" data-index="4"><img src="img/fwings-5.webp" alt="Thumb"></div>
-        </div>
-        <div class="info">
-          <h3>Fever Wings: Peggy & friends</h3>
-          <p style="color:var(--text-muted); font-size: 0.75rem;">Personal Project • Solowork • 2D</p>
-          <p>A game that you must avoid incoming projectiles with a single tap. Different characters and abilities.</p>
-          <div style="margin-top:0.4rem; font-size:0.8rem;">
-            <a href="https://apkpure.com/fever-wings-peggy-and-friends/org.umeex.feverwings" target="_blank"
-              style="text-decoration:underline;">Apkpure</a>
-          </div>
-        </div>
+      <h3 class="gallery-subtitle">Random Drawings I Made</h3>
+      <div class="masonry-gallery">
+        <div class="card"><img src="img/art1.webp" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art2.jpg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art3.jpg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art4.jpeg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art5.png" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art6.jpg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art7.jpg" alt="Art" loading="lazy"></div>
+        <div class="card"><img src="img/art8.png" alt="Art" loading="lazy"></div>
       </div>
 
 
-    </div>
-  </section>
 
-  <!-- 2D ART SECTION -->
-  <section id="art" class="container reveal" data-theme-bg="bg-4">
-    <br><br><br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">2D Arts</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
-      Some arts I made for clients, personal games, and random sketches.
-    </p>
+    </section>
 
-    <h3 class="gallery-subtitle">Client Art</h3>
-    <div class="masonry-gallery">
-      <div class="card"><img src="img/art-gocup.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art-gocup2.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art-gocup3.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/space-svg.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/artA1.gif" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/artA2.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/artA3.jpg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/game-asset-3.png" alt="Art" loading="lazy"></div>
-    </div>
+    <!-- APPS SECTION -->
+    <section id="apps" class="container reveal section-gradient-alt" data-theme-bg="bg-3">
+      <br><br><br>
+      <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Apps I've Built</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
+        Here are some apps I made for a company and companies clients.
+      </p>
+      <div class="gallery">
 
-    <h3 class="gallery-subtitle">Game Assets</h3>
-    <div class="masonry-gallery">
-      <div class="card"><img src="img/game-asset-1.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/game-asset-2.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/game-asset-4.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/game-assset-5.png" alt="Art" loading="lazy"></div>
-    </div>
-
-    <h3 class="gallery-subtitle">Random Drawings I Made</h3>
-    <div class="masonry-gallery">
-      <div class="card"><img src="img/art1.webp" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art2.jpg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art3.jpg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art4.jpeg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art5.png" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art6.jpg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art7.jpg" alt="Art" loading="lazy"></div>
-      <div class="card"><img src="img/art8.png" alt="Art" loading="lazy"></div>
-    </div>
-
-
-
-  </section>
-
-  <!-- APPS SECTION -->
-  <section id="apps" class="container reveal section-gradient-alt" data-theme-bg="bg-3">
-    <br><br><br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Apps I've Built</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:4rem; font-size:1.2rem;">
-      Here are some apps I made for a company and companies clients.
-    </p>
-    <div class="gallery">
-
-      <!-- Wayfinders -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/wayfinder1.mp4" type="video/mp4">
-          </video>
-          <video class="main-preview hidden" controls muted playsinline preload="metadata">
-            <source src="img/wayfinder2.mp4" type="video/mp4">
-          </video>
-          <img src="img/wayfinder-3.jpg" alt="Screenshot" class="main-preview hidden">
-          <img src="img/wayfinder-4.jpg" alt="Screenshot" class="main-preview hidden">
-          <img src="img/wayfinder-5.jpg" alt="Screenshot" class="main-preview hidden">
-          <img src="img/wayfinder-6.jpg" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- Wayfinders -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/wayfinder1.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
-          </div>
-          <div class="thumbnail" data-index="1" data-type="video">
-            <video muted loop playsinline>
+            <video class="main-preview hidden" controls muted playsinline preload="metadata">
               <source src="img/wayfinder2.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+            <img src="img/wayfinder-3.jpg" alt="Screenshot" class="main-preview hidden">
+            <img src="img/wayfinder-4.jpg" alt="Screenshot" class="main-preview hidden">
+            <img src="img/wayfinder-5.jpg" alt="Screenshot" class="main-preview hidden">
+            <img src="img/wayfinder-6.jpg" alt="Screenshot" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="2"><img src="img/wayfinder-3.jpg" alt="Thumb"></div>
-          <div class="thumbnail" data-index="3"><img src="img/wayfinder-4.jpg" alt="Thumb"></div>
-          <div class="thumbnail" data-index="4"><img src="img/wayfinder-5.jpg" alt="Thumb"></div>
-          <div class="thumbnail" data-index="5"><img src="img/wayfinder-6.jpg" alt="Thumb"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/wayfinder1.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/wayfinder2.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="2"><img src="img/wayfinder-3.jpg" alt="Thumb"></div>
+            <div class="thumbnail" data-index="3"><img src="img/wayfinder-4.jpg" alt="Thumb"></div>
+            <div class="thumbnail" data-index="4"><img src="img/wayfinder-5.jpg" alt="Thumb"></div>
+            <div class="thumbnail" data-index="5"><img src="img/wayfinder-6.jpg" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>Wayfinders</h3>
+            <p style="color:var(--text-muted); font-size: 0.8rem;">Godot<br>Company Work • Solowork • 2D/3D •
+              Windows/Web
+            </p>
+            <p>Interactive touchscreen kiosks for schools, hospitals, landmarks. Room names, logos and texts are
+              changeable on the app. Windows/HTML.</p>
+            <p style="color:var(--accent);margin-top:1rem;">Want me to create a wayfinder for your place?
+              <br><br>
+              <a href="#contact" class="btn glow-btn">Contact me! ↓</a>
+            </p>
+          </div>
         </div>
-        <div class="info">
-          <h3>Wayfinders</h3>
-          <p style="color:var(--text-muted); font-size: 0.8rem;">Godot<br>Company Work • Solowork • 2D/3D •
-            Windows/Web
-          </p>
-          <p>Interactive touchscreen kiosks for schools, hospitals, landmarks. Room names, logos and texts are
-            changeable on the app. Windows/HTML.</p>
-          <p style="color:var(--accent);margin-top:1rem;">Want me to create a wayfinder for your place?
-            <br><br>
-            <a href="#contact" class="btn glow-btn">Contact me! ↓</a>
-          </p>
-        </div>
-      </div>
 
-      <!-- Digital Photobooth -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/foto-1.mp4" type="video/mp4">
-          </video>
-          <img src="img/foto-1.jpg" alt="Screenshot" class="main-preview hidden">
-          <img src="img/foto-2.jpg" alt="Screenshot" class="main-preview hidden">
-          <img src="img/foto-3.png" alt="Screenshot" class="main-preview hidden">
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- Digital Photobooth -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/foto-1.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+            <img src="img/foto-1.jpg" alt="Screenshot" class="main-preview hidden">
+            <img src="img/foto-2.jpg" alt="Screenshot" class="main-preview hidden">
+            <img src="img/foto-3.png" alt="Screenshot" class="main-preview hidden">
           </div>
-          <div class="thumbnail" data-index="1"><img src="img/foto-1.jpg" alt="Thumb"></div>
-          <div class="thumbnail" data-index="2"><img src="img/foto-2.jpg" alt="Thumb"></div>
-          <div class="thumbnail" data-index="3"><img src="img/foto-3.png" alt="Thumb"></div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/foto-1.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1"><img src="img/foto-1.jpg" alt="Thumb"></div>
+            <div class="thumbnail" data-index="2"><img src="img/foto-2.jpg" alt="Thumb"></div>
+            <div class="thumbnail" data-index="3"><img src="img/foto-3.png" alt="Thumb"></div>
+          </div>
+          <div class="info">
+            <h3>Digital Photobooth</h3>
+            <p style="color:var(--text-muted); font-size: 0.8rem;">Unity<br>Company Work • Solowork</p>
+            <p>A digital photobooth that lets you download your photo directly to your phone via QR featuring effects
+              made
+              thru Snap. For Windows Touchscreens.</p>
+          </div>
         </div>
-        <div class="info">
-          <h3>Digital Photobooth</h3>
-          <p style="color:var(--text-muted); font-size: 0.8rem;">Unity<br>Company Work • Solowork</p>
-          <p>A digital photobooth that lets you download your photo directly to your phone via QR featuring effects made
-            thru Snap. For Windows Touchscreens.</p>
-        </div>
-      </div>
 
-      <!-- AR Box -->
-      <div class="card game-card">
-        <div class="game-preview">
-          <video class="main-preview" controls muted playsinline preload="metadata">
-            <source src="img/ar-1.mp4" type="video/mp4">
-          </video>
-          <video class="main-preview hidden" controls muted playsinline preload="metadata">
-            <source src="img/ar-2.mp4" type="video/mp4">
-          </video>
-          <video class="main-preview hidden" controls muted playsinline preload="metadata">
-            <source src="img/ar-3.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="thumbnails">
-          <div class="thumbnail active" data-index="0" data-type="video">
-            <video muted loop playsinline>
+        <!-- AR Box -->
+        <div class="card game-card">
+          <div class="game-preview">
+            <video class="main-preview" controls muted playsinline preload="metadata">
               <source src="img/ar-1.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
-          </div>
-          <div class="thumbnail" data-index="1" data-type="video">
-            <video muted loop playsinline>
+            <video class="main-preview hidden" controls muted playsinline preload="metadata">
               <source src="img/ar-2.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
-          </div>
-          <div class="thumbnail" data-index="2" data-type="video">
-            <video muted loop playsinline>
+            <video class="main-preview hidden" controls muted playsinline preload="metadata">
               <source src="img/ar-3.mp4" type="video/mp4">
             </video>
-            <i class="fas fa-play thumb-play-icon"></i>
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail active" data-index="0" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/ar-1.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="1" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/ar-2.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+            <div class="thumbnail" data-index="2" data-type="video">
+              <video muted loop playsinline>
+                <source src="img/ar-3.mp4" type="video/mp4">
+              </video>
+              <i class="fas fa-play thumb-play-icon"></i>
+            </div>
+          </div>
+          <div class="info">
+            <h3>AR Box</h3>
+            <p style="color:var(--text-muted); font-size: 0.8rem;">Snap AR + Vite<br>Company Work • Solowork •
+              Windows/Web
+            </p>
+            <p>AR box that changes how you look with different Snap filter effects inside. Creates an illusion you're in
+              the box!</p>
           </div>
         </div>
-        <div class="info">
-          <h3>AR Box</h3>
-          <p style="color:var(--text-muted); font-size: 0.8rem;">Snap AR + Vite<br>Company Work • Solowork • Windows/Web
-          </p>
-          <p>AR box that changes how you look with different Snap filter effects inside. Creates an illusion you're in
-            the box!</p>
-        </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- 3D ART SECTION -->
-  <section id="corner-3d" class="container reveal" data-theme-bg="bg-1">
-    <br><br><br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">3-Dimensionals</h2>
-    <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
-      Here are some few 3D models I made for a client and personal use.
-    </p>
-    <!-- Toggle Controls -->
-    <div class="toggle-container">
+    <!-- 3D ART SECTION -->
+    <section id="corner-3d" class="container reveal" data-theme-bg="bg-1">
+      <br><br><br>
+      <h2 style="border-top:1px solid rgba(255,255,255,0.1);">3-Dimensionals</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:2rem; font-size:1.2rem;">
+        Here are some few 3D models I made for a client and personal use.
+      </p>
+      <!-- Toggle Controls -->
+      <!-- <div class="toggle-container">
       <button class="toggle-btn active" id="btn-turntables">Turntable Renders</button>
       <button class="toggle-btn" id="btn-realtime">Interactive 3D Viewers</button>
-    </div>
+    </div> -->
 
-    <!-- Turntable Grid (Active by default) -->
-    <div id="grid-turntables" class="gallery" style="gap: 1.5rem;">
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art" loading="lazy"></div>
-      <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art" loading="lazy"></div>
-    </div>
-
-    <!-- Interactive WebGL 3D Grid (Hidden by default) -->
-    <div id="grid-realtime" class="gallery" style="gap: 1.5rem; display: none;">
-      <div class="card" style="aspect-ratio: 4/3;">
-        <model-viewer src="downloads/oc-char.glb" poster="img/oc-char.gif" alt="OC Character Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
-          <div class="model-viewer-placeholder" slot="poster">
-            Click to Activate 3D View
-            <span>(requires downloads/oc-char.glb)</span>
-          </div>
-        </model-viewer>
+      <!-- Turntable Grid (Active by default) -->
+      <div id="grid-turntables" class="gallery" style="gap: 1.5rem;">
+        <div class="card" style="aspect-ratio: 4/3;"><img src="img/oc-char.gif" alt="3D Art" loading="lazy"></div>
+        <div class="card" style="aspect-ratio: 4/3;"><img src="img/tank.gif" alt="3D Art" loading="lazy"></div>
+        <div class="card" style="aspect-ratio: 4/3;"><img src="img/chopper.gif" alt="3D Art" loading="lazy"></div>
+        <div class="card" style="aspect-ratio: 4/3;"><img src="img/turret.gif" alt="3D Art" loading="lazy"></div>
       </div>
-      <div class="card" style="aspect-ratio: 4/3;">
-        <model-viewer src="downloads/tank.glb" poster="img/tank.gif" alt="Tank Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
-          <div class="model-viewer-placeholder" slot="poster">
-            Click to Activate 3D View
-            <span>(requires downloads/tank.glb)</span>
-          </div>
-        </model-viewer>
+
+      <!-- Interactive WebGL 3D Grid (Hidden by default) -->
+      <div id="grid-realtime" class="gallery" style="gap: 1.5rem; display: none;">
+        <div class="card" style="aspect-ratio: 4/3;">
+          <model-viewer src="downloads/oc-char.glb" poster="img/oc-char.gif" alt="OC Character Model" auto-rotate
+            camera-controls shadow-intensity="1" crossorigin="anonymous"
+            onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+            <div class="model-viewer-placeholder" slot="poster">
+              Click to Activate 3D View
+              <span>(requires downloads/oc-char.glb)</span>
+            </div>
+          </model-viewer>
+        </div>
+        <div class="card" style="aspect-ratio: 4/3;">
+          <model-viewer src="downloads/tank.glb" poster="img/tank.gif" alt="Tank Model" auto-rotate camera-controls
+            shadow-intensity="1" crossorigin="anonymous"
+            onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+            <div class="model-viewer-placeholder" slot="poster">
+              Click to Activate 3D View
+              <span>(requires downloads/tank.glb)</span>
+            </div>
+          </model-viewer>
+        </div>
+        <div class="card" style="aspect-ratio: 4/3;">
+          <model-viewer src="downloads/chopper.glb" poster="img/chopper.gif" alt="Chopper Model" auto-rotate
+            camera-controls shadow-intensity="1" crossorigin="anonymous"
+            onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+            <div class="model-viewer-placeholder" slot="poster">
+              Click to Activate 3D View
+              <span>(requires downloads/chopper.glb)</span>
+            </div>
+          </model-viewer>
+        </div>
+        <div class="card" style="aspect-ratio: 4/3;">
+          <model-viewer src="downloads/turret.glb" poster="img/turret.gif" alt="Turret Model" auto-rotate
+            camera-controls shadow-intensity="1" crossorigin="anonymous"
+            onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
+            <div class="model-viewer-placeholder" slot="poster">
+              Click to Activate 3D View
+              <span>(requires downloads/turret.glb)</span>
+            </div>
+          </model-viewer>
+        </div>
       </div>
-      <div class="card" style="aspect-ratio: 4/3;">
-        <model-viewer src="downloads/chopper.glb" poster="img/chopper.gif" alt="Chopper Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
-          <div class="model-viewer-placeholder" slot="poster">
-            Click to Activate 3D View
-            <span>(requires downloads/chopper.glb)</span>
-          </div>
-        </model-viewer>
+
+      <p id="realtime-instructions"
+        style="text-align:center; color:var(--accent); margin-top:1.5rem; font-size:0.9rem; display:none; opacity:0.8;">
+        <i class="fas fa-arrows-alt"></i> Left-click + drag to rotate. Scroll to zoom.
+      </p>
+
+      <div style="text-align:center; margin-top:2rem;">
+        <p style="color:var(--text-muted); margin-bottom: 1rem;">Download 3D files (.RAR)</p>
+        <a href="downloads/tank.rar" class="download-pill"><i class="fas fa-download"></i> Tank</a>
+        <a href="downloads/chopper.rar" class="download-pill"><i class="fas fa-download"></i> Chopper</a>
+        <a href="downloads/turret.rar" class="download-pill"><i class="fas fa-download"></i> Turret</a>
       </div>
-      <div class="card" style="aspect-ratio: 4/3;">
-        <model-viewer src="downloads/turret.glb" poster="img/turret.gif" alt="Turret Model" auto-rotate camera-controls shadow-intensity="1" crossorigin="anonymous" onerror="this.setAttribute('src',''); this.querySelector('.model-viewer-placeholder').style.display='flex';">
-          <div class="model-viewer-placeholder" slot="poster">
-            Click to Activate 3D View
-            <span>(requires downloads/turret.glb)</span>
-          </div>
-        </model-viewer>
-      </div>
-    </div>
+    </section>
 
-    <p id="realtime-instructions" style="text-align:center; color:var(--accent); margin-top:1.5rem; font-size:0.9rem; display:none; opacity:0.8;">
-      <i class="fas fa-arrows-alt"></i> Left-click + drag to rotate. Scroll to zoom.
-    </p>
+    <!-- ABOUT & EXPERIENCES SECTION -->
+    <section id="about" class="container reveal" data-theme-bg="bg-2">
+      <br><br><br>
+      <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Exp & Tools!</h2>
 
-    <div style="text-align:center; margin-top:2rem;">
-      <p style="color:var(--text-muted); margin-bottom: 1rem;">Download 3D files (.RAR)</p>
-      <a href="downloads/tank.rar" class="download-pill"><i class="fas fa-download"></i> Tank</a>
-      <a href="downloads/chopper.rar" class="download-pill"><i class="fas fa-download"></i> Chopper</a>
-      <a href="downloads/turret.rar" class="download-pill"><i class="fas fa-download"></i> Turret</a>
-    </div>
-  </section>
-
-  <!-- ABOUT & EXPERIENCES SECTION -->
-  <section id="about" class="container reveal" data-theme-bg="bg-2">
-    <br><br><br>
-    <h2 style="border-top:1px solid rgba(255,255,255,0.1);">Exp & Tools!</h2>
-
-    <div class="about" style="font-size: 0.95rem;">
-      <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
+      <div class="about" style="font-size: 0.95rem;">
+        <!-- <p>I'm a Mandaluyong-based multimedia creative specializing in 2D illustration, 3D asset creation, motion design,
         experimental visuals, and indie game development.</p>
       <p>I love blending styles — clean vector + gritty photogrammetry, dreamy 2D + hard-surface 3D, narrative stills +
         interactive gameplay.</p> -->
- 
- 
- 
-      <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
- 
-        <!-- Experience 1 -->
-        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D & 3D
-            Artist
-          </h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present</p>
-          <p style="font-size: 0.9rem; line-height: 1.7;">
-            <strong>Game Developer</strong><br>
-            &nbsp; &nbsp; • Provide a functional Tower Defense game
-            foundation for client continued development inspired by BloonsTD
-            (GDScript)<br>
-            &nbsp; &nbsp; • Helped prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
-            &nbsp; &nbsp; • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
-            &nbsp; &nbsp; • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring
-            AI-controlled ally and
-            enemy units (GDScript)<br>
-            &nbsp; &nbsp; • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with
-            synchronized
-            player
-            movement, projectile physics, and matchmaking (GDScript)<br><br>
-            <strong>2D & 3D Artist</strong><br>
-            &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
-            Affinity<br>
-            &nbsp; &nbsp; • Help client on fixing their 3D models and adding dynamic animations using Blender
-          </p>
-        </div>
- 
-        <!-- Experience 2 -->
-        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan - Feb
-            2021 - Feb 2025</p>
-          <p style="font-size: 0.9rem; line-height: 1.7;">
-            <strong>Game & Interactive Development</strong><br>
-            &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
-            Engine (GDScript)
-            and Unity (C#).<br>
-            &nbsp; &nbsp; • Interactive map directory for malls and wayfinding systems deployed across commercial
-            spaces.<br>
-            &nbsp; &nbsp; • Created AR camera apps with SnapAR filters and QR code integration for seamless photo
-            transfer.<br><br>
-            <strong>AI & Computer Vision</strong><br>
-            &nbsp; &nbsp; • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects,
-            triggering targeted
-            video ads on LED billboards.<br>
-            &nbsp; &nbsp; • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
-            <strong>Web & Internal Tools</strong><br>
-            &nbsp; &nbsp; • Developed internal web applications including company websites, e-forms, and admin
-            dashboards
-            using
-            Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
-            &nbsp; &nbsp; • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both
-            on-site and
-            remotely.<br><br>
-            <strong>3D Content & Visual Design</strong><br>
-            &nbsp; &nbsp; • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced
-            perspective
-            techniques for large-scale visuals.<br><br>
-            <strong>IT Support & Deployment</strong><br>
-            &nbsp; &nbsp; • Provided nationwide client support for digital signage systems, including installation,
-            testing, and
-            troubleshooting.<br>
-            &nbsp; &nbsp; • Delivered remote and on-site helpdesk support for software and hardware issues across the
-            Philippines.<br>
-            &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
-          </p>
-        </div>
- 
-        <!-- Experience 3 -->
-        <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
-          <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
-          <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
-            Mandaluyong - Jun 2014 - Sept 2020</p>
-          <p style="font-size: 0.9rem; line-height: 1.7;">
-            <strong>Client Deployment & Support</strong><br>
-            &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
-            Mindanao.<br>
-            &nbsp; &nbsp; • Conducted classroom-style training for managers and staff, improving system adoption and
-            reducing support
-            requests.<br>
-            &nbsp; &nbsp; • Managed client meetings and unsupervised projects, ensuring timely delivery and system
-            reliability.<br>
-            &nbsp; &nbsp; • Provided technical support via phone, email, and on-site visits for troubleshooting and
-            maintenance.<br><br>
-            <strong>System Testing & Debugging</strong><br>
-            &nbsp; &nbsp; • Tested queue system program flows to meet client-specific requirements and UX
-            expectations.<br>
-            &nbsp; &nbsp; • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry
-            Pi).<br>
-            &nbsp; &nbsp; • Collaborated with developers to resolve deployment issues and improve system
-            stability.<br><br>
-            <strong>Internal IT Support</strong><br>
-            &nbsp; &nbsp; • Delivered office helpdesk support for hardware/software issues.<br>
-            &nbsp; &nbsp; • Assisted in maintaining internal systems and ensuring smooth operations across departments.
-          </p>
-        </div>
 
 
-        <div class="tools-grid">
-          <div class="tool-item"><img src="img/godot.png" style="width:40px; filter: brightness(0) invert(1);"
-              alt="Godot"><br>Godot</div>
-          <div class="tool-item"><i class="fa-brands fa-unity" style="font-size: 2.0rem;"></i><br>Unity</div>
-          <div class="tool-item"><i class="fa-solid fa-blender" style="font-size: 2.0rem;"></i><br>Blender</div>
-          <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Procreate</div>
-          <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Clip Studio Paint
+
+        <div style="display: flex; flex-direction: column; gap: 2rem; margin-top: 3rem;">
+
+          <!-- Experience 1 -->
+          <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+            <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Freelance Game Developer / 2D &
+              3D
+              Artist
+            </h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Remote - Feb 2025 - Present
+            </p>
+            <p style="font-size: 0.9rem; line-height: 1.7;">
+              <strong>Game Developer</strong><br>
+              &nbsp; &nbsp; • Provide a functional Tower Defense game
+              foundation for client continued development inspired by BloonsTD
+              (GDScript)<br>
+              &nbsp; &nbsp; • Helped prototyped a crypto game, 3v3v3 AI-controlled mecha battle arena (GDScript)<br>
+              &nbsp; &nbsp; • Migrated a website UI/UX to Godot Engine using control nodes and custom themes<br>
+              &nbsp; &nbsp; • Developed an RTS Sci-Fi space game, a single-player real-time strategy game featuring
+              AI-controlled ally and
+              enemy units (GDScript)<br>
+              &nbsp; &nbsp; • Built a Multiplayer Sci-Fi Battle Arena, a fast-paced multiplayer arena game with
+              synchronized
+              player
+              movement, projectile physics, and matchmaking (GDScript)<br><br>
+              <strong>2D & 3D Artist</strong><br>
+              &nbsp; &nbsp; • Draw textures for a video game map and UI sprites using Clip Studio Paint, Photoshop and
+              Affinity<br>
+              &nbsp; &nbsp; • Help client on fixing their 3D models and adding dynamic animations using Blender
+            </p>
           </div>
-          <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Affinity</div>
-          <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Photoshop</div>
-          <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>After Effects</div>
-          <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>Premiere Pro</div>
-        </div>
-      </div>
 
-    </div>
-  </section>
+          <!-- Experience 2 -->
+          <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+            <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">IT / Programmer</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">Avolution Inc. - San Juan -
+              Feb
+              2021 - Feb 2025</p>
+            <p style="font-size: 0.9rem; line-height: 1.7;">
+              <strong>Game & Interactive Development</strong><br>
+              &nbsp; &nbsp; • Developed touchscreen and mobile-controlled games for Digital Signages kiosks using Godot
+              Engine (GDScript)
+              and Unity (C#).<br>
+              &nbsp; &nbsp; • Interactive map directory for malls and wayfinding systems deployed across commercial
+              spaces.<br>
+              &nbsp; &nbsp; • Created AR camera apps with SnapAR filters and QR code integration for seamless photo
+              transfer.<br><br>
+              <strong>AI & Computer Vision</strong><br>
+              &nbsp; &nbsp; • Built AI camera systems using Python and OpenCV to detect people, vehicles, and objects,
+              triggering targeted
+              video ads on LED billboards.<br>
+              &nbsp; &nbsp; • Designed real-time analytics tools for audience tracking and ad performance.<br><br>
+              <strong>Web & Internal Tools</strong><br>
+              &nbsp; &nbsp; • Developed internal web applications including company websites, e-forms, and admin
+              dashboards
+              using
+              Bootstrap, HTML, CSS, JavaScript, AJAX, and TypeScript.<br>
+              &nbsp; &nbsp; • Maintained and secured company servers and databases (MySQL, PostgreSQL, Firebase) both
+              on-site and
+              remotely.<br><br>
+              <strong>3D Content & Visual Design</strong><br>
+              &nbsp; &nbsp; • Assisted in creating 3D ad content for LED billboards using Blender, applying advanced
+              perspective
+              techniques for large-scale visuals.<br><br>
+              <strong>IT Support & Deployment</strong><br>
+              &nbsp; &nbsp; • Provided nationwide client support for digital signage systems, including installation,
+              testing, and
+              troubleshooting.<br>
+              &nbsp; &nbsp; • Delivered remote and on-site helpdesk support for software and hardware issues across the
+              Philippines.<br>
+              &nbsp; &nbsp; • Configured firewalls and ensured secure HTTPS protocols for internal systems.
+            </p>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="card" style="padding: 2.5rem; text-align:left; background: rgba(255,255,255,0.03);">
+            <h3 style="font-size: 1.4rem; color: var(--accent); margin-bottom:0.2rem;">Service Engineer</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom:1.5rem;">SmartQ Systems Co. Inc. -
+              Mandaluyong - Jun 2014 - Sept 2020</p>
+            <p style="font-size: 0.9rem; line-height: 1.7;">
+              <strong>Client Deployment & Support</strong><br>
+              &nbsp; &nbsp; • Led nationwide installations of web-based queueing systems across Luzon, Visayas, and
+              Mindanao.<br>
+              &nbsp; &nbsp; • Conducted classroom-style training for managers and staff, improving system adoption and
+              reducing support
+              requests.<br>
+              &nbsp; &nbsp; • Managed client meetings and unsupervised projects, ensuring timely delivery and system
+              reliability.<br>
+              &nbsp; &nbsp; • Provided technical support via phone, email, and on-site visits for troubleshooting and
+              maintenance.<br><br>
+              <strong>System Testing & Debugging</strong><br>
+              &nbsp; &nbsp; • Tested queue system program flows to meet client-specific requirements and UX
+              expectations.<br>
+              &nbsp; &nbsp; • Debugged applications using SQL, Firebird, CSS, and Linux-based environments (Raspberry
+              Pi).<br>
+              &nbsp; &nbsp; • Collaborated with developers to resolve deployment issues and improve system
+              stability.<br><br>
+              <strong>Internal IT Support</strong><br>
+              &nbsp; &nbsp; • Delivered office helpdesk support for hardware/software issues.<br>
+              &nbsp; &nbsp; • Assisted in maintaining internal systems and ensuring smooth operations across
+              departments.
+            </p>
+          </div>
+
+
+          <div class="tools-grid">
+            <div class="tool-item"><img src="img/godot.png" style="width:40px; filter: brightness(0) invert(1);"
+                alt="Godot"><br>Godot</div>
+            <div class="tool-item"><i class="fa-brands fa-unity" style="font-size: 2.0rem;"></i><br>Unity</div>
+            <div class="tool-item"><i class="fa-solid fa-blender" style="font-size: 2.0rem;"></i><br>Blender</div>
+            <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Procreate</div>
+            <div class="tool-item"><i class="fa-solid fa-pen-nib" style="font-size: 2.0rem;"></i><br>Clip Studio Paint
+            </div>
+            <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Affinity</div>
+            <div class="tool-item"><i class="fa-solid fa-layer-group" style="font-size: 2.0rem;"></i><br>Photoshop</div>
+            <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>After Effects</div>
+            <div class="tool-item"><i class="fa-solid fa-video" style="font-size: 2.0rem;"></i><br>Premiere Pro</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
 
   </main>
