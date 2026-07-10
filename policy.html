@@ -9,11 +9,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
   <script>
     // Apply saved theme immediately to prevent flashing
-    (function() {
+    (function () {
       const savedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', savedTheme);
     })();
@@ -362,7 +364,7 @@
     <div class="container">
       <article class="policy-card">
         <h1 class="accent-title">Privacy Policy</h1>
-        
+
         <div class="meta-info">
           <span class="meta-item"><i class="far fa-calendar-alt"></i> Last Updated: July 2026</span>
           <span class="meta-item"><i class="fas fa-gamepad"></i> Publisher: umeex</span>
@@ -371,7 +373,9 @@
         <section class="section-block">
           <h2><i class="fas fa-info-circle"></i> Introduction</h2>
           <p>
-            This Privacy Policy details the commitment of <strong>umeex</strong> ("we", "our", or "us") to protecting the privacy of players and users of our mobile games and applications published on the Google Play Store. We believe in transparency and keeping your gaming experience simple, safe, and private.
+            This Privacy Policy details the commitment of <strong>umeex</strong> ("we", "our", or "us") to protecting
+            the privacy of players and users of our mobile games and applications published on the Google Play Store. We
+            believe in transparency and keeping your gaming experience simple, safe, and private.
           </p>
         </section>
 
@@ -382,7 +386,8 @@
           </p>
           <ul>
             <li><strong>We do not collect</strong> any personal data, contact information, or device identifiers.</li>
-            <li><strong>We do not store</strong> any details about you or your usage habits on any external servers.</li>
+            <li><strong>We do not store</strong> any details about you or your usage habits on any external servers.
+            </li>
             <li><strong>We do not track</strong> your location, behavior, or gameplay interactions.</li>
             <li>No account registration is required to play our games.</li>
           </ul>
@@ -391,44 +396,55 @@
         <section class="section-block">
           <h2><i class="fas fa-wifi-slash"></i> Offline Playability</h2>
           <p>
-            Our games are fully functional and playable offline. Since the core gameplay does not require an active internet connection, no data is transmitted to us or any third parties during offline play. Any game progress (such as unlocked levels or local high scores) is stored safely and locally on your device. You can erase this data at any time by clearing the application's cache or uninstalling the game from your device.
+            Our games are fully functional and playable offline. Since the core gameplay does not require an active
+            internet connection, no data is transmitted to us or any third parties during offline play. Any game
+            progress (such as unlocked levels or local high scores) is stored safely and locally on your device. You can
+            erase this data at any time by clearing the application's cache or uninstalling the game from your device.
           </p>
         </section>
 
         <section class="section-block">
           <h2><i class="fas fa-external-link-alt"></i> Third-Party Services</h2>
           <p>
-            To enhance your gameplay experience and support our development, our games may integrate standard third-party services provided exclusively by <strong>Google LLC</strong>:
+            To enhance your gameplay experience and support our development, our games may integrate standard
+            third-party services provided exclusively by <strong>Google LLC</strong>:
           </p>
           <ul>
             <li>
-              <strong>Google Play Services</strong>: Enables features such as player authentication, achievements, leaderboards, and cloud-saved game progress.
+              <strong>Google Play Services</strong>: Enables features such as player authentication, achievements,
+              leaderboards, and cloud-saved game progress.
             </li>
             <li>
-              <strong>Google AdMob</strong>: Serves advertisements within the game to help fund our indie game development.
+              <strong>Google AdMob</strong>: Serves advertisements within the game to help fund our indie game
+              development.
             </li>
           </ul>
           <p>
-            Please note that <strong>only Google has access</strong> to the identifiers and data processed by these integrations. We do not have access to, control over, or storage of any information collected by Google.
+            Please note that <strong>only Google has access</strong> to the identifiers and data processed by these
+            integrations. We do not have access to, control over, or storage of any information collected by Google.
           </p>
           <p>
             We highly recommend reviewing Google’s policies to understand how they handle your data:
           </p>
           <p style="margin-top: 0.5rem;">
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-alt"></i> Google Privacy Policy</a>
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"><i
+                class="fas fa-shield-alt"></i> Google Privacy Policy</a>
           </p>
           <p>
-            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer"><i class="fas fa-handshake"></i> How Google Uses Data from Partner Sites & Apps</a>
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank"
+              rel="noopener noreferrer"><i class="fas fa-handshake"></i> How Google Uses Data from Partner Sites &
+              Apps</a>
           </p>
         </section>
 
         <section class="section-block">
           <h2><i class="fas fa-envelope"></i> Contact Us</h2>
           <p>
-            If you have any questions, concerns, or feedback regarding this Privacy Policy or our games, feel free to reach out to us at:
+            If you have any questions, concerns, or feedback regarding this Privacy Policy or our games, feel free to
+            reach out to us at:
           </p>
           <p>
-            Email: <a href="mailto:rhnpclb22@gmail.com"><strong>rhnpclb22@gmail.com</strong></a>
+            Email: <a href="mailto:ugothmeex@gmail.com"><strong>ugothmeex@gmail.com</strong></a>
           </p>
         </section>
       </article>
@@ -460,7 +476,7 @@
     toggle.addEventListener('click', () => {
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
+
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       updateToggleIcon(newTheme);
