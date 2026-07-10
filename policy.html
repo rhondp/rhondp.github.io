@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — umeex</title>
+  <meta name="description" content="Privacy Policy for mobile games published by umeex on the Google Play Store." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <script>
+    // Apply saved theme immediately to prevent flashing
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
+  <style>
+    @property --grad-1 {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: rgba(0, 212, 255, 0.15);
+    }
+
+    @property --grad-2 {
+      syntax: '<color>';
+      inherits: false;
+      initial-value: rgba(255, 107, 203, 0.15);
+    }
+
+    :root {
+      --bg: #0f0f0f;
+      --text: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --accent: #00d4ff;
+      --accent-dark: #0099bb;
+      --card: #1a1a1a;
+      --border: #333;
+
+      /* Dynamic Gradient Colors */
+      --grad-1: rgba(0, 212, 255, 0.15);
+      --grad-2: rgba(255, 107, 203, 0.15);
+      --btn-text: #000000;
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #555;
+      --accent: #0077b6;
+      --accent-dark: #023e8a;
+      --card: #ffffff;
+      --border: #ddd;
+
+      --grad-1: rgba(0, 212, 255, 0.2);
+      --grad-2: rgba(255, 107, 203, 0.2);
+      --btn-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-image: radial-gradient(circle at top right, var(--grad-1), transparent 60%),
+        radial-gradient(circle at bottom left, var(--grad-2), transparent 60%);
+      background-color: var(--bg);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      transition: background-color 0.8s ease, color 0.4s, --grad-1 0.8s ease, --grad-2 0.8s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Fixed Noise Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.04;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      width: 100%;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: rgba(15, 15, 15, 0.7);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    [data-theme="light"] header {
+      background: rgba(248, 249, 250, 0.8);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 2.2rem;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.3rem;
+      cursor: pointer;
+      margin-left: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="light"] .theme-toggle:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    main {
+      flex: 1;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      display: flex;
+      align-items: center;
+    }
+
+    .policy-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 3.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .policy-card:hover {
+      box-shadow: 0 25px 50px rgba(0, 212, 255, 0.1), 0 25px 50px rgba(255, 107, 203, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    [data-theme="light"] .policy-card:hover {
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .accent-title {
+      background: linear-gradient(90deg, var(--accent), #ff6bcb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .meta-info {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-block {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-block h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text);
+      text-align: left;
+      background: none;
+      -webkit-text-fill-color: initial;
+    }
+
+    .section-block h2 i {
+      color: var(--accent);
+      font-size: 1.25rem;
+      width: 24px;
+      text-align: center;
+    }
+
+    .section-block p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .section-block ul {
+      list-style-type: none;
+      padding-left: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-block ul li {
+      position: relative;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .section-block ul li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+      position: absolute;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      transition: transform 0.3s;
+    }
+
+    .back-link:hover {
+      transform: translateX(-4px);
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .accent-title {
+        font-size: 2.2rem;
+      }
+
+      .policy-card {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+      }
+
+      header {
+        padding: 1rem 5vw;
+      }
+
+      main {
+        padding-top: 100px;
+        padding-bottom: 40px;
+      }
+
+      .section-block h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">umeex</div>
+    <button class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+  </header>
+
+  <main>
+    <div class="container">
+      <article class="policy-card">
+        <h1 class="accent-title">Privacy Policy</h1>
+        
+        <div class="meta-info">
+          <span class="meta-item"><i class="far fa-calendar-alt"></i> Last Updated: July 2026</span>
+          <span class="meta-item"><i class="fas fa-gamepad"></i> Publisher: umeex</span>
+        </div>
+
+        <section class="section-block">
+          <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+          <p>
+            This Privacy Policy details the commitment of <strong>umeex</strong> ("we", "our", or "us") to protecting the privacy of players and users of our mobile games and applications published on the Google Play Store. We believe in transparency and keeping your gaming experience simple, safe, and private.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2><i class="fas fa-user-shield"></i> No Data Collection or Storage</h2>
+          <p>
+            We take your privacy seriously. Our policy regarding your personal data is straightforward:
+          </p>
+          <ul>
+            <li><strong>We do not collect</strong> any personal data, contact information, or device identifiers.</li>
+            <li><strong>We do not store</strong> any details about you or your usage habits on any external servers.</li>
+            <li><strong>We do not track</strong> your location, behavior, or gameplay interactions.</li>
+            <li>No account registration is required to play our games.</li>
+          </ul>
+        </section>
+
+        <section class="section-block">
+          <h2><i class="fas fa-wifi-slash"></i> Offline Playability</h2>
+          <p>
+            Our games are fully functional and playable offline. Since the core gameplay does not require an active internet connection, no data is transmitted to us or any third parties during offline play. Any game progress (such as unlocked levels or local high scores) is stored safely and locally on your device. You can erase this data at any time by clearing the application's cache or uninstalling the game from your device.
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2><i class="fas fa-external-link-alt"></i> Third-Party Services</h2>
+          <p>
+            To enhance your gameplay experience and support our development, our games may integrate standard third-party services provided exclusively by <strong>Google LLC</strong>:
+          </p>
+          <ul>
+            <li>
+              <strong>Google Play Services</strong>: Enables features such as player authentication, achievements, leaderboards, and cloud-saved game progress.
+            </li>
+            <li>
+              <strong>Google AdMob</strong>: Serves advertisements within the game to help fund our indie game development.
+            </li>
+          </ul>
+          <p>
+            Please note that <strong>only Google has access</strong> to the identifiers and data processed by these integrations. We do not have access to, control over, or storage of any information collected by Google.
+          </p>
+          <p>
+            We highly recommend reviewing Google’s policies to understand how they handle your data:
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-alt"></i> Google Privacy Policy</a>
+          </p>
+          <p>
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer"><i class="fas fa-handshake"></i> How Google Uses Data from Partner Sites & Apps</a>
+          </p>
+        </section>
+
+        <section class="section-block">
+          <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+          <p>
+            If you have any questions, concerns, or feedback regarding this Privacy Policy or our games, feel free to reach out to us at:
+          </p>
+          <p>
+            Email: <a href="mailto:rhnpclb22@gmail.com"><strong>rhnpclb22@gmail.com</strong></a>
+          </p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 umeex</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+    const icon = toggle.querySelector('i');
+
+    function updateToggleIcon(theme) {
+      if (theme === 'dark') {
+        icon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+
+    // Set initial icon on load
+    updateToggleIcon(html.getAttribute('data-theme'));
+
+    toggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleIcon(newTheme);
+    });
+
+    // Listen to storage changes to keep theme synced across tabs
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'theme') {
+        html.setAttribute('data-theme', e.newValue);
+        updateToggleIcon(e.newValue);
+      }
+    });
+  </script>
+</body>
+
+</html>

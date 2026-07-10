@@ -2,6 +2,13 @@
 <html lang="en" data-theme="light">
 
 <head>
+  <script>
+    // Apply saved theme immediately to prevent flashing
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ugothmeex — 2D / 3D Artist, Multimedia Creative & Game Dev</title>
@@ -1642,7 +1649,7 @@
         </a>
       </div>
       <br>
-      <p style="margin-top:3rem;">© 2026 ugothmeex — :D</p>
+      <p style="margin-top:3rem;">© 2026 ugothmeex — :D | <a href="policy.html" style="color: var(--accent);">Privacy Policy</a></p>
 
     </div>
 
@@ -1662,13 +1669,31 @@
     const html = document.documentElement;
     const icon = toggle.querySelector('i');
 
-    toggle.addEventListener('click', () => {
-      if (html.getAttribute('data-theme') === 'dark') {
-        html.setAttribute('data-theme', 'light');
+    function updateToggleIcon(theme) {
+      if (theme === 'dark') {
         icon.classList.replace('fa-moon', 'fa-sun');
       } else {
-        html.setAttribute('data-theme', 'dark');
         icon.classList.replace('fa-sun', 'fa-moon');
+      }
+    }
+
+    // Set initial icon on load
+    updateToggleIcon(html.getAttribute('data-theme'));
+
+    toggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateToggleIcon(newTheme);
+    });
+
+    // Listen to storage changes to keep theme synced across tabs
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'theme') {
+        html.setAttribute('data-theme', e.newValue);
+        updateToggleIcon(e.newValue);
       }
     });
 
